@@ -37,5 +37,25 @@ namespace Baugrundberechnung
             pen_grube = new Pen(Color.Brown, (float)(2.5));
             gr.DrawLine(pen_grube, new Point((int)(max/2), 0),new Point((int)max/2,(int)((H+T)/lmbd) ));
         }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(this.Text == "Stirn") 
+            {
+                Form1.offen_stirn_ecke_eben_laengs[0]= false;
+            }
+            else if(this.Text == "Ecke")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[1] = false;
+            }
+            else if(this.Text == "Eben")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[2] = false;
+            }
+            else if(this.Text == "Längs")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[3] = false;
+            }
+        }
     }
 }

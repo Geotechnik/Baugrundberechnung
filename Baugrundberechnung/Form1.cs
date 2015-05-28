@@ -20,15 +20,13 @@ namespace Baugrundberechnung
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
-        public double Tstirn;
-        public double Tecke;
-        public double Teben;
-        public double Tlaengs;
+        private double[] T_stirn_ecke_eben_laengs = new double[4];
         //public Label L_label = new Label();
         public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
         public static bool aufAlleUebernehmen = false;
-        public double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
-        public int counter = 0;
+        private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
+        private int counter = 0;
+        public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
  
         /// <summary>
         /// Initialisiert alle Componenten
@@ -68,20 +66,20 @@ namespace Baugrundberechnung
                     ergebnisseInLabelSchreiben();
                     if (berechnungOhneBe.Checked)
                     {
-                        Teben = Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
-                        Tlaengs = Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
-                        Tstirn = Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
-                        Tecke = Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
-                        Grafik.zeichnemal(L, B, H, S, Teben, Tlaengs, Tstirn, Tecke, this, false, this.Size);
+                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, false, this.Size);
                         berechnungOhneBe.Checked = false;
                     }
                     else
                     {
-                        Teben = Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
-                        Tlaengs = Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
-                        Tstirn = Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
-                        Tecke = Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
-                        Grafik.zeichnemal(L, B, H, S, Teben, Tlaengs, Tstirn, Tecke, this, true, this.Size);
+                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, true, this.Size);
                     }
                 }
                 else //Wenn B größer als L ist:, oder S kleiner H
@@ -156,25 +154,29 @@ namespace Baugrundberechnung
         {
             Form Stirn = new Form3();
             Stirn.Show();
-            ((Form3)Stirn).öffnen("Stirn", L, B, H, S, Tstirn, !berechnungOhneBe.Checked);
+            ((Form3)Stirn).öffnen("Stirn", L, B, H, S, T_stirn_ecke_eben_laengs[0], !berechnungOhneBe.Checked);
+            offen_stirn_ecke_eben_laengs[0] = true;
         }
         private void T_eckeClick(object sender, EventArgs e)
         {
             Form Ecke = new Form3();
             Ecke.Show();
-            ((Form3)Ecke).öffnen("Ecke", L, B, H, S, Tecke, !berechnungOhneBe.Checked);
+            ((Form3)Ecke).öffnen("Ecke", L, B, H, S, T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            offen_stirn_ecke_eben_laengs[1] = true;
         }
         private void T_ebenClick(object sender, EventArgs e)
         {
             Form Eben = new Form3();
             Eben.Show();
-            ((Form3)Eben).öffnen("Eben", L, B, H, S, Teben, !berechnungOhneBe.Checked);
+            ((Form3)Eben).öffnen("Eben", L, B, H, S, T_stirn_ecke_eben_laengs[2], !berechnungOhneBe.Checked);
+            offen_stirn_ecke_eben_laengs[2] = true;
         }
         private void T_laengsClick(object sender, EventArgs e)
         {
             Form Laengs = new Form3();
             Laengs.Show();
-            ((Form3)Laengs).öffnen("Längs", L, B, H, S, Tlaengs, !berechnungOhneBe.Checked);
+            ((Form3)Laengs).öffnen("Längs", L, B, H, S, T_stirn_ecke_eben_laengs[3], !berechnungOhneBe.Checked);
+            offen_stirn_ecke_eben_laengs[3] = true;
         }
         /// <summary>
         /// Schreibt die Ergebnisse in die Entsprechende Labels

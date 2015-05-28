@@ -38,6 +38,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.ResumeLayout(false);
 
         }
