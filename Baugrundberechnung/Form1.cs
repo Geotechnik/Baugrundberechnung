@@ -531,5 +531,10 @@ namespace Baugrundberechnung
             horizontal.Height = this.Size.Height;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        }
+
     }
 }
