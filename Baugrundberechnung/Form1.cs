@@ -20,11 +20,15 @@ namespace Baugrundberechnung
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
+        public double Tstirn;
+        public double Tecke;
+        public double Teben;
+        public double Tlaengs;
         //public Label L_label = new Label();
         public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
         public static bool aufAlleUebernehmen = false;
-        double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
-        int counter = 0;
+        public double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
+        public int counter = 0;
  
         /// <summary>
         /// Initialisiert alle Componenten
@@ -33,6 +37,10 @@ namespace Baugrundberechnung
         {   
             InitializeComponent();
             Validierung.setFormReference(this);
+            this.T_stirn.Click += new System.EventHandler(this.T_stirnClick);
+            this.T_ecke.Click += new System.EventHandler(this.T_eckeClick);
+            this.T_eben.Click += new System.EventHandler(this.T_ebenClick);
+            this.T_laengs.Click += new System.EventHandler(this.T_laengsClick);
         }
 
         /// <summary>
@@ -60,20 +68,20 @@ namespace Baugrundberechnung
                     ergebnisseInLabelSchreiben();
                     if (berechnungOhneBe.Checked)
                     {
-                        double T_eben = Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
-                        double T_laengs = Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
-                        double T_stirn = Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
-                        double T_ecke = Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
-                        Grafik.zeichnemal(L, B, H, S, T_eben, T_laengs, T_stirn, T_ecke, this, false, this.Size);
+                        Teben = Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
+                        Tlaengs = Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
+                        Tstirn = Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
+                        Tecke = Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, Teben, Tlaengs, Tstirn, Tecke, this, false, this.Size);
                         berechnungOhneBe.Checked = false;
                     }
                     else
                     {
-                        double T_eben = Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
-                        double T_laengs = Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
-                        double T_stirn = Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
-                        double T_ecke = Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
-                        Grafik.zeichnemal(L, B, H, S, T_eben, T_laengs, T_stirn, T_ecke, this, true, this.Size);
+                        Teben = Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
+                        Tlaengs = Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
+                        Tstirn = Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
+                        Tecke = Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, Teben, Tlaengs, Tstirn, Tecke, this, true, this.Size);
                     }
                 }
                 else //Wenn B größer als L ist:, oder S kleiner H
@@ -144,6 +152,30 @@ namespace Baugrundberechnung
             }
         }
 
+        private void T_stirnClick(object sender, EventArgs e)
+        {
+            Form Stirn = new Form3();
+            Stirn.Show();
+            ((Form3)Stirn).öffnen("Stirn", L, B, H, S, Tstirn, !berechnungOhneBe.Checked);
+        }
+        private void T_eckeClick(object sender, EventArgs e)
+        {
+            Form Ecke = new Form3();
+            Ecke.Show();
+            ((Form3)Ecke).öffnen("Ecke", L, B, H, S, Tecke, !berechnungOhneBe.Checked);
+        }
+        private void T_ebenClick(object sender, EventArgs e)
+        {
+            Form Eben = new Form3();
+            Eben.Show();
+            ((Form3)Eben).öffnen("Eben", L, B, H, S, Teben, !berechnungOhneBe.Checked);
+        }
+        private void T_laengsClick(object sender, EventArgs e)
+        {
+            Form Laengs = new Form3();
+            Laengs.Show();
+            ((Form3)Laengs).öffnen("Längs", L, B, H, S, Tlaengs, !berechnungOhneBe.Checked);
+        }
         /// <summary>
         /// Schreibt die Ergebnisse in die Entsprechende Labels
         /// </summary>
@@ -533,7 +565,7 @@ namespace Baugrundberechnung
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+           
         }
 
     }
