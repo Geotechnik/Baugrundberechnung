@@ -60,7 +60,6 @@ namespace Baugrundberechnung
                 //Überprüft ob B<= L ist
                 if (B <= L && S>=H && B/L >= 0.3)
                 {
-                    this.Activate();
                     if (Form1.ActiveForm == this)
                     {
                         Graphics g = this.CreateGraphics();
@@ -97,6 +96,7 @@ namespace Baugrundberechnung
                             Laengs.Activate();
                             Laengs.öffnen("Längs", L, B, H, S, T_stirn_ecke_eben_laengs[3], !berechnungOhneBe.Checked);
                         }
+                        this.Activate();
                     }
                     else
                     {
@@ -125,6 +125,7 @@ namespace Baugrundberechnung
                             Laengs.Activate();
                             Laengs.öffnen("Längs", L, B, H, S, T_stirn_ecke_eben_laengs[3], !berechnungOhneBe.Checked);
                         }
+                        this.Activate();
                     }
                 }
                 else //Wenn B größer als L ist:, oder S kleiner H
