@@ -17,13 +17,16 @@ namespace Baugrundberechnung
         public Label Einbindetiefe = new Label();
         private Pen pen_grube;
         private double max;
+        Graphics gr;
         public Form3()
         {
             InitializeComponent();
         }
         public void öffnen(String welches, double L, double B, double H, double S, double T, bool ohneBe)
         {
-            Graphics gr = Graphics.FromHwnd(Handle);
+            gr = Graphics.FromHwnd(Handle);
+            this.TopMost = true;
+            gr.Clear(Form3.DefaultBackColor);
             if(this.Width-20 < this.Height)
             {
                 max = this.Width - 30;
