@@ -292,9 +292,10 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(15, 128);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(193, 13);
+            this.label13.Size = new System.Drawing.Size(196, 13);
             this.label13.TabIndex = 18;
-            this.label13.Text = "Faktor fürden Einfluss des Umfeldes U=";
+            this.label13.Text = "Faktor für den Einfluss des Umfeldes U=";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label14
             // 

@@ -132,7 +132,7 @@ namespace Baugrundberechnung
                 {
                     if (B > L)
                     {
-                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube(B) muss kleiner oder gleich Länge der Baugrube(L) sein. B wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss kleiner oder gleich Länge der Baugrube (L) sein. B wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (L % 1 == 0)
                         {
                             textBox2.Text = L + ",00";
@@ -626,6 +626,11 @@ namespace Baugrundberechnung
         private void Form1_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
