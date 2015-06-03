@@ -839,8 +839,8 @@
             this.toolStripSeparator1,
             this.programmBeendenToolStripMenuItem});
             this.menueleisteToolStripMenuItem.Name = "menueleisteToolStripMenuItem";
-            this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.menueleisteToolStripMenuItem.Text = "Menue";
+            this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menueleisteToolStripMenuItem.Text = "Menü";
             // 
             // infoToolStripMenuItem
             // 
@@ -949,7 +949,7 @@
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(22, 13);
             this.label56.TabIndex = 88;
-            this.label56.Text = "n =";
+            this.label56.Text = "η =";
             // 
             // berechnungOhneBe
             // 

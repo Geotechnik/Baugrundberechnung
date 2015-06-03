@@ -277,7 +277,7 @@ namespace Baugrundberechnung
             if(zuZeichnen == "T_stirn" )
             {
                 f.T_stirn.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
-                f.T_stirn.Text = "Zeichnung der Stirnseite";
+                f.T_stirn.Text = "Stirnseite";
                 f.T_stirn.AutoSize = true;
                 f.T_stirn.ForeColor = Color.Black;
                 f.Controls.Add(f.T_stirn);
@@ -290,7 +290,7 @@ namespace Baugrundberechnung
             else if (zuZeichnen == "T_ecke")
             {
                 f.T_ecke.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
-                f.T_ecke.Text = "Zeichnung der Eckseite";
+                f.T_ecke.Text = "Ecke";
                 f.T_ecke.AutoSize = true;
                 f.T_ecke.ForeColor = Color.Black;
                 f.Controls.Add(f.T_ecke);
@@ -303,7 +303,7 @@ namespace Baugrundberechnung
             else if(zuZeichnen == "T_eben")
             {
                 f.T_eben.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y );
-                f.T_eben.Text = "Zeichnung der eben Seite";
+                f.T_eben.Text = "eben";
                 f.T_eben.AutoSize = true;
                 f.T_eben.ForeColor = Color.Black;
                 f.Controls.Add(f.T_eben);
@@ -316,7 +316,7 @@ namespace Baugrundberechnung
             else if(zuZeichnen == "T_laengs")
             {
                 f.T_laengs.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
-                f.T_laengs.Text = "Zeichnung der Laengsseite";
+                f.T_laengs.Text = "Längs";
                 f.T_laengs.AutoSize = true;
                 f.T_laengs.ForeColor = Color.Black;
                 f.Controls.Add(f.T_laengs);
