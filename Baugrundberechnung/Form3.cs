@@ -60,5 +60,10 @@ namespace Baugrundberechnung
                 Form1.offen_stirn_ecke_eben_laengs[3] = false;
             }
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
