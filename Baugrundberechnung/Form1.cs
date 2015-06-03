@@ -20,6 +20,7 @@ namespace Baugrundberechnung
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
+        public Label ohneBeHinweis = new Label();
         private Form3 Stirn = new Form3();
         private Form3 Ecke = new Form3();
         private Form3 Eben = new Form3();

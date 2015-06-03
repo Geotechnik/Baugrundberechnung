@@ -96,6 +96,21 @@ namespace Baugrundberechnung
             //einbindetiefe eben
             ObenLinksPunkt = new Point((int)(1 / 2.0 * (xmax - xnull) + xnull), (int)(2 / 3.0 * (ymax - ynull) + ynull));
             UntenRechtsPunkt = new Point((int)xmax, (int)(3 / 3.0 * (ymax - ynull) + ynull));
+            if (!mitBe)
+            {
+                f.ohneBeHinweis.Location = new System.Drawing.Point((int)(1 / 2.0 * (xmax - xnull) + xnull -50), (int)((ymax - ynull) + ynull-40));
+                f.ohneBeHinweis.Text = "Berechnung ist ohne Bemessungsbeiwert (Be)";
+                f.ohneBeHinweis.AutoSize = true;
+                f.Controls.Add(f.ohneBeHinweis);
+                f.ohneBeHinweis.ForeColor = Color.Red;
+                f.ohneBeHinweis.Show();
+                f.ohneBeHinweis.Visible = true;
+            }
+            else
+            {
+                f.ohneBeHinweis.Visible = false;
+            }
+   
         }
         /// <summary>
         /// Diese Methode Zeichnet die Baugrube und fügt labels ein.
@@ -279,56 +294,34 @@ namespace Baugrundberechnung
                 f.T_stirn.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
                 f.T_stirn.Text = "Stirnseite";
                 f.T_stirn.AutoSize = true;
-                f.T_stirn.ForeColor = Color.Black;
                 f.Controls.Add(f.T_stirn);
                 f.T_stirn.Show(); 
-                if(!(mitBe))
-                {
-                    f.T_stirn.ForeColor = Color.Red;
-                }
+
             }
             else if (zuZeichnen == "T_ecke")
             {
                 f.T_ecke.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
                 f.T_ecke.Text = "Ecke";
                 f.T_ecke.AutoSize = true;
-                f.T_ecke.ForeColor = Color.Black;
                 f.Controls.Add(f.T_ecke);
                 f.T_ecke.Show();
-                if(!mitBe)
-                {
-                    f.T_ecke.ForeColor = Color.Red;
-                }
             }
             else if(zuZeichnen == "T_eben")
             {
                 f.T_eben.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y );
                 f.T_eben.Text = "eben";
                 f.T_eben.AutoSize = true;
-                f.T_eben.ForeColor = Color.Black;
                 f.Controls.Add(f.T_eben);
                 f.T_eben.Show(); 
-                if(!mitBe)
-                {
-                    f.T_eben.ForeColor = Color.Red;
-                }
             }
-            else if(zuZeichnen == "T_laengs")
+            else if (zuZeichnen == "T_laengs")
             {
-                f.T_laengs.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
+                f.T_laengs.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
                 f.T_laengs.Text = "Längs";
                 f.T_laengs.AutoSize = true;
-                f.T_laengs.ForeColor = Color.Black;
                 f.Controls.Add(f.T_laengs);
-                f.T_laengs.Show(); 
-                if(!mitBe)
-                {
-                    f.T_laengs.ForeColor = Color.Red;
-                }
+                f.T_laengs.Show();
             }
-   
-
-
         }
         /// <summary>
         /// diese Methode zeichnet ein doppeltes Dach
