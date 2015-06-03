@@ -960,6 +960,7 @@
             this.berechnungOhneBe.TabIndex = 89;
             this.berechnungOhneBe.Text = "Berechnung einmalig ohne Be";
             this.berechnungOhneBe.UseVisualStyleBackColor = true;
+            this.berechnungOhneBe.CheckedChanged += new System.EventHandler(this.berechnungOhneBe_CheckedChanged);
             // 
             // horizontal
             // 

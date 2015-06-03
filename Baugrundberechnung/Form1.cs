@@ -633,5 +633,17 @@ namespace Baugrundberechnung
 
         }
 
+        private void berechnungOhneBe_CheckedChanged(object sender, EventArgs e)
+        {
+            if(berechnungOhneBe.Checked)
+            {
+                berechnungOhneBe.ForeColor = Color.Red;
+            }
+            else
+            {
+                berechnungOhneBe.ForeColor = Color.Black;
+            }
+        }
+
     }
 }
