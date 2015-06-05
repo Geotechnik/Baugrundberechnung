@@ -22,7 +22,7 @@ namespace Baugrundberechnung
         {
             InitializeComponent();
         }
-        public void öffnen(String welches, double L, double B, double H, double S, double T, bool ohneBe)
+        public void öffnen(String welches, double L, double B, double H, double T, double Teck, bool ohneBe)
         {
             gr = Graphics.FromHwnd(Handle);
             this.TopMost = true;
@@ -35,7 +35,7 @@ namespace Baugrundberechnung
             {
                 max = this.Height - 10;
             }
-            double lmbd = (H+S)/(max);
+            double lmbd = (H)/(max);
             this.Text = welches;
             pen_grube = new Pen(Color.Brown, (float)(2.5));
             gr.DrawLine(pen_grube, new Point((int)(max/2), 0),new Point((int)max/2,(int)((H+T)/lmbd) ));
