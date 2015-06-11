@@ -200,6 +200,7 @@ namespace Baugrundberechnung
         {
             if(!offen_stirn_ecke_eben_laengs[0])
             {
+
                 Stirn.Show();
                 Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[0] = true;

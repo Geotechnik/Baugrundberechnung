@@ -35,10 +35,12 @@ namespace Baugrundberechnung
             {
                 max = this.Height - 10;
             }
-            double lmbd = (H)/(max);
+            double lmbd = (max-10)/(H+Teck);
             this.Text = welches;
-            pen_grube = new Pen(Color.Brown, (float)(2.5));
-            gr.DrawLine(pen_grube, new Point((int)(max/2), 0),new Point((int)max/2,(int)((H+T)/lmbd) ));
+            pen_grube = new Pen(Color.Black, (float)(2.5));
+            gr.DrawLine(pen_grube, new Point((int)(max/2), 20),new Point((int)max/2,(int)((H+T)*lmbd) ));
+            gr.DrawLine(pen_grube, new Point(0, 20), new Point((int)max, 20));
+            gr.DrawLine(pen_grube, new Point(0, (int)(H * lmbd)), new Point((int)(max / 2), (int)(H*lmbd)));
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
