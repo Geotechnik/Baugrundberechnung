@@ -21,10 +21,6 @@ namespace Baugrundberechnung
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
         public Label ohneBeHinweis = new Label();
-        private Form3 Stirn = new Form3();
-        private Form3 Ecke = new Form3();
-        private Form3 Eben = new Form3();
-        private Form3 Laengs = new Form3();
         private double[] T_stirn_ecke_eben_laengs = new double[4];
         //public Label L_label = new Label();
         public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
@@ -32,6 +28,7 @@ namespace Baugrundberechnung
         private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
         private int counter = 0;
         public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
+        private static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
  
         /// <summary>
         /// Initialisiert alle Componenten
@@ -198,51 +195,68 @@ namespace Baugrundberechnung
         }
         private void T_stirnClick(object sender, EventArgs e)
         {
+            if(wieoft_stirn_ecke_eben_laengs[0]==1)
+            {
+                
+            }
             if(!offen_stirn_ecke_eben_laengs[0])
             {
-
+                Form3 Stirn = new Form3();
                 Stirn.Show();
                 Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[0] = true;
+                wieoft_stirn_ecke_eben_laengs[0] = 1;
+                Stirn.Activate();
             }
-            Stirn.Activate();
+           
             
         }
         private void T_eckeClick(object sender, EventArgs e)
         {
+                
             if (!offen_stirn_ecke_eben_laengs[1])
             {
-                if(true)
-                {
-                    Ecke.Show();
-                }
-                else
-
-                
+                Form3 Ecke = new Form3();
+                Ecke.Show();
                 Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[1] = true;
+                wieoft_stirn_ecke_eben_laengs[1] = 1;
+                Ecke.Activate();
             }
-            Ecke.Activate();
+
         }
         private void T_ebenClick(object sender, EventArgs e)
         {
+
+            if (wieoft_stirn_ecke_eben_laengs[2] == 1)
+            {
+                
+            }
             if (!offen_stirn_ecke_eben_laengs[2])
             {
+                Form3 Eben = new Form3();
                 Eben.Show();
                 Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[2] = true;
+                wieoft_stirn_ecke_eben_laengs[2] = 1;
+                Eben.Activate();
             }
-            Eben.Activate();
         }
         private void T_laengsClick(object sender, EventArgs e)
         {
+            if (wieoft_stirn_ecke_eben_laengs[3] == 1)
+            {
+                
+            }
             if (!offen_stirn_ecke_eben_laengs[3])
             {
+                Form3 Laengs = new Form3();
                 Laengs.Show();
                 Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;
+                wieoft_stirn_ecke_eben_laengs[3] = 1;
+                Laengs.Activate();
             }
-            Laengs.Activate();
         }
         /// <summary>
         /// Schreibt die Ergebnisse in die Entsprechende Labels
@@ -424,10 +438,6 @@ namespace Baugrundberechnung
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void programmBeendenToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         /// <summary>
         /// lässt die Werte einmalig berechnen sobald die Form geöffnet wurde.
@@ -669,6 +679,11 @@ namespace Baugrundberechnung
         {
             Form haftungsausschluss = new Form4();
             haftungsausschluss.Show();
+        }
+
+        private void programmBeendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

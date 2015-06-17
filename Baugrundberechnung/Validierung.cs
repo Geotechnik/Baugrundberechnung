@@ -24,7 +24,7 @@ namespace Baugrundberechnung
             //bool isnat = Regex.IsMatch(str, @"^\d$");
             //return (isdec || isnat) ;
             //return Regex.IsMatch(str, @"^[0-9,\,]+$");
-            return Regex.IsMatch(str, @"^[0-9]+\,[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+$");
+            return Regex.IsMatch(str, @"^[0-9]+\,[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$");
         }
 
         public static void setFormReference(Baugrundberechnung.Form1 parent)
