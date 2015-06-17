@@ -51,7 +51,7 @@ namespace Baugrundberechnung
             Grafik.S = S;
             Grafik.H = H;
             //setzten der Farbe auf Braun, dicke auf 2.5
-            Grafik.pen_grub = new Pen(Color.Brown, (float)(2.5));
+            Grafik.pen_grub = new Pen(Color.Black, (float)(2.5));
             if ((1 / 2.0 * (xmax - xnull)) < (1 / 3.0 * (ymax - ynull)))
             {
                 max = (1 / 2.0 * (xmax - xnull))-50;
@@ -188,9 +188,9 @@ namespace Baugrundberechnung
             //1100, 200
             Point UntenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
             //Zeichnet die obere und untere Linie und Doppeldach
-            Test.DrawLine(Pens.Blue, ObenLinksPunkt, ObenRechtsPunkt);
+            Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
-            Test.DrawLine(Pens.Brown, UntenLinksPunkt, UntenRechtsPunkt);
+            Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
 
             //Zeichnet die gestrichelte Linie ganz unten.
             // i = 950; i<=1100 ; i = i+15
@@ -200,16 +200,16 @@ namespace Baugrundberechnung
                 Point ObenRechts = new Point(i, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
                 //i-10, 210
                 Point UntenLinks = new Point(i - 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2));
-                Test.DrawLine(Pens.Brown, ObenRechts, UntenLinks);
+                Test.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             }
             double lmbd = (max-20) / (h + s);
             //Zeichnet die Restlichen Linien
             // 1025, 50  ; 1025, 150
             Test.DrawLine(pen_grub, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 20));
             // 950, 200 - (int)(lmbd * s)  ; 1025, 200 - (int)(lmbd * s))
-            Test.DrawLine(Pens.Brown, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)));
+            Test.DrawLine(Pens.Black, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)));
             // 1025, 200 - (int)(lmbd * (h + s))  ;  1100, 200 - (int)(lmbd * (h + s)))
-            Test.DrawLine(Pens.Brown, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))));
+            Test.DrawLine(Pens.Black, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))));
             // 1035, 200 - (int)(lmbd * s) ;  1035, 200), f 
             ZeichnePfeil(new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10), f);
             // 1035, 200 - (int)(lmbd * (h + s)) ;   1035, 200 - (int)(lmbd * s)), f
@@ -232,11 +232,11 @@ namespace Baugrundberechnung
         private static void ZeichnePfeil(Point oben, Point unten, Form1 f)
         {
             Graphics gr = Graphics.FromHwnd(f.Handle);
-            gr.DrawLine(Pens.Blue, oben, unten);
-            gr.DrawLine(Pens.Blue, unten, new Point(unten.X - 3, unten.Y - 6));
-            gr.DrawLine(Pens.Blue, unten, new Point(unten.X + 3, unten.Y - 6));
-            gr.DrawLine(Pens.Blue, oben, new Point(oben.X - 3, oben.Y + 6));
-            gr.DrawLine(Pens.Blue, oben, new Point(oben.X + 3, oben.Y + 6));
+            gr.DrawLine(Pens.Black, oben, unten);
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X - 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
 
         }
         /// <summary>
@@ -250,11 +250,11 @@ namespace Baugrundberechnung
         {
             Graphics gr = Graphics.FromHwnd(f.Handle);
             gr.TranslateTransform(ursprung.X, ursprung.Y);
-            gr.DrawLine(Pens.Blue, oben, unten);
-            gr.DrawLine(Pens.Blue, unten, new Point(unten.X - 3, unten.Y - 6));
-            gr.DrawLine(Pens.Blue, unten, new Point(unten.X + 3, unten.Y - 6));
-            gr.DrawLine(Pens.Blue, oben, new Point(oben.X - 3, oben.Y + 6));
-            gr.DrawLine(Pens.Blue, oben, new Point(oben.X + 3, oben.Y + 6));
+            gr.DrawLine(Pens.Black, oben, unten);
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X - 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
 
         }
         /// <summary>
@@ -273,9 +273,9 @@ namespace Baugrundberechnung
             double lmbd =  (H + S)/(max);
             //Verschiebt den Ursprung
             gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)((H + T)/lmbd)));
-            gr.DrawLine(Pens.Blue, new Point(0, 0), new Point((int)(breite / 2), 0));
-            gr.DrawLine(Pens.Blue, new Point(0, (int)(H/lmbd)), new Point((int)(-breite / 2), (int)(H/lmbd)));
-            gr.DrawLine(Pens.Brown, new Point((int)(-breite / 2), (int)(1/lmbd * (H + S))), new Point((int)(breite / 2), (int)(1/lmbd * (H + S))));
+            gr.DrawLine(Pens.Black, new Point(0, 0), new Point((int)(breite / 2), 0));
+            gr.DrawLine(Pens.Black, new Point(0, (int)(H/lmbd)), new Point((int)(-breite / 2), (int)(H/lmbd)));
+            gr.DrawLine(Pens.Black, new Point((int)(-breite / 2), (int)(1/lmbd * (H + S))), new Point((int)(breite / 2), (int)(1/lmbd * (H + S))));
 
             int anfang = (int)(-breite / 2);
             int ende = (int)(breite / 2);
@@ -283,7 +283,7 @@ namespace Baugrundberechnung
             {
                 Point ObenRechts = new Point(i, (int)(1/lmbd * (H + S)));
                 Point UntenLinks = new Point(i - 10, (int)(1/lmbd * (H + S)) + 10);
-                gr.DrawLine(Pens.Brown, ObenRechts, UntenLinks);
+                gr.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             } 
             ZeichnePfeil_rel(new Point((int)(ende / 2), (int)(1/lmbd * H)), new Point((int)(ende / 2), (int)(1/lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
             ZeichnePfeil_rel(new Point((int)(anfang / 2), (int)(1/lmbd * H)), new Point((int)(anfang / 2), (int)(1/lmbd * (H + S))), f, new Point(ursprung.X, ursprung.Y + 20));
@@ -334,12 +334,12 @@ namespace Baugrundberechnung
             gr.TranslateTransform(ursprung.X, ursprung.Y);
             Point untenLinks = new Point(-10, 8);
             Point untenRechts = new Point(2, 8);
-            gr.DrawLine(Pens.Blue, untenLinks, new Point(-4, 0));
-            gr.DrawLine(Pens.Blue, untenRechts, new Point(-4, 0));
+            gr.DrawLine(Pens.Black, untenLinks, new Point(-4, 0));
+            gr.DrawLine(Pens.Black, untenRechts, new Point(-4, 0));
             Point untenL = new Point(10, 8);
             Point untenR = new Point(-2, 8);
-            gr.DrawLine(Pens.Blue, untenL, new Point(4, 0));
-            gr.DrawLine(Pens.Blue, untenR, new Point(4, 0));
+            gr.DrawLine(Pens.Black, untenL, new Point(4, 0));
+            gr.DrawLine(Pens.Black, untenR, new Point(4, 0));
 
         }
     }
