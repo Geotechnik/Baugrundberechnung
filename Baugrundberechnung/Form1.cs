@@ -415,6 +415,7 @@ namespace Baugrundberechnung
         private void infoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Form infoForm = new Form2();
+            infoForm.Text = "Info";
             infoForm.Show();
         }
 
@@ -652,6 +653,16 @@ namespace Baugrundberechnung
             {
                 berechnungOhneBe.ForeColor = Color.Black;
             }
+        }
+
+        private void label48_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
