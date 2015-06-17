@@ -155,15 +155,7 @@ namespace Baugrundberechnung
             f.L_label.RotateAngle = -90; 
             f.Controls.Add(f.L_label);
             f.L_label.Show();*/
-            int x = ObenLinksPunkt.X+4;
-            int yOben = ObenLinksPunkt.Y;
-            int yUnten = UntenLinksPunkt.Y;
-            //Hintergrund test
-            while(x < ObenRechtsPunkt.X)
-            {
-                Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
-                x += 4;
-            }
+            HintergrundZeichnen(Test, ObenLinksPunkt.X, ObenLinksPunkt.Y, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             //Die 4 Linien werden gezeichnet
             Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);
             Test.DrawLine(pen_grub, ObenLinksPunkt, ObenRechtsPunkt);
@@ -178,6 +170,19 @@ namespace Baugrundberechnung
             f.Baugrube.Show();
 
 
+        }
+
+        private static void HintergrundZeichnen(Graphics Test, int ObenLinksPunktX, int ObenLinksPunktY, int UntenLinksPunkt, int ObenRechtsPunkt)
+        {
+            int x = ObenLinksPunktX + 4;
+            int yOben = ObenLinksPunktY;
+            int yUnten = UntenLinksPunkt;
+            //Hintergrund test
+            while (x < ObenRechtsPunkt)
+            {
+                Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
+                x += 4;
+            }
         }
         /// <summary>
         /// Zeichnet die Seite der Baugrube neben die Baugrube
@@ -198,22 +203,9 @@ namespace Baugrundberechnung
             //1100, 200
             Point UntenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
             //Zeichnet die obere und untere Linie und Doppeldach
-            double lmbd = (max-20) / (h + s); 
-            int x = ObenLinksPunkt.X + 4;
-            int yOben = (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s);
-            int yOben2 = (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s));
-            int yUnten = UntenLinksPunkt.Y;
-            //Hintergrund test
-            while (x < (int)(3 / 4.0 * (xmax - xnull) + xnull))
-            {
-                Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
-                x += 4;
-            }
-            while(x < ObenRechtsPunkt.X)
-            {
-                Test.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
-                x += 4;
-            }
+            double lmbd = (max-20) / (h + s);
+            HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s), UntenLinksPunkt.Y, (int)(3 / 4.0 * (xmax - xnull) + xnull));
+            HintergrundZeichnen(Test, (int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s)), UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
@@ -298,6 +290,22 @@ namespace Baugrundberechnung
             //variable größe lmbd
             double lmbd =  (H + S)/(max);
             //Verschiebt den Ursprung
+            int x =  (int)(-breite / 2)+4;
+            int yOben = (int)((H / lmbd));
+            int yOben2 =0 ;
+            int yUnten = (int)(1 / lmbd * (H + S));
+            //Hintergrund test
+            while (x < 0)
+            {
+                gr.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
+                x += 4;
+            }
+            //Hintergrund test
+            while (x < (int)(breite / 2))
+            {
+                gr.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
+                x += 4;
+            }
             gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)((H + T)/lmbd)));
             gr.DrawLine(Pens.Black, new Point(0, 0), new Point((int)(breite / 2), 0));
             gr.DrawLine(Pens.Black, new Point(0, (int)(H/lmbd)), new Point((int)(-breite / 2), (int)(H/lmbd)));

@@ -16,6 +16,7 @@ namespace Baugrundberechnung
         public Label Wasserspiegeldifferenz = new Label();
         public Label Einbindetiefe = new Label();
         private Pen pen_grube;
+        private Pen pen_hint;
         private double max;
         Graphics gr;
         public Form3()
@@ -26,7 +27,9 @@ namespace Baugrundberechnung
         {
             gr = Graphics.FromHwnd(Handle);
             this.TopMost = true;
+            pen_hint = new Pen(Color.LightGray, (float)7.0);
             gr.Clear(Form3.DefaultBackColor);
+
             if(this.Width-20 < this.Height)
             {
                 max = this.Width - 30;
@@ -35,7 +38,24 @@ namespace Baugrundberechnung
             {
                 max = this.Height - 10;
             }
-            double lmbd = (max-10)/(H+Teck);
+            double lmbd = (max-10)/(H+Teck); 
+            int x = 0 + 4;
+            int yOben = (int)(H * lmbd);
+            int yOben2 = 20;
+            int yUnten = (int)max;
+            //Hintergrund test
+            while (x < (max / 2))
+            {
+                gr.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
+                x += 4;
+            }
+
+            //Hintergrund test
+            while (x < max)
+            {
+                gr.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
+                x += 4;
+            }
             this.Text = welches;
             pen_grube = new Pen(Color.Black, (float)(2.5));
             gr.DrawLine(pen_grube, new Point((int)(max/2), 20),new Point((int)max/2,(int)((H+T)*lmbd) ));
