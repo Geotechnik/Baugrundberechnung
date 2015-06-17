@@ -665,5 +665,11 @@ namespace Baugrundberechnung
 
         }
 
+        private void haftungsausschlussToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form haftungsausschluss = new Form4();
+            haftungsausschluss.Show();
+        }
+
     }
 }
