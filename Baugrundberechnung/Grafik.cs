@@ -18,6 +18,7 @@ namespace Baugrundberechnung
         private static double S;
         private static double H;
         private static Pen pen_grub;
+        private static Pen pen_hint;
         private static Size Fenster;
         private static double xnull;
         private static double ynull;
@@ -52,6 +53,7 @@ namespace Baugrundberechnung
             Grafik.H = H;
             //setzten der Farbe auf Braun, dicke auf 2.5
             Grafik.pen_grub = new Pen(Color.Black, (float)(2.5));
+            Grafik.pen_hint = new Pen(Color.LightGray, (float)7.0);
             if ((1 / 2.0 * (xmax - xnull)) < (1 / 3.0 * (ymax - ynull)))
             {
                 max = (1 / 2.0 * (xmax - xnull))-50;
@@ -153,7 +155,15 @@ namespace Baugrundberechnung
             f.L_label.RotateAngle = -90; 
             f.Controls.Add(f.L_label);
             f.L_label.Show();*/
-
+            int x = ObenLinksPunkt.X+4;
+            int yOben = ObenLinksPunkt.Y;
+            int yUnten = UntenLinksPunkt.Y;
+            //Hintergrund test
+            while(x < ObenRechtsPunkt.X)
+            {
+                Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
+                x += 4;
+            }
             //Die 4 Linien werden gezeichnet
             Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);
             Test.DrawLine(pen_grub, ObenLinksPunkt, ObenRechtsPunkt);
@@ -188,6 +198,22 @@ namespace Baugrundberechnung
             //1100, 200
             Point UntenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
             //Zeichnet die obere und untere Linie und Doppeldach
+            double lmbd = (max-20) / (h + s); 
+            int x = ObenLinksPunkt.X + 4;
+            int yOben = (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s);
+            int yOben2 = (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s));
+            int yUnten = UntenLinksPunkt.Y;
+            //Hintergrund test
+            while (x < (int)(3 / 4.0 * (xmax - xnull) + xnull))
+            {
+                Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
+                x += 4;
+            }
+            while(x < ObenRechtsPunkt.X)
+            {
+                Test.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
+                x += 4;
+            }
             Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
@@ -202,7 +228,7 @@ namespace Baugrundberechnung
                 Point UntenLinks = new Point(i - 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2));
                 Test.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             }
-            double lmbd = (max-20) / (h + s);
+            
             //Zeichnet die Restlichen Linien
             // 1025, 50  ; 1025, 150
             Test.DrawLine(pen_grub, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 20));
