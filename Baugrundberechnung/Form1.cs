@@ -21,6 +21,10 @@ namespace Baugrundberechnung
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
         public Label ohneBeHinweis = new Label();
+        private Form3 Stirn = new Form3();
+        private Form3 Eben = new Form3();
+        private Form3 Laengs = new Form3();
+        private Form3 Ecke = new Form3();
         private double[] T_stirn_ecke_eben_laengs = new double[4];
         //public Label L_label = new Label();
         public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
@@ -195,13 +199,8 @@ namespace Baugrundberechnung
         }
         private void T_stirnClick(object sender, EventArgs e)
         {
-            if(wieoft_stirn_ecke_eben_laengs[0]==1)
-            {
-                
-            }
             if(!offen_stirn_ecke_eben_laengs[0])
             {
-                Form3 Stirn = new Form3();
                 Stirn.Show();
                 Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[0] = true;
@@ -216,7 +215,6 @@ namespace Baugrundberechnung
                 
             if (!offen_stirn_ecke_eben_laengs[1])
             {
-                Form3 Ecke = new Form3();
                 Ecke.Show();
                 Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[1] = true;
@@ -227,27 +225,22 @@ namespace Baugrundberechnung
         }
         private void T_ebenClick(object sender, EventArgs e)
         {
-
-            if (wieoft_stirn_ecke_eben_laengs[2] == 1)
-            {
-                
-            }
             if (!offen_stirn_ecke_eben_laengs[2])
             {
-                Form3 Eben = new Form3();
                 Eben.Show();
                 Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[2] = true;
                 wieoft_stirn_ecke_eben_laengs[2] = 1;
                 Eben.Activate();
             }
+            if (wieoft_stirn_ecke_eben_laengs[2] == 1)
+            {
+                Eben.Activate();
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
         }
         private void T_laengsClick(object sender, EventArgs e)
         {
-            if (wieoft_stirn_ecke_eben_laengs[3] == 1)
-            {
-                
-            }
             if (!offen_stirn_ecke_eben_laengs[3])
             {
                 Form3 Laengs = new Form3();

@@ -65,27 +65,35 @@ namespace Baugrundberechnung
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(this.Text == "Stirn") 
-            {
-                Form1.offen_stirn_ecke_eben_laengs[0]= false;
-            }
-            else if(this.Text == "Ecke")
-            {
-                Form1.offen_stirn_ecke_eben_laengs[1] = false;
-            }
-            else if(this.Text == "Eben")
-            {
-                Form1.offen_stirn_ecke_eben_laengs[2] = false;
-            }
-            else if(this.Text == "Längs")
-            {
-                Form1.offen_stirn_ecke_eben_laengs[3] = false;
-            }
+           
+            
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Text == "Stirn")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[0] = false;
+            }
+            else if (this.Text == "Ecke")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[1] = false;
+            }
+            else if (this.Text == "Eben")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[2] = false;
+            }
+            else if (this.Text == "Längs")
+            {
+                Form1.offen_stirn_ecke_eben_laengs[3] = false;
+            }
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }
