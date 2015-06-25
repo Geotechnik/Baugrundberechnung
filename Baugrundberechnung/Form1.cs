@@ -423,7 +423,7 @@ namespace Baugrundberechnung
         {
             Form infoForm = new Form2();
             infoForm.Text = "Info";
-            infoForm.Show();
+            infoForm.ShowDialog();
         }
 
         /// <summary>
@@ -658,22 +658,12 @@ namespace Baugrundberechnung
             }
         }
 
-        private void label48_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void haftungsausschlussToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
             Form haftungsausschluss = new Form4();
-            
-            haftungsausschluss.Show();
+            haftungsausschluss.ShowDialog();
         }
 
         private void programmBeendenToolStripMenuItem_Click(object sender, EventArgs e)

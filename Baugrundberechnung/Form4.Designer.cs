@@ -51,7 +51,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form4";
             this.Text = "Haftungsausschluss";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
