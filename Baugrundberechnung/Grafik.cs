@@ -67,13 +67,13 @@ namespace Baugrundberechnung
             ZeichneBaugrubeSeite(H, S, f);
             //die Zeichnungshöhe und mitte der Zeichnung in der Breite.
             //750, 230
-            zeichne_einbindetiefe(f, new Point((int)(1/4.0*(xmax-xnull)+xnull), (int)(1 / 3.0 * (ymax - ynull) +ynull)-20), T_ecke, "T_ecke", mitBe);
+            zeichne_einbindetiefe(f, new Point((int)(1/4.0*(xmax-xnull)+xnull), (int)(1 / 3.0 * (ymax - ynull) +ynull)-20), T_ecke, "T_ecke", mitBe,T_ecke);
             //1025, 230
-            zeichne_einbindetiefe(f, new Point((int)((3 / 4.0 * (xmax - xnull) + xnull)), (int)(1 / 3.0 * (ymax - ynull) + ynull)-20), T_laengs, "T_laengs", mitBe);
+            zeichne_einbindetiefe(f, new Point((int)((3 / 4.0 * (xmax - xnull) + xnull)), (int)(1 / 3.0 * (ymax - ynull) + ynull) - 20), T_laengs, "T_laengs", mitBe, T_ecke);
             //750, 410
-            zeichne_einbindetiefe(f, new Point((int)(1/4.0*(xmax-xnull)+xnull), (int)(2 / 3.0 * (ymax - ynull) + ynull)-20), T_stirn,"T_stirn", mitBe);
+            zeichne_einbindetiefe(f, new Point((int)(1 / 4.0 * (xmax - xnull) + xnull), (int)(2 / 3.0 * (ymax - ynull) + ynull) - 20), T_stirn, "T_stirn", mitBe, T_ecke);
             //1025, 410
-            zeichne_einbindetiefe(f, new Point((int)((3/ 4.0 * (xmax - xnull) + xnull)), (int)(2 / 3.0 * (ymax - ynull) + ynull)-20), T_eben, "T_eben", mitBe);
+            zeichne_einbindetiefe(f, new Point((int)((3 / 4.0 * (xmax - xnull) + xnull)), (int)(2 / 3.0 * (ymax - ynull) + ynull) - 20), T_eben, "T_eben", mitBe, T_ecke);
 
             Graphics Test = Graphics.FromHwnd(f.Handle);
              
@@ -193,45 +193,48 @@ namespace Baugrundberechnung
         private static void ZeichneBaugrubeSeite(double h, double s, Form1 f)
         {
             Graphics Test = Graphics.FromHwnd(f.Handle);
+            int htemp = 20;
+            double lmbdhs = 1/((max - 20) );
+            double lmbd = (max - 20) / (htemp+ s);
             //erzeugt die 4 äußeren Punkte der Baugrube
             //950, 50
-            Point ObenLinksPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2));
-            //950, 200
-            Point UntenLinksPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
+            Point ObenLinksPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)((1 / 6.0 * (ymax - ynull) + ynull - max / 2)-20));
             //1100, 50
-            Point ObenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2));
+            Point ObenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2-20));
+            //950, 200
+            Point UntenLinksPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100)));
             //1100, 200
-            Point UntenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
-            //Zeichnet die obere und untere Linie und Doppeldach
-            double lmbd = (max-20) / (h + s);
-            HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s), UntenLinksPunkt.Y, (int)(3 / 4.0 * (xmax - xnull) + xnull));
-            HintergrundZeichnen(Test, (int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s)), UntenLinksPunkt.Y, ObenRechtsPunkt.X);
+            Point UntenRechtsPunkt = new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100)));
+            int xmitte = (int)(3 / 4.0 * (xmax - xnull) + xnull);
+            HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y  + max *htemp/100), UntenLinksPunkt.Y, xmitte);
+            HintergrundZeichnen(Test, xmitte, ObenRechtsPunkt.Y + 10, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
+            //Zeichnet die obere und untere Linie und Doppeldach
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
 
             //Zeichnet die gestrichelte Linie ganz unten.
             // i = 950; i<=1100 ; i = i+15
-            for (int i = (int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2); i <= (int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2); i = i + 15)
+            for (int i = ObenLinksPunkt.X; i <= ObenRechtsPunkt.X; i = i + 15)
             {
                 //i, 200
-                Point ObenRechts = new Point(i, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-10);
+                Point ObenRechts = new Point(i, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100)));
                 //i-10, 210
-                Point UntenLinks = new Point(i - 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2));
+                Point UntenLinks = new Point(i -10, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100))+10);
                 Test.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             }
             
             //Zeichnet die Restlichen Linien
             // 1025, 50  ; 1025, 150
-            Test.DrawLine(pen_grub, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull - max / 2)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 20));
+            Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, UntenLinksPunkt.Y - 20));
             // 950, 200 - (int)(lmbd * s)  ; 1025, 200 - (int)(lmbd * s))
-            Test.DrawLine(Pens.Black, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull - max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)));
+            Test.DrawLine(Pens.Black, new Point(ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100)));
             // 1025, 200 - (int)(lmbd * (h + s))  ;  1100, 200 - (int)(lmbd * (h + s)))
-            Test.DrawLine(Pens.Black, new Point((int)(3 / 4.0 * (xmax - xnull) + xnull), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))));
+            Test.DrawLine(Pens.Black, new Point(xmitte, ObenRechtsPunkt.Y + 10), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull + max / 2), ObenRechtsPunkt.Y + 10));
             // 1035, 200 - (int)(lmbd * s) ;  1035, 200), f 
-            ZeichnePfeil(new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10), f);
+            ZeichnePfeil(new Point( xmitte + 10, (int)(ObenRechtsPunkt.Y + 10)) , new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y  + max *htemp/100)), f);
             // 1035, 200 - (int)(lmbd * (h + s)) ;   1035, 200 - (int)(lmbd * s)), f
-            ZeichnePfeil(new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * (h + s))), new Point((int)(3 / 4.0 * (xmax - xnull) + xnull) + 10, (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2) - 10 - (int)(lmbd * s)), f);
+            ZeichnePfeil(new Point(xmitte + 10,(int)(ObenRechtsPunkt.Y  + max *htemp/100)), new Point(xmitte + 10, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100))), f);
             
             
             f.BaugrubeSeite.Location = new System.Drawing.Point((int)(3 / 4.0 * (xmax - xnull) + xnull) - 60, 30);
@@ -281,19 +284,19 @@ namespace Baugrundberechnung
         /// <param name="f"></param>
         /// <param name="ursprung"></param>
         /// <param name="T"></param>
-        private static void zeichne_einbindetiefe(Form1 f, Point ursprung, double T, String zuZeichnen, bool mitBe)
+        private static void zeichne_einbindetiefe(Form1 f, Point ursprung, double T, String zuZeichnen, bool mitBe,double T_eck)
         {
             Graphics gr = Graphics.FromHwnd(f.Handle);
             //vershiebt den Ursprung
             gr.TranslateTransform(ursprung.X, ursprung.Y + 20);
             int breite = (int)max;
             //variable größe lmbd
-            double lmbd =  (H + S)/(max);
+            double lmbd =  ( T_eck+10)/max;
             //Verschiebt den Ursprung
             int x =  (int)(-breite / 2)+4;
             int yOben = (int)((H / lmbd));
-            int yOben2 =0 ;
-            int yUnten = (int)(1 / lmbd * (H + S));
+            int yOben2 = 0 ;
+            int yUnten = (int)max;
             //Hintergrund test
             while (x < 0)
             {
@@ -306,21 +309,13 @@ namespace Baugrundberechnung
                 gr.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
                 x += 4;
             }
-            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)((H + T)/lmbd)));
+            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)(H/lmbd)));
             gr.DrawLine(Pens.Black, new Point(0, 0), new Point((int)(breite / 2), 0));
             gr.DrawLine(Pens.Black, new Point(0, (int)(H/lmbd)), new Point((int)(-breite / 2), (int)(H/lmbd)));
-            gr.DrawLine(Pens.Black, new Point((int)(-breite / 2), (int)(1/lmbd * (H + S))), new Point((int)(breite / 2), (int)(1/lmbd * (H + S))));
 
             int anfang = (int)(-breite / 2);
             int ende = (int)(breite / 2);
-            for (int i = anfang; i <= ende; i = i + 15)
-            {
-                Point ObenRechts = new Point(i, (int)(1/lmbd * (H + S)));
-                Point UntenLinks = new Point(i - 10, (int)(1/lmbd * (H + S)) + 10);
-                gr.DrawLine(Pens.Black, ObenRechts, UntenLinks);
-            } 
             ZeichnePfeil_rel(new Point((int)(ende / 2), (int)(1/lmbd * H)), new Point((int)(ende / 2), (int)(1/lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
-            ZeichnePfeil_rel(new Point((int)(anfang / 2), (int)(1/lmbd * H)), new Point((int)(anfang / 2), (int)(1/lmbd * (H + S))), f, new Point(ursprung.X, ursprung.Y + 20));
             ZeichnePfeil_rel(new Point((int)(ende / 2), 0), new Point((int)(ende / 2), (int)(1/lmbd * H)), f, new Point(ursprung.X, ursprung.Y + 20));
 
             if(zuZeichnen == "T_stirn" )

@@ -16,5 +16,15 @@ namespace Baugrundberechnung
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }

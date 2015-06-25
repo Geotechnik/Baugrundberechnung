@@ -41,6 +41,7 @@
             this.textBox1.Size = new System.Drawing.Size(496, 479);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form4
             // 
@@ -50,6 +51,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form4";
             this.Text = "Haftungsausschluss";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
