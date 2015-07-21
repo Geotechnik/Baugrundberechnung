@@ -313,6 +313,8 @@ namespace Baugrundberechnung
             int ende = (int)(breite / 2);
             ZeichnePfeil_rel(new Point((int)(ende / 2), (int)(1/lmbd * H)), new Point((int)(ende / 2), (int)(1/lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
             ZeichnePfeil_rel(new Point((int)(ende / 2), 0), new Point((int)(ende / 2), (int)(1/lmbd * H)), f, new Point(ursprung.X, ursprung.Y + 20));
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 20, ursprung.Y + (int)(1 / lmbd * H)+20), f);
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 20, ursprung.Y + (int)(1 / lmbd * H) + 20), f);
              
             if(zuZeichnen == "T_stirn" )
             {
@@ -440,12 +442,12 @@ namespace Baugrundberechnung
             Graphics gr = Graphics.FromHwnd(f.Handle);
             gr.TranslateTransform(ursprung.X, ursprung.Y);
             Point mitte = new Point(0, 0);
-            Point ersteLinieRechts = new Point(4, -2);
-            Point ersteLinieLinks = new Point(-4, -2);
-            Point zweiteLinieRechts = new Point(2, -4);
-            Point zweiteLinieLinks = new Point(-2, -4);
-            Point obenRechts = new Point(-4, 2);
-            Point obenLinks = new Point(4, 2);
+            Point ersteLinieRechts = new Point(4, 2);
+            Point ersteLinieLinks = new Point(-4, 2);
+            Point zweiteLinieRechts = new Point(2, 4);
+            Point zweiteLinieLinks = new Point(-2, 4);
+            Point obenRechts = new Point(-5, -5);
+            Point obenLinks = new Point(5, -5);
             gr.DrawLine(Pens.Black, ersteLinieLinks, ersteLinieRechts);
             gr.DrawLine(Pens.Black, zweiteLinieLinks, zweiteLinieRechts);
             gr.DrawLine(Pens.Black, obenLinks, obenRechts);
