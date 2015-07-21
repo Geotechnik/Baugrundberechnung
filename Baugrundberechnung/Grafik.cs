@@ -238,6 +238,12 @@ namespace Baugrundberechnung
             f.BaugrubeSeite.AutoSize = true;
             f.Controls.Add(f.BaugrubeSeite);
             f.BaugrubeSeite.Show();
+            f.S_labelSeite.Location = new System.Drawing.Point(xmitte + 5, (int)(ObenRechtsPunkt.Y + max * htemp / 100)+10);
+            f.S_labelSeite.Text = "S = " + S;
+            f.S_labelSeite.BackColor = Color.LightGray;
+            f.S_labelSeite.AutoSize = true;
+            f.Controls.Add(f.S_labelSeite);
+            f.S_labelSeite.Show();
         
         }
         /// <summary>
@@ -313,8 +319,8 @@ namespace Baugrundberechnung
             int ende = (int)(breite / 2);
             ZeichnePfeil_rel(new Point((int)(ende / 2), (int)(1/lmbd * H)), new Point((int)(ende / 2), (int)(1/lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
             ZeichnePfeil_rel(new Point((int)(ende / 2), 0), new Point((int)(ende / 2), (int)(1/lmbd * H)), f, new Point(ursprung.X, ursprung.Y + 20));
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 20, ursprung.Y + (int)(1 / lmbd * H)+20), f);
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 20, ursprung.Y + (int)(1 / lmbd * H) + 20), f);
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(1 / lmbd * H)+20), f);
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 10, ursprung.Y+20), f);
              
             if(zuZeichnen == "T_stirn" )
             {

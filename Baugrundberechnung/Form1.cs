@@ -25,6 +25,7 @@ namespace Baugrundberechnung
         public Label H_label_Längs = new Label();
         public Label T_label_Eben = new Label();
         public Label H_label_Eben = new Label();
+        public Label S_labelSeite = new Label();
         public Label BaugrubeSeite = new Label();
         public Label T_stirn = new Label();
         public Label T_ecke = new Label();

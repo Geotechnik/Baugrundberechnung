@@ -30,7 +30,7 @@ namespace Baugrundberechnung
             pen_hint = new Pen(Color.LightGray, (float)7.0);
             gr.Clear(Form3.DefaultBackColor);
 
-            if(this.Width-20 < this.Height)
+            if (this.Width - 20 < this.Height)
             {
                 max = this.Width - 30;
             }
@@ -38,7 +38,7 @@ namespace Baugrundberechnung
             {
                 max = this.Height - 10;
             }
-            double lmbd = (max-10)/(H+Teck); 
+            double lmbd = (max - 10) / (H + Teck);
             int x = 0 + 4;
             int yOben = (int)(H * lmbd);
             int yOben2 = 20;
@@ -57,14 +57,14 @@ namespace Baugrundberechnung
                 x += 4;
             }
             this.Text = welches;
-            pen_grube = new Pen(Color.Black, (float)(2.5));
-            gr.DrawLine(pen_grube, new Point((int)(max/2), 20),new Point((int)max/2,(int)((H+T)*lmbd) ));
-            gr.DrawLine(pen_grube, new Point((int)max/2, 20), new Point((int)max, 20));
-            gr.DrawLine(pen_grube, new Point(0, (int)(H * lmbd)), new Point((int)(max / 2), (int)(H*lmbd)));
-            ZeichnePfeil(new Point((int)(max/2)+20, yOben2), new Point((int)(max/2)+20, yOben), this);
+            pen_grube = new Pen(Color.Black, (float)(2));
+            gr.DrawLine(pen_grube, new Point((int)(max / 2), 20), new Point((int)max / 2, (int)((H + T) * lmbd)));
+            gr.DrawLine(pen_grube, new Point((int)max / 2, 20), new Point((int)max, 20));
+            gr.DrawLine(pen_grube, new Point(0, (int)(H * lmbd)), new Point((int)(max / 2), (int)(H * lmbd)));
+            ZeichnePfeil(new Point((int)(max / 2) + 20, yOben2), new Point((int)(max / 2) + 20, yOben), this);
             ZeichnePfeil(new Point((int)(max / 2) + 20, yOben), new Point((int)(max / 2) + 20, yUnten), this);
-
-
+            zeichneWassersspiegel(new Point(20, yOben), this);
+            zeichneWassersspiegel(new Point((int)max-20, yOben2), this);
         }
 
         private static void ZeichnePfeil(Point oben, Point unten, Form3 f)
@@ -75,17 +75,6 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
-
-        }
-
-        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-            
-        }
-
-        private void Form3_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -109,6 +98,24 @@ namespace Baugrundberechnung
             }
             this.Hide();
             e.Cancel = true;
+        }
+
+        public static void zeichneWassersspiegel(Point ursprung, Form3 f)
+        {
+            Graphics gr = Graphics.FromHwnd(f.Handle);
+            gr.TranslateTransform(ursprung.X, ursprung.Y);
+            Point mitte = new Point(0, 0);
+            Point ersteLinieRechts = new Point(4, 2);
+            Point ersteLinieLinks = new Point(-4, 2);
+            Point zweiteLinieRechts = new Point(2, 4);
+            Point zweiteLinieLinks = new Point(-2, 4);
+            Point obenRechts = new Point(-5, -5);
+            Point obenLinks = new Point(5, -5);
+            gr.DrawLine(Pens.Black, ersteLinieLinks, ersteLinieRechts);
+            gr.DrawLine(Pens.Black, zweiteLinieLinks, zweiteLinieRechts);
+            gr.DrawLine(Pens.Black, obenLinks, obenRechts);
+            gr.DrawLine(Pens.Black, obenRechts, mitte);
+            gr.DrawLine(Pens.Black, obenLinks, mitte);
         }
     }
 }

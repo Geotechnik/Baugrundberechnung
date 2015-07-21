@@ -39,8 +39,7 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
-            this.Load += new System.EventHandler(this.Form3_Load);
+
             this.ResumeLayout(false);
 
         }
