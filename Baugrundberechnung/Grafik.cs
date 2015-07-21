@@ -321,13 +321,13 @@ namespace Baugrundberechnung
                 f.T_stirn.AutoSize = true;
                 f.Controls.Add(f.T_stirn);
                 f.T_stirn.Show();
-                f.T_label_Stirn.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y+40);
+                f.T_label_Stirn.Location = new System.Drawing.Point(ursprung.X +(int)(ende / 2)-20, ursprung.Y+(int)(1 / lmbd * H)-20);
                 f.T_label_Stirn.Text = "H = " + H;
                 f.T_label_Stirn.BackColor = Color.LightGray;
                 f.T_label_Stirn.AutoSize = true;
                 f.Controls.Add(f.T_label_Stirn);
                 f.T_label_Stirn.Show();
-                f.H_label_Stirn.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Stirn.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
                 f.H_label_Stirn.Text = "T = " + T;
                 f.H_label_Stirn.BackColor = Color.LightGray;
                 f.H_label_Stirn.AutoSize = true;
@@ -347,13 +347,13 @@ namespace Baugrundberechnung
                 f.T_ecke.AutoSize = true;
                 f.Controls.Add(f.T_ecke);
                 f.T_ecke.Show();
-                f.T_label_Ecke.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
                 f.T_label_Ecke.Text = "H = " + H;
                 f.T_label_Ecke.BackColor = Color.LightGray;
                 f.T_label_Ecke.AutoSize = true;
                 f.Controls.Add(f.T_label_Ecke);
                 f.T_label_Ecke.Show();
-                f.H_label_Ecke.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
                 f.H_label_Ecke.Text = "T = " + T;
                 f.H_label_Ecke.BackColor = Color.LightGray;
                 f.H_label_Ecke.AutoSize = true;
@@ -372,13 +372,13 @@ namespace Baugrundberechnung
                 f.T_eben.AutoSize = true;
                 f.Controls.Add(f.T_eben);
                 f.T_eben.Show();
-                f.T_label_Eben.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
                 f.T_label_Eben.Text = "H = " + H;
                 f.T_label_Eben.BackColor = Color.LightGray;
                 f.T_label_Eben.AutoSize = true;
                 f.Controls.Add(f.T_label_Eben);
                 f.T_label_Eben.Show();
-                f.H_label_Eben.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
                 f.H_label_Eben.Text = "T = " + T;
                 f.H_label_Eben.BackColor = Color.LightGray;
                 f.H_label_Eben.AutoSize = true;
@@ -397,13 +397,13 @@ namespace Baugrundberechnung
                 f.T_laengs.AutoSize = true;
                 f.Controls.Add(f.T_laengs);
                 f.T_laengs.Show();
-                f.T_label_Längs.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
                 f.T_label_Längs.Text = "H = " + H;
                 f.T_label_Längs.BackColor = Color.LightGray;
                 f.T_label_Längs.AutoSize = true;
                 f.Controls.Add(f.T_label_Längs);
                 f.T_label_Längs.Show();
-                f.H_label_Längs.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) +30);
                 f.H_label_Längs.Text = "T = " + T;
                 f.H_label_Längs.BackColor = Color.LightGray;
                 f.H_label_Längs.AutoSize = true;
@@ -434,6 +434,23 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, untenL, new Point(4, 0));
             gr.DrawLine(Pens.Black, untenR, new Point(4, 0));
 
+        }
+        public static void zeichneWassersspiegel(Point ursprung, Form1 f)
+        {
+            Graphics gr = Graphics.FromHwnd(f.Handle);
+            gr.TranslateTransform(ursprung.X, ursprung.Y);
+            Point mitte = new Point(0, 0);
+            Point ersteLinieRechts = new Point(4, -2);
+            Point ersteLinieLinks = new Point(-4, -2);
+            Point zweiteLinieRechts = new Point(2, -4);
+            Point zweiteLinieLinks = new Point(-2, -4);
+            Point obenRechts = new Point(-4, 2);
+            Point obenLinks = new Point(4, 2);
+            gr.DrawLine(Pens.Black, ersteLinieLinks, ersteLinieRechts);
+            gr.DrawLine(Pens.Black, zweiteLinieLinks, zweiteLinieRechts);
+            gr.DrawLine(Pens.Black, obenLinks, obenRechts);
+            gr.DrawLine(Pens.Black, obenRechts, mitte);
+            gr.DrawLine(Pens.Black, obenLinks, mitte);
         }
     }
 }
