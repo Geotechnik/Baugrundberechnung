@@ -134,20 +134,14 @@ namespace Baugrundberechnung
 
 
             //fügt das Label der Breite hinzu mit der beschriftung und 24 über der Zeichnung, Mittig.
-            /*
-             * f.B_label.Location = new System.Drawing.Point(730, 26);
-             * f.B_label.Text = "B = " + breite;
-             * f.B_label.AutoSize = true;
-             * f.Controls.Add(f.B_label);
-             * f.B_label.Show();
-             *   newlbl.Text = "";           
-             *   newlbl.AutoSize = false;      
-             *   newlbl.NewText = "ravindra";     
-             *   newlbl.ForeColor = Color.Green;  
-             *   newlbl.RotateAngle = -90;  
-             * */
+            
+             f.B_label.Location = new System.Drawing.Point((int)(1 / 4.0 * (xmax - xnull) + xnull + var_breite / 2) -50,48);
+             f.B_label.Text = "B = " + breite;
+             f.B_label.AutoSize = true;
+             f.Controls.Add(f.B_label);
+             f.B_label.Show();
             //fügt das Label der länge hinzu, kann sich nach links/rechts verschieben je nach verhältnis der var_breite, ist stets rechts von der Zeichnung
-            f.L_label.Location = new System.Drawing.Point((int)((1 / 4.0 * (xmax - xnull) + xnull + var_breite / 2) + 10), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-70);
+            f.L_label.Location = new System.Drawing.Point((int)((1 / 4.0 * (xmax - xnull) + xnull + var_breite / 2) + 10), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-90);
             //f.L_label.Text = "L = " + laenge;
             f.L_label.NewText = "L = " + laenge;
             f.L_label.Invalidate();

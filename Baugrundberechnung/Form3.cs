@@ -59,8 +59,23 @@ namespace Baugrundberechnung
             this.Text = welches;
             pen_grube = new Pen(Color.Black, (float)(2.5));
             gr.DrawLine(pen_grube, new Point((int)(max/2), 20),new Point((int)max/2,(int)((H+T)*lmbd) ));
-            gr.DrawLine(pen_grube, new Point(0, 20), new Point((int)max, 20));
+            gr.DrawLine(pen_grube, new Point((int)max/2, 20), new Point((int)max, 20));
             gr.DrawLine(pen_grube, new Point(0, (int)(H * lmbd)), new Point((int)(max / 2), (int)(H*lmbd)));
+            ZeichnePfeil(new Point((int)(max/2)+20, yOben2), new Point((int)(max/2)+20, yOben), this);
+            ZeichnePfeil(new Point((int)(max / 2) + 20, yOben), new Point((int)(max / 2) + 20, yUnten), this);
+
+
+        }
+
+        private static void ZeichnePfeil(Point oben, Point unten, Form3 f)
+        {
+            Graphics gr = Graphics.FromHwnd(f.Handle);
+            gr.DrawLine(Pens.Black, oben, unten);
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X - 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
+            gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
+
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
