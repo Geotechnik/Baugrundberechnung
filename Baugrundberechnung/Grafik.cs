@@ -305,7 +305,7 @@ namespace Baugrundberechnung
                 gr.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
                 x += 4;
             }
-            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)(H/lmbd)));
+            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)(1 / lmbd * (H + T))));
             gr.DrawLine(Pens.Black, new Point(0, 0), new Point((int)(breite / 2), 0));
             gr.DrawLine(Pens.Black, new Point(0, (int)(H/lmbd)), new Point((int)(-breite / 2), (int)(H/lmbd)));
 
@@ -313,14 +313,31 @@ namespace Baugrundberechnung
             int ende = (int)(breite / 2);
             ZeichnePfeil_rel(new Point((int)(ende / 2), (int)(1/lmbd * H)), new Point((int)(ende / 2), (int)(1/lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
             ZeichnePfeil_rel(new Point((int)(ende / 2), 0), new Point((int)(ende / 2), (int)(1/lmbd * H)), f, new Point(ursprung.X, ursprung.Y + 20));
-
+             
             if(zuZeichnen == "T_stirn" )
             {
                 f.T_stirn.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
                 f.T_stirn.Text = "Stirnseite 🔍";
                 f.T_stirn.AutoSize = true;
                 f.Controls.Add(f.T_stirn);
-                f.T_stirn.Show(); 
+                f.T_stirn.Show();
+                f.T_label_Stirn.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y+40);
+                f.T_label_Stirn.Text = "H = " + H;
+                f.T_label_Stirn.BackColor = Color.LightGray;
+                f.T_label_Stirn.AutoSize = true;
+                f.Controls.Add(f.T_label_Stirn);
+                f.T_label_Stirn.Show();
+                f.H_label_Stirn.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Stirn.Text = "T = " + T;
+                f.H_label_Stirn.BackColor = Color.LightGray;
+                f.H_label_Stirn.AutoSize = true;
+                f.H_label_Stirn.ForeColor = Color.Black;
+                f.Controls.Add(f.H_label_Stirn);
+                if(!mitBe)
+                {
+                    f.H_label_Stirn.ForeColor = Color.Red;
+                }
+                f.H_label_Stirn.Show();
 
             }
             else if (zuZeichnen == "T_ecke")
@@ -330,6 +347,23 @@ namespace Baugrundberechnung
                 f.T_ecke.AutoSize = true;
                 f.Controls.Add(f.T_ecke);
                 f.T_ecke.Show();
+                f.T_label_Ecke.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Ecke.Text = "H = " + H;
+                f.T_label_Ecke.BackColor = Color.LightGray;
+                f.T_label_Ecke.AutoSize = true;
+                f.Controls.Add(f.T_label_Ecke);
+                f.T_label_Ecke.Show();
+                f.H_label_Ecke.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Ecke.Text = "T = " + T;
+                f.H_label_Ecke.BackColor = Color.LightGray;
+                f.H_label_Ecke.AutoSize = true;
+                f.Controls.Add(f.H_label_Ecke);
+                f.H_label_Ecke.ForeColor = Color.Black;
+                if (!mitBe)
+                {
+                    f.H_label_Ecke.ForeColor = Color.Red;
+                }
+                f.H_label_Ecke.Show();
             }
             else if(zuZeichnen == "T_eben")
             {
@@ -337,7 +371,24 @@ namespace Baugrundberechnung
                 f.T_eben.Text = "eben 🔍";
                 f.T_eben.AutoSize = true;
                 f.Controls.Add(f.T_eben);
-                f.T_eben.Show(); 
+                f.T_eben.Show();
+                f.T_label_Eben.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Eben.Text = "H = " + H;
+                f.T_label_Eben.BackColor = Color.LightGray;
+                f.T_label_Eben.AutoSize = true;
+                f.Controls.Add(f.T_label_Eben);
+                f.T_label_Eben.Show();
+                f.H_label_Eben.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Eben.Text = "T = " + T;
+                f.H_label_Eben.BackColor = Color.LightGray;
+                f.H_label_Eben.AutoSize = true;
+                f.Controls.Add(f.H_label_Eben);
+                f.H_label_Eben.ForeColor = Color.Black;
+                if (!mitBe)
+                {
+                    f.H_label_Eben.ForeColor = Color.Red;
+                }
+                f.H_label_Eben.Show();
             }
             else if (zuZeichnen == "T_laengs")
             {
@@ -346,6 +397,23 @@ namespace Baugrundberechnung
                 f.T_laengs.AutoSize = true;
                 f.Controls.Add(f.T_laengs);
                 f.T_laengs.Show();
+                f.T_label_Längs.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 40);
+                f.T_label_Längs.Text = "H = " + H;
+                f.T_label_Längs.BackColor = Color.LightGray;
+                f.T_label_Längs.AutoSize = true;
+                f.Controls.Add(f.T_label_Längs);
+                f.T_label_Längs.Show();
+                f.H_label_Längs.Location = new System.Drawing.Point(ursprung.X + 10, ursprung.Y + 100);
+                f.H_label_Längs.Text = "T = " + T;
+                f.H_label_Längs.BackColor = Color.LightGray;
+                f.H_label_Längs.AutoSize = true;
+                f.Controls.Add(f.H_label_Längs);
+                f.H_label_Längs.ForeColor = Color.Black;
+                if (!mitBe)
+                {
+                    f.H_label_Längs.ForeColor = Color.Red;
+                }
+                f.H_label_Längs.Show();
             }
         }
         /// <summary>
