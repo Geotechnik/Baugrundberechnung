@@ -134,7 +134,8 @@ namespace Baugrundberechnung
                             Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[3])
-                        {
+                        {   
+
                             Laengs.Activate();
                             Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
@@ -254,7 +255,6 @@ namespace Baugrundberechnung
         {
             if (!offen_stirn_ecke_eben_laengs[3])
             {
-                Form3 Laengs = new Form3();
                 Laengs.Show();
                 Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;

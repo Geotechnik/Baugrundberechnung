@@ -23,6 +23,8 @@ namespace Baugrundberechnung
         {
             InitializeComponent();
         }
+        //Code
+        
         public void öffnen(String welches, double L, double B, double H, double T, double Teck, bool ohneBe)
         {
             gr = Graphics.FromHwnd(Handle);
@@ -64,7 +66,21 @@ namespace Baugrundberechnung
             ZeichnePfeil(new Point((int)(max / 2) + 20, yOben2), new Point((int)(max / 2) + 20, yOben), this);
             ZeichnePfeil(new Point((int)(max / 2) + 20, yOben), new Point((int)(max / 2) + 20, yUnten), this);
             zeichneWassersspiegel(new Point(20, yOben), this);
-            zeichneWassersspiegel(new Point((int)max-20, yOben2), this);
+            zeichneWassersspiegel(new Point((int)max - 20, yOben2), this);
+
+            
+            Wasserspiegeldifferenz.Location = new System.Drawing.Point((int)(max / 2) + 20, yOben2+20);
+            Wasserspiegeldifferenz.Text = "H = " + H;
+            Wasserspiegeldifferenz.BackColor = Color.LightGray;
+            Wasserspiegeldifferenz.AutoSize = true;
+            Controls.Add(Wasserspiegeldifferenz);
+            Wasserspiegeldifferenz.Show();
+            
+            if (!ohneBe)
+            {
+
+            }
+            //öffnen( welches,  L,  B,  H,  T,  Teck,  ohneBe);
         }
 
         private static void ZeichnePfeil(Point oben, Point unten, Form3 f)
