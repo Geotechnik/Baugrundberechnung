@@ -24,7 +24,7 @@ namespace Baugrundberechnung
             //bool isnat = Regex.IsMatch(str, @"^\d$");
             //return (isdec || isnat) ;
             //return Regex.IsMatch(str, @"^[0-9,\,]+$");
-            bool temp_bool = Regex.IsMatch(str, @"^[0-9]+\,[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+$");//|| Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$")
+            bool temp_bool = Regex.IsMatch(str, @"^[0-9]+\,[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+$") || Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$");
             return temp_bool;
         }
 
@@ -45,11 +45,11 @@ namespace Baugrundberechnung
             if (Validierung.isdecimalnumber(str))
             {
                 double zahl;
-              /*  if (Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$"))
+               if (Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$"))
                 {
                     str = str.Replace(".", ",");
                 }
-               * */
+            
 
                zahl = Convert.ToDouble(str);//double.Parse(str, CultureInfo.GetCultureInfo("de-DE").NumberFormat,);
                //System.Windows.Forms.MessageBox.Show("Decimalzahl ist: " + zahl);

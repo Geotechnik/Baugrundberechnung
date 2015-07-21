@@ -270,21 +270,21 @@ namespace Baugrundberechnung
         /// </summary>
         private void variablenSetzen()
         {
-            L = Convert.ToDouble(textBox1.Text);
-            B = Convert.ToDouble(textBox2.Text);
-            H = Convert.ToDouble(textBox3.Text);
-            S = Convert.ToDouble(textBox6.Text);
-            Y = Convert.ToDouble(textBox5.Text);
-            n = Convert.ToDouble(textBox4.Text);
-            A_eb = Convert.ToDouble(A_eben.Text);
-            U_eb = Convert.ToDouble(U_eben.Text);
-            A_L = Convert.ToDouble(A_Längs.Text);
-            U_L = Convert.ToDouble(U_Längs.Text);
-            A_S = Convert.ToDouble(A_Stirn.Text);
-            U_S = Convert.ToDouble(U_Stirn.Text);
-            A_Ec = Convert.ToDouble(A_Ecke.Text);
-            U_Ec = Convert.ToDouble(U_Ecke.Text);
-            Bei = Convert.ToDouble(Be.Text);
+            L = Convertieren.convertToDouble(textBox1.Text);
+            B = Convertieren.convertToDouble(textBox2.Text);
+            H = Convertieren.convertToDouble(textBox3.Text);
+            S = Convertieren.convertToDouble(textBox6.Text);
+            Y = Convertieren.convertToDouble(textBox5.Text);
+            n = Convertieren.convertToDouble(textBox4.Text);
+            A_eb = Convertieren.convertToDouble(A_eben.Text);
+            U_eb = Convertieren.convertToDouble(U_eben.Text);
+            A_L = Convertieren.convertToDouble(A_Längs.Text);
+            U_L = Convertieren.convertToDouble(U_Längs.Text);
+            A_S = Convertieren.convertToDouble(A_Stirn.Text);
+            U_S = Convertieren.convertToDouble(U_Stirn.Text);
+            A_Ec = Convertieren.convertToDouble(A_Ecke.Text);
+            U_Ec = Convertieren.convertToDouble(U_Ecke.Text);
+            Bei = Convertieren.convertToDouble(Be.Text);
         }
 
         /// <summary>
@@ -494,10 +494,10 @@ namespace Baugrundberechnung
                 if (aufAlleUebernehmen && bezugsScrollBar.Name == "hScrollBar5")
                 {
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 3 Nachkommastellen zum runden da sind.
-                    if (bezugsScrollBar.Value != (int)(Convert.ToDouble(tempTextBox.Text) * 1000 + 0.5) || (Convert.ToDouble(tempTextBox.Text) * 1000) % 1 != 0)
+                    if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 1000) % 1 != 0)
                     {
                         //Überschreibt den gerundeten Wert in die ScrollBar
-                        bezugsScrollBar.Value = (int)(Convert.ToDouble(tempTextBox.Text) * 1000 + 0.5);
+                        bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5);
                         //lässt den Wert zurücküberschreiben für eine änderung von 11,00 zu 11,0004 zurück zu 11,000 da sonst Werte gleich.
                         hScrollBar5_ValueChanged(sender, null);
                     }
@@ -506,17 +506,17 @@ namespace Baugrundberechnung
                 else if (!aufAlleUebernehmen && bezugsScrollBar.Name == "hScrollBar5")
                 {
                     //Überprüft ob gerundet werden muss
-                    if ((Convert.ToDouble(tempTextBox.Text) * 1000) % 1 != 0)
+                    if ((Convertieren.convertToDouble(tempTextBox.Text) * 1000) % 1 != 0)
                     {
                         //gibt MessageBox aus.
                         Form message = new Baugrundberechnung.MessageBox("Es kann maximal mit einer Genauigkeit von\n3 Nachkommastellen gerechnet werden.\nEs wird automatisch gerundet");
                         message.Show();
                     }
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 3 Nachkommastellen zum runden da sind.
-                    if (bezugsScrollBar.Value != (int)(Convert.ToDouble(tempTextBox.Text) * 1000 + 0.5) || (Convert.ToDouble(tempTextBox.Text) * 1000) % 1 != 0)
+                    if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 1000) % 1 != 0)
                     {
                         //Überschreibt den gerundeten Wert in die ScrollBar
-                        bezugsScrollBar.Value = (int)(Convert.ToDouble(tempTextBox.Text) * 1000 + 0.5);
+                        bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5);
                         hScrollBar5_ValueChanged(sender, null);
                     }
                 }
@@ -524,10 +524,10 @@ namespace Baugrundberechnung
                 else if (aufAlleUebernehmen && bezugsScrollBar.Name != "hScrollBar5")
                 {
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 2 Nachkommastellen zum runden da sind.
-                    if (bezugsScrollBar.Value != (int)(Convert.ToDouble(tempTextBox.Text) * 100 + 0.5) || (Convert.ToDouble(tempTextBox.Text) * 100) % 1 != 0)
+                    if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 100 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 100) % 1 != 0)
                     {
                         //Überschreibt den gerundeten Wert in die ScrollBar
-                        bezugsScrollBar.Value = (int)(Convert.ToDouble(tempTextBox.Text) * 100 + 0.5);
+                        bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 100 + 0.5);
                         //lässt den Wert zurücküberschreiben für eine änderung von 11,000 zu 11,0004 zurück zu 11,000 da sonst Werte gleich.
                         scallierungDerWerte(bezugsScrollBar, null, tempTextBox);
                     }
@@ -536,7 +536,7 @@ namespace Baugrundberechnung
                 else if (!aufAlleUebernehmen && bezugsScrollBar.Name != "hScrollBar5")
                 {
                     //Überprüft ob gerundet werden muss
-                    if ((Convert.ToDouble(tempTextBox.Text) * 100) % 1 != 0)
+                    if ((Convertieren.convertToDouble(tempTextBox.Text) * 100) % 1 != 0)
                     {
                         //gibt MessageBox aus.
                         Form message = new Baugrundberechnung.MessageBox("Es kann maximal mit einer Genauigkeit von\n2 Nachkommastellen gerechnet werden.\nEs wird automatisch gerundet");
@@ -544,10 +544,10 @@ namespace Baugrundberechnung
 
                     }
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 2 Nachkommastellen zum runden da sind.
-                    if (bezugsScrollBar.Value != (int)(Convert.ToDouble(tempTextBox.Text) * 100 + 0.5) || (Convert.ToDouble(tempTextBox.Text) * 100) % 1 != 0)
+                    if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 100 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 100) % 1 != 0)
                     {
                         //Überschreibt den gerundeten Wert in die ScrollBar
-                        bezugsScrollBar.Value = (int)(Convert.ToDouble(tempTextBox.Text) * 100 + 0.5);
+                        bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 100 + 0.5);
                         scallierungDerWerte(bezugsScrollBar, null, tempTextBox);
                     }
                 }
