@@ -117,14 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="textBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="label1.Text" xml:space="preserve">
     <value>Haftungsausschluss:
 
-Die in dieser Exceldatei aufgeführte Formel wurde ausführlich getestet (Vergleich mit den Ergebnissen numerischen Strömungsberechnungen). Auch wenn dabei keine Fehler festgestellt worden sind, können wir keine Garantie oder Gewährleistung für die Vollständigkeit und Richtigkeit dieser Formel bzw. dieser Exceldatei übernehmen.
+Die in dieser Exceldatei aufgeführte Formel wurde ausführlich getestet (Vergleich mit den Ergebnissen 
+numerischen Strömungsberechnungen). Auch wenn dabei keine Fehler festgestellt worden sind, können
+wir keine Garantie oder Gewährleistung für die Vollständigkeit und Richtigkeit dieser Formel bzw. dieser 
+Exceldatei übernehmen.
 
-Wir haften auch nicht für etwaige sich aus der Anwendung der Formel bzw. der Exceldate resultierende Schäden bzw. Folgeschäden.</value>
+Wir haften auch nicht für etwaige sich aus der Anwendung der Formel bzw. der Exceldate resultierende 
+Schäden bzw. Folgeschäden.</value>
   </data>
 </root>

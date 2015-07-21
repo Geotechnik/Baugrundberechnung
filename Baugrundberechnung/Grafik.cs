@@ -147,14 +147,16 @@ namespace Baugrundberechnung
              *   newlbl.RotateAngle = -90;  
              * */
             //fügt das Label der länge hinzu, kann sich nach links/rechts verschieben je nach verhältnis der var_breite, ist stets rechts von der Zeichnung
-            /*f.L_label.Location = new System.Drawing.Point((int)(750 + var_breite / 2 + 10), 125);
+            f.L_label.Location = new System.Drawing.Point((int)((1 / 4.0 * (xmax - xnull) + xnull + var_breite / 2) + 10), (int)(1 / 6.0 * (ymax - ynull) + ynull + max / 2)-70);
             //f.L_label.Text = "L = " + laenge;
             f.L_label.NewText = "L = " + laenge;
+            f.L_label.Invalidate();
             //f.L_label.AutoSize = true;
             f.L_label.AutoSize = false;
+            f.L_label.Height = 110;
             f.L_label.RotateAngle = -90; 
             f.Controls.Add(f.L_label);
-            f.L_label.Show();*/
+            f.L_label.Show();
             HintergrundZeichnen(Test, ObenLinksPunkt.X, ObenLinksPunkt.Y, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             //Die 4 Linien werden gezeichnet
             Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);

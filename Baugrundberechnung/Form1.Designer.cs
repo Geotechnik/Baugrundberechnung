@@ -108,7 +108,10 @@
             this.label47 = new System.Windows.Forms.Label();
             this.menueleisteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.haftungsausschlussToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.ZurücksetzenButton = new System.Windows.Forms.Button();
@@ -122,9 +125,6 @@
             this.horizontal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.haftungsausschlussToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -850,9 +850,16 @@
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click_1);
+            // 
+            // haftungsausschlussToolStripMenuItem
+            // 
+            this.haftungsausschlussToolStripMenuItem.Name = "haftungsausschlussToolStripMenuItem";
+            this.haftungsausschlussToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.haftungsausschlussToolStripMenuItem.Text = "Haftungsausschluss";
+            this.haftungsausschlussToolStripMenuItem.Click += new System.EventHandler(this.haftungsausschlussToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -864,6 +871,21 @@
             this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 79;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dateiToolStripMenuItem
+            // 
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programmBeendenToolStripMenuItem});
+            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // programmBeendenToolStripMenuItem
+            // 
+            this.programmBeendenToolStripMenuItem.Name = "programmBeendenToolStripMenuItem";
+            this.programmBeendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.programmBeendenToolStripMenuItem.Text = "Programm beenden";
+            this.programmBeendenToolStripMenuItem.Click += new System.EventHandler(this.programmBeendenToolStripMenuItem_Click);
             // 
             // label49
             // 
@@ -972,6 +994,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.TabIndex = 91;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -981,28 +1004,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(536, 102);
             this.pictureBox2.TabIndex = 92;
             this.pictureBox2.TabStop = false;
-            // 
-            // haftungsausschlussToolStripMenuItem
-            // 
-            this.haftungsausschlussToolStripMenuItem.Name = "haftungsausschlussToolStripMenuItem";
-            this.haftungsausschlussToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.haftungsausschlussToolStripMenuItem.Text = "Haftungsausschluss";
-            this.haftungsausschlussToolStripMenuItem.Click += new System.EventHandler(this.haftungsausschlussToolStripMenuItem_Click);
-            // 
-            // dateiToolStripMenuItem
-            // 
-            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.programmBeendenToolStripMenuItem});
-            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.dateiToolStripMenuItem.Text = "Datei";
-            // 
-            // programmBeendenToolStripMenuItem
-            // 
-            this.programmBeendenToolStripMenuItem.Name = "programmBeendenToolStripMenuItem";
-            this.programmBeendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.programmBeendenToolStripMenuItem.Text = "Programm beenden";
-            this.programmBeendenToolStripMenuItem.Click += new System.EventHandler(this.programmBeendenToolStripMenuItem_Click);
             // 
             // Form1
             // 

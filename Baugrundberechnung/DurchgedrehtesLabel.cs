@@ -11,6 +11,11 @@ namespace Baugrundberechnung
     {
         public int RotateAngle { get; set; }
         public string NewText { get; set; }
+
+        System.Windows.Forms.Form handle;
+
+
+
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
             Brush b = new SolidBrush(this.ForeColor);
@@ -20,6 +25,8 @@ namespace Baugrundberechnung
             base.OnPaint(e);
 
             this.Width = 20;
+            
         }
+
     }
 }

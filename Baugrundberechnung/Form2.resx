@@ -120,23 +120,38 @@
   <metadata name="textBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="label1.Text" xml:space="preserve">
     <value>Anwendungshinweise:
 
 Bemessungsformel 1.0  Datum 18.09.2014
 
-Die vorliegende Excel-Datei ermöglicht die Berechnung der für die Sicherheit gegen hydraulischen Grundbruch erforderlichen Einbindetiefe, basierend auf der hier ebenfalls abgebildeten Formel. Die Formel selbst basiert auf der Ergebnissen zahlreicher numerischer Strömungsberechnungen. Details zu den Ergebnissen dieser Berechnungen und zur Herleitung der Formel können insbesondere der Dissertation "Hydraulischer Grundbruch - Zur erforderlichen Einbindetiefe bei Baugruben in nichtbindigem Bauchgrund" von Aulbach (2013) aus der Schriftenreihe Geotechnik im Bauwesen der RWTH Aachen entnommen werden. Die Formel ersetzt nicht die ingenieurmäßige Bearbeitung der geotechnischen Fragestellung und auch nicht die Überprüfung der resultierenden Einbindetiefe auf Plausibilität.
+Die vorliegende Excel-Datei ermöglicht die Berechnung der für die Sicherheit gegen hydraulischen 
+Grundbruch erforderlichen Einbindetiefe, basierend auf der hier ebenfalls abgebildeten Formel. Die 
+Formel selbst basiert auf der Ergebnissen zahlreicher numerischer Strömungsberechnungen. Details 
+zu den Ergebnissen dieser Berechnungen und zur Herleitung der Formel können insbesondere der 
+Dissertation "Hydraulischer Grundbruch - Zur erforderlichen Einbindetiefe bei Baugruben in 
+nichtbindigem Bauchgrund" von Aulbach (2013) aus der Schriftenreihe Geotechnik im Bauwesen 
+der RWTH Aachen entnommen werden. Die Formel ersetzt nicht die ingenieurmäßige Bearbeitung 
+der geotechnischen Fragestellung und auch nicht die Überprüfung der resultierenden Einbindetiefe 
+auf Plausibilität.
 
-Es erfolgt keine Warnung bei Eingabe von unrealistischen Werten oder nicht durch den Anwendungsbereich abgedeckten Werten.
+Es erfolgt keine Warnung bei Eingabe von unrealistischen Werten oder nicht durch den 
+Anwendungsbereich abgedeckten Werten.
 
-In der hier vorliegenden Form ist die Formel ausschließlich für homogenen, isotropen Baugrund anwendbar. Bei Erweiterung auf andere Baugrundverhältnisse (siehe Aulbach 2013) sind vertiefte Kenntnis und weiterführende Untersuchungen zwingend erforderlich.
+In der hier vorliegenden Form ist die Formel ausschließlich für homogenen, isotropen Baugrund 
+anwendbar. Bei Erweiterung auf andere Baugrundverhältnisse (siehe Aulbach 2013) sind vertiefte 
+Kenntnis und weiterführende Untersuchungen zwingend erforderlich.
 
 
 Haftungsausschluss:
 
-Die in dieser Exceldatei aufgeführte Formel wurde ausführlich getestet (Vergleich mit den Ergebnissen numerischen Strömungsberechnungen). Auch wenn dabei keine Fehler festgestellt worden sind, können wir keine Garantie oder Gewährleistung für die Vollständigkeit und Richtigkeit dieser Formel bzw. dieser Exceldatei übernehmen.
+Die in dieser Exceldatei aufgeführte Formel wurde ausführlich getestet (Vergleich mit den
+Ergebnissen numerischen Strömungsberechnungen). Auch wenn dabei keine Fehler festgestellt
+worden sind, können wir keine Garantie oder Gewährleistung für die Vollständigkeit und Richtigkeit 
+dieser Formel bzw. dieser Exceldatei übernehmen.
 
-Wir haften auch nicht für etwaige sich aus der Anwendung der Formel bzw. der Exceldate resultierende Schäden bzw. Folgeschäden.
+Wir haften auch nicht für etwaige sich aus der Anwendung der Formel bzw. der Exceldate 
+resultierende Schäden bzw. Folgeschäden.
 
 Programmversion: 1.0</value>
   </data>
