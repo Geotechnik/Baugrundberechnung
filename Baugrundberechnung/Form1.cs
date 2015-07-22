@@ -31,20 +31,24 @@ namespace Baugrundberechnung
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
-        public Label ohneBeHinweis = new Label(); 
-        public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
+        public Label ohneBeHinweis = new Label();
         private Form3 Stirn = new Form3();
         private Form3 Eben = new Form3();
         private Form3 Laengs = new Form3();
         private Form3 Ecke = new Form3();
-        public static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
-        private int[] counter_stirn_ecke_eben_laengs = new int[5];
-        private double[] T_stirn_ecke_eben_laengs = new double[4]; 
-        private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
+        private double[] T_stirn_ecke_eben_laengs = new double[4];
+        //public Label L_label = new Label();
+        public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
         public static bool aufAlleUebernehmen = false;
+        private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
+        private int counter = 0;
         public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
-        
-
+        public static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
+        private int counterLängs = 0;
+        private int counterEben = 0;
+        private int counterEcke = 0;
+        private int counterStirn = 0;
+ 
         /// <summary>
         /// Initialisiert alle Componenten
         /// </summary>
@@ -481,35 +485,35 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (offen_stirn_ecke_eben_laengs[0] && counter_stirn_ecke_eben_laengs[1] ==0)
+            if (offen_stirn_ecke_eben_laengs[0] && counterStirn ==0)
             {
-                counter_stirn_ecke_eben_laengs[1]++;
+                counterStirn++;
                 Stirn.Activate();
                 Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
-            if (offen_stirn_ecke_eben_laengs[1] && counter_stirn_ecke_eben_laengs[2] == 0)
+            if (offen_stirn_ecke_eben_laengs[1] && counterEcke == 0)
             {
-                counter_stirn_ecke_eben_laengs[2]++;
+                counterEcke++;
                 Ecke.Activate();
                 Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
-            if (offen_stirn_ecke_eben_laengs[2] && counter_stirn_ecke_eben_laengs[3] == 0)
+            if (offen_stirn_ecke_eben_laengs[2] && counterEben == 0)
             {
-                counter_stirn_ecke_eben_laengs[3]++;
+                counterEben++;
                 Eben.Activate();
                 Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
-            if (offen_stirn_ecke_eben_laengs[3] && counter_stirn_ecke_eben_laengs[4] == 0)
+            if (offen_stirn_ecke_eben_laengs[3] && counterLängs== 0)
             {
-                counter_stirn_ecke_eben_laengs[4]++;
+                counterLängs++;
                 Laengs.Activate();
                 Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
-            if (counter_stirn_ecke_eben_laengs[0] == 0)
+            if(counter == 0)
             { 
                 Berechnen_Click(null, null);
-                counter_stirn_ecke_eben_laengs[0]++;
+                counter++;
                 textBox1_Leave(textBox1, e);
                 textBox2_Leave(textBox2, e);
                 textBox3_Leave(textBox3, e);
