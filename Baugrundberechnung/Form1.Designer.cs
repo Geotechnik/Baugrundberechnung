@@ -86,12 +86,12 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.Berechnen = new System.Windows.Forms.Button();
-            this.laengeScroll = new System.Windows.Forms.HScrollBar();
-            this.breiteScroll = new System.Windows.Forms.HScrollBar();
-            this.aquiferScroll = new System.Windows.Forms.HScrollBar();
-            this.wasserspiegelScroll = new System.Windows.Forms.HScrollBar();
-            this.sicherheitScroll = new System.Windows.Forms.HScrollBar();
-            this.auftriebScroll = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar3 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar4 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar5 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar6 = new System.Windows.Forms.HScrollBar();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.laengeMin = new System.Windows.Forms.Label();
@@ -640,77 +640,77 @@
             this.Berechnen.UseVisualStyleBackColor = true;
             this.Berechnen.Click += new System.EventHandler(this.Berechnen_Click);
             // 
-            // laengeScroll
+            // hScrollBar1
             // 
-            this.laengeScroll.LargeChange = 1;
-            this.laengeScroll.Location = new System.Drawing.Point(422, 317);
-            this.laengeScroll.Maximum = 33300;
-            this.laengeScroll.Minimum = 100;
-            this.laengeScroll.Name = "laengeScroll";
-            this.laengeScroll.Size = new System.Drawing.Size(137, 20);
-            this.laengeScroll.TabIndex = 58;
-            this.laengeScroll.Value = 100;
-            this.laengeScroll.ValueChanged += new System.EventHandler(this.hScrollBar1_ValueChanged);
+            this.hScrollBar1.LargeChange = 1;
+            this.hScrollBar1.Location = new System.Drawing.Point(422, 317);
+            this.hScrollBar1.Maximum = 33300;
+            this.hScrollBar1.Minimum = 100;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar1.TabIndex = 58;
+            this.hScrollBar1.Value = 100;
+            this.hScrollBar1.ValueChanged += new System.EventHandler(this.hScrollBar1_ValueChanged);
             // 
-            // breiteScroll
+            // hScrollBar2
             // 
-            this.breiteScroll.LargeChange = 1;
-            this.breiteScroll.Location = new System.Drawing.Point(422, 348);
-            this.breiteScroll.Maximum = 10000;
-            this.breiteScroll.Minimum = 100;
-            this.breiteScroll.Name = "breiteScroll";
-            this.breiteScroll.Size = new System.Drawing.Size(137, 20);
-            this.breiteScroll.TabIndex = 59;
-            this.breiteScroll.Value = 100;
-            this.breiteScroll.ValueChanged += new System.EventHandler(this.hScrollBar2_ValueChanged);
+            this.hScrollBar2.LargeChange = 1;
+            this.hScrollBar2.Location = new System.Drawing.Point(422, 348);
+            this.hScrollBar2.Maximum = 10000;
+            this.hScrollBar2.Minimum = 100;
+            this.hScrollBar2.Name = "hScrollBar2";
+            this.hScrollBar2.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar2.TabIndex = 59;
+            this.hScrollBar2.Value = 100;
+            this.hScrollBar2.ValueChanged += new System.EventHandler(this.hScrollBar2_ValueChanged);
             // 
-            // aquiferScroll
+            // hScrollBar3
             // 
-            this.aquiferScroll.LargeChange = 1;
-            this.aquiferScroll.Location = new System.Drawing.Point(422, 408);
-            this.aquiferScroll.Maximum = 9000;
-            this.aquiferScroll.Minimum = 400;
-            this.aquiferScroll.Name = "aquiferScroll";
-            this.aquiferScroll.Size = new System.Drawing.Size(137, 20);
-            this.aquiferScroll.TabIndex = 61;
-            this.aquiferScroll.Value = 400;
-            this.aquiferScroll.ValueChanged += new System.EventHandler(this.hScrollBar3_ValueChanged);
+            this.hScrollBar3.LargeChange = 1;
+            this.hScrollBar3.Location = new System.Drawing.Point(422, 408);
+            this.hScrollBar3.Maximum = 9000;
+            this.hScrollBar3.Minimum = 400;
+            this.hScrollBar3.Name = "hScrollBar3";
+            this.hScrollBar3.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar3.TabIndex = 61;
+            this.hScrollBar3.Value = 400;
+            this.hScrollBar3.ValueChanged += new System.EventHandler(this.hScrollBar3_ValueChanged);
             // 
-            // wasserspiegelScroll
+            // hScrollBar4
             // 
-            this.wasserspiegelScroll.LargeChange = 1;
-            this.wasserspiegelScroll.Location = new System.Drawing.Point(422, 377);
-            this.wasserspiegelScroll.Maximum = 3000;
-            this.wasserspiegelScroll.Minimum = 100;
-            this.wasserspiegelScroll.Name = "wasserspiegelScroll";
-            this.wasserspiegelScroll.Size = new System.Drawing.Size(137, 20);
-            this.wasserspiegelScroll.TabIndex = 60;
-            this.wasserspiegelScroll.Value = 100;
-            this.wasserspiegelScroll.ValueChanged += new System.EventHandler(this.hScrollBar4_ValueChanged);
+            this.hScrollBar4.LargeChange = 1;
+            this.hScrollBar4.Location = new System.Drawing.Point(422, 377);
+            this.hScrollBar4.Maximum = 3000;
+            this.hScrollBar4.Minimum = 100;
+            this.hScrollBar4.Name = "hScrollBar4";
+            this.hScrollBar4.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar4.TabIndex = 60;
+            this.hScrollBar4.Value = 100;
+            this.hScrollBar4.ValueChanged += new System.EventHandler(this.hScrollBar4_ValueChanged);
             // 
-            // sicherheitScroll
+            // hScrollBar5
             // 
-            this.sicherheitScroll.LargeChange = 1;
-            this.sicherheitScroll.Location = new System.Drawing.Point(422, 469);
-            this.sicherheitScroll.Maximum = 2000;
-            this.sicherheitScroll.Minimum = 1000;
-            this.sicherheitScroll.Name = "sicherheitScroll";
-            this.sicherheitScroll.Size = new System.Drawing.Size(137, 20);
-            this.sicherheitScroll.TabIndex = 63;
-            this.sicherheitScroll.Value = 1000;
-            this.sicherheitScroll.ValueChanged += new System.EventHandler(this.hScrollBar5_ValueChanged);
+            this.hScrollBar5.LargeChange = 1;
+            this.hScrollBar5.Location = new System.Drawing.Point(422, 469);
+            this.hScrollBar5.Maximum = 2000;
+            this.hScrollBar5.Minimum = 1000;
+            this.hScrollBar5.Name = "hScrollBar5";
+            this.hScrollBar5.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar5.TabIndex = 63;
+            this.hScrollBar5.Value = 1000;
+            this.hScrollBar5.ValueChanged += new System.EventHandler(this.hScrollBar5_ValueChanged);
             // 
-            // auftriebScroll
+            // hScrollBar6
             // 
-            this.auftriebScroll.LargeChange = 1;
-            this.auftriebScroll.Location = new System.Drawing.Point(422, 438);
-            this.auftriebScroll.Maximum = 1300;
-            this.auftriebScroll.Minimum = 800;
-            this.auftriebScroll.Name = "auftriebScroll";
-            this.auftriebScroll.Size = new System.Drawing.Size(137, 20);
-            this.auftriebScroll.TabIndex = 62;
-            this.auftriebScroll.Value = 800;
-            this.auftriebScroll.ValueChanged += new System.EventHandler(this.hScrollBar6_ValueChanged);
+            this.hScrollBar6.LargeChange = 1;
+            this.hScrollBar6.Location = new System.Drawing.Point(422, 438);
+            this.hScrollBar6.Maximum = 1300;
+            this.hScrollBar6.Minimum = 800;
+            this.hScrollBar6.Name = "hScrollBar6";
+            this.hScrollBar6.Size = new System.Drawing.Size(137, 20);
+            this.hScrollBar6.TabIndex = 62;
+            this.hScrollBar6.Value = 800;
+            this.hScrollBar6.ValueChanged += new System.EventHandler(this.hScrollBar6_ValueChanged);
             // 
             // label30
             // 
@@ -1037,12 +1037,12 @@
             this.Controls.Add(this.laengeMin);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.sicherheitScroll);
-            this.Controls.Add(this.auftriebScroll);
-            this.Controls.Add(this.aquiferScroll);
-            this.Controls.Add(this.wasserspiegelScroll);
-            this.Controls.Add(this.breiteScroll);
-            this.Controls.Add(this.laengeScroll);
+            this.Controls.Add(this.hScrollBar5);
+            this.Controls.Add(this.hScrollBar6);
+            this.Controls.Add(this.hScrollBar3);
+            this.Controls.Add(this.hScrollBar4);
+            this.Controls.Add(this.hScrollBar2);
+            this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.Berechnen);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -1177,12 +1177,12 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button Berechnen;
-        private System.Windows.Forms.HScrollBar laengeScroll;
-        private System.Windows.Forms.HScrollBar breiteScroll;
-        private System.Windows.Forms.HScrollBar aquiferScroll;
-        private System.Windows.Forms.HScrollBar wasserspiegelScroll;
-        private System.Windows.Forms.HScrollBar sicherheitScroll;
-        private System.Windows.Forms.HScrollBar auftriebScroll;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.HScrollBar hScrollBar2;
+        private System.Windows.Forms.HScrollBar hScrollBar3;
+        private System.Windows.Forms.HScrollBar hScrollBar4;
+        private System.Windows.Forms.HScrollBar hScrollBar5;
+        private System.Windows.Forms.HScrollBar hScrollBar6;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label laengeMin;
