@@ -7,15 +7,13 @@ using System.Drawing;
 
 namespace Baugrundberechnung
 {
+    /// <summary>
+    /// dreht das Label um 90 °
+    /// </summary>
     public class DurchgedrehtesLabel : System.Windows.Forms.Label
     {
         public int RotateAngle { get; set; }
         public string NewText { get; set; }
-
-        System.Windows.Forms.Form handle;
-
-
-
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
             Brush b = new SolidBrush(this.ForeColor);
