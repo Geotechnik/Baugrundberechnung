@@ -43,8 +43,6 @@ namespace Baugrundberechnung
         private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
         public static bool aufAlleUebernehmen = false;
         public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
-        
-
         /// <summary>
         /// Initialisiert alle Componenten
         /// </summary>
@@ -57,7 +55,6 @@ namespace Baugrundberechnung
             this.T_eben.Click += new System.EventHandler(this.T_ebenClick);
             this.T_laengs.Click += new System.EventHandler(this.T_laengsClick);
         }
-
         /// <summary>
         /// Berechnet alle 8 möglichen Werte und ruft dann Grafik auf. Überprüft ob die Eingabe gültig ist.
         /// </summary>
@@ -149,13 +146,13 @@ namespace Baugrundberechnung
                         System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss kleiner oder gleich Länge der Baugrube (L) sein. B wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (L % 1 == 0)
                         {
-                            textBox2.Text = L + ",00";
-                            textBox2_Leave(textBox2, e);
+                            BreiteBaugrube.Text = L + ",00";
+                            textBox2_Leave(BreiteBaugrube, e);
                         }
                         else
                         {
-                            textBox2.Text = L + "";
-                            textBox2_Leave(textBox2, e);
+                            BreiteBaugrube.Text = L + "";
+                            textBox2_Leave(BreiteBaugrube, e);
                         }
                     }
                     else if(S<H)
@@ -163,13 +160,13 @@ namespace Baugrundberechnung
                         System.Windows.Forms.MessageBox.Show("Aquivermächtigkeit (S) muss größer oder gleich der Wasserspiegeldifferenz (H) sein. H wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (S % 1 == 0)
                         {
-                            textBox3.Text = S + ",00";
-                            textBox3_Leave(textBox3, e);
+                            Wasserspiegeldifferenz.Text = S + ",00";
+                            textBox3_Leave(Wasserspiegeldifferenz, e);
                         }
                         else
                         {
-                            textBox3.Text = S + "";
-                            textBox3_Leave(textBox3, e);
+                            Wasserspiegeldifferenz.Text = S + "";
+                            textBox3_Leave(Wasserspiegeldifferenz, e);
                         }
                     }
                     else if(B/L<0.3)
@@ -177,22 +174,22 @@ namespace Baugrundberechnung
                         System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss größer oder gleich 0,3 * Länge der Baugrube(L) sein. L wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (B*3 % 1 == 0)
                         {
-                            textBox1.Text = (B*3) + ",00";
-                            textBox1_Leave(textBox1, e);
+                            LängeBaugrube.Text = (B*3) + ",00";
+                            textBox1_Leave(LängeBaugrube, e);
                         }
                         else
                         {
-                            textBox1.Text = (B*3) + "";
-                            textBox1_Leave(textBox1, e);
+                            LängeBaugrube.Text = (B*3) + "";
+                            textBox1_Leave(LängeBaugrube, e);
                         }
                     }
                 }
-                textBox1.BackColor = Color.White;
-                textBox2.BackColor = Color.White;
-                textBox3.BackColor = Color.White;
-                textBox4.BackColor = Color.White;
-                textBox5.BackColor = Color.White;
-                textBox6.BackColor = Color.White;
+                LängeBaugrube.BackColor = Color.White;
+                BreiteBaugrube.BackColor = Color.White;
+                Wasserspiegeldifferenz.BackColor = Color.White;
+                GlobaleSicherheit.BackColor = Color.White;
+                WichteAuftrieb.BackColor = Color.White;
+                Aquivermächtigkeit.BackColor = Color.White;
             }
             else
             {
@@ -311,21 +308,21 @@ namespace Baugrundberechnung
         /// </summary>
         private void variablenSetzen()
         {
-            L = Convertieren.convertToDouble(textBox1.Text);
-            B = Convertieren.convertToDouble(textBox2.Text);
-            H = Convertieren.convertToDouble(textBox3.Text);
-            S = Convertieren.convertToDouble(textBox6.Text);
-            Y = Convertieren.convertToDouble(textBox5.Text);
-            n = Convertieren.convertToDouble(textBox4.Text);
-            A_eb = Convertieren.convertToDouble(A_eben.Text);
-            U_eb = Convertieren.convertToDouble(U_eben.Text);
-            A_L = Convertieren.convertToDouble(A_Längs.Text);
-            U_L = Convertieren.convertToDouble(U_Längs.Text);
-            A_S = Convertieren.convertToDouble(A_Stirn.Text);
-            U_S = Convertieren.convertToDouble(U_Stirn.Text);
-            A_Ec = Convertieren.convertToDouble(A_Ecke.Text);
-            U_Ec = Convertieren.convertToDouble(U_Ecke.Text);
-            Bei = Convertieren.convertToDouble(Be.Text);
+            L = Convertieren.convertToDouble(LängeBaugrube.Text);
+            B = Convertieren.convertToDouble(BreiteBaugrube.Text);
+            H = Convertieren.convertToDouble(Wasserspiegeldifferenz.Text);
+            S = Convertieren.convertToDouble(Aquivermächtigkeit.Text);
+            Y = Convertieren.convertToDouble(WichteAuftrieb.Text);
+            n = Convertieren.convertToDouble(GlobaleSicherheit.Text);
+            A_eb = Convertieren.convertToDouble(Anströmung_eben.Text);
+            U_eb = Convertieren.convertToDouble(Umfeld_eben.Text);
+            A_L = Convertieren.convertToDouble(Anströmung_Längs.Text);
+            U_L = Convertieren.convertToDouble(Umfeld_Längs.Text);
+            A_S = Convertieren.convertToDouble(Anströmung_Stirn.Text);
+            U_S = Convertieren.convertToDouble(Umfeld_Stirn.Text);
+            A_Ec = Convertieren.convertToDouble(Anströmung_Ecke.Text);
+            U_Ec = Convertieren.convertToDouble(Umfeld_Ecke.Text);
+            Bei = Convertieren.convertToDouble(Bemessungsbeiwert.Text);
         }
 
         /// <summary>
@@ -334,12 +331,12 @@ namespace Baugrundberechnung
         /// <returns></returns>
         private bool gueltigeNummern()
         {
-            bool laengevalid = Validierung.isValidNumber(textBox1.Text, "L");
-            bool baugrubevalid = Validierung.isValidNumber(textBox2.Text, "B");
-            bool wasserspiegelvalid = Validierung.isValidNumber(textBox3.Text, "H");
-            bool sicherheitvalid = Validierung.isValidNumber(textBox4.Text, "n");
-            bool auftriebvalid = Validierung.isValidNumber(textBox5.Text, "γ");
-            bool aquifervalid = Validierung.isValidNumber(textBox6.Text, "S");
+            bool laengevalid = Validierung.isValidNumber(LängeBaugrube.Text, "L");
+            bool baugrubevalid = Validierung.isValidNumber(BreiteBaugrube.Text, "B");
+            bool wasserspiegelvalid = Validierung.isValidNumber(Wasserspiegeldifferenz.Text, "H");
+            bool sicherheitvalid = Validierung.isValidNumber(GlobaleSicherheit.Text, "n");
+            bool auftriebvalid = Validierung.isValidNumber(WichteAuftrieb.Text, "γ");
+            bool aquifervalid = Validierung.isValidNumber(Aquivermächtigkeit.Text, "S");
             return (laengevalid && baugrubevalid && wasserspiegelvalid && sicherheitvalid && auftriebvalid && aquifervalid);
         }
 
@@ -352,27 +349,27 @@ namespace Baugrundberechnung
         {
             if (active.Name == "textBox1")
             {
-               return Validierung.isValidNumber(textBox1.Text, "L");
+               return Validierung.isValidNumber(LängeBaugrube.Text, "L");
             }
             else if (active.Name == "textBox2")
             {
-                return Validierung.isValidNumber(textBox2.Text, "B");
+                return Validierung.isValidNumber(BreiteBaugrube.Text, "B");
             }
             else if (active.Name == "textBox3")
             {
-                return Validierung.isValidNumber(textBox3.Text, "H");
+                return Validierung.isValidNumber(Wasserspiegeldifferenz.Text, "H");
             }
             else if (active.Name == "textBox4")
             {
-                return Validierung.isValidNumber(textBox4.Text, "n");
+                return Validierung.isValidNumber(GlobaleSicherheit.Text, "n");
             }
             else if (active.Name == "textBox5")
             {
-                return Validierung.isValidNumber(textBox5.Text, "γ");
+                return Validierung.isValidNumber(WichteAuftrieb.Text, "γ");
             }
             else if (active.Name == "textBox6")
             {
-                return Validierung.isValidNumber(textBox6.Text, "S");
+                return Validierung.isValidNumber(Aquivermächtigkeit.Text, "S");
             }
             return false;
         }
@@ -383,7 +380,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
-            scallierungDerWerte(sender, e, textBox1);
+            scallierungDerWerte(sender, e, LängeBaugrube);
         }
         /// <summary>
         /// koppelt hScrollBar2 mit textBox2 wenn der Wert der Scrollbar verändert wurde.
@@ -391,7 +388,7 @@ namespace Baugrundberechnung
         
         private void hScrollBar2_ValueChanged(object sender, EventArgs e)
         {
-            scallierungDerWerte(sender, e, textBox2);
+            scallierungDerWerte(sender, e, BreiteBaugrube);
         }
 
         /// <summary>
@@ -399,7 +396,7 @@ namespace Baugrundberechnung
         /// </summary>
         private void hScrollBar4_ValueChanged(object sender, EventArgs e)
         {
-            scallierungDerWerte(sender, e, textBox3);
+            scallierungDerWerte(sender, e, Wasserspiegeldifferenz);
         }
 
         /// <summary>
@@ -407,7 +404,7 @@ namespace Baugrundberechnung
         /// </summary>
         private void hScrollBar3_ValueChanged(object sender, EventArgs e)
         {
-            scallierungDerWerte(sender, e, textBox6);
+            scallierungDerWerte(sender, e, Aquivermächtigkeit);
         }
 
         /// <summary>
@@ -415,7 +412,7 @@ namespace Baugrundberechnung
         /// </summary>
         private void hScrollBar6_ValueChanged(object sender, EventArgs e)
         {
-            scallierungDerWerte(sender, e, textBox5);
+            scallierungDerWerte(sender, e, WichteAuftrieb);
         }
 
         /// <summary>
@@ -445,11 +442,11 @@ namespace Baugrundberechnung
             // Überprüft ob die Zahl eine Nachkommastelle hat
             if ((hScrollBar5.Value / 1000.0) % 1 == 0)
             {
-                textBox4.Text = (hScrollBar5.Value / 1000.0) + ",000";
+                GlobaleSicherheit.Text = (hScrollBar5.Value / 1000.0) + ",000";
             }
             else
             {
-                textBox4.Text = (hScrollBar5.Value / 1000.0) + "";
+                GlobaleSicherheit.Text = (hScrollBar5.Value / 1000.0) + "";
             }
 
             Berechnen_Click(sender, e);
@@ -510,12 +507,12 @@ namespace Baugrundberechnung
             { 
                 Berechnen_Click(null, null);
                 counter_stirn_ecke_eben_laengs[0]++;
-                textBox1_Leave(textBox1, e);
-                textBox2_Leave(textBox2, e);
-                textBox3_Leave(textBox3, e);
-                textBox4_Leave(textBox4, e);
-                textBox5_Leave(textBox5, e);
-                textBox6_Leave(textBox6, e);
+                textBox1_Leave(LängeBaugrube, e);
+                textBox2_Leave(BreiteBaugrube, e);
+                textBox3_Leave(Wasserspiegeldifferenz, e);
+                textBox4_Leave(GlobaleSicherheit, e);
+                textBox5_Leave(WichteAuftrieb, e);
+                textBox6_Leave(Aquivermächtigkeit, e);
             }
         }
 
@@ -527,18 +524,18 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void ZurücksetzenButton_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "30,00";
-            textBox2.Text = "15,00";
-            textBox3.Text = "10,00";
-            textBox6.Text = "30,00";
-            textBox5.Text = "11,00";
-            textBox4.Text = "1,368";
-            textBox1_Leave(textBox1, e);
-            textBox2_Leave(textBox2, e);
-            textBox3_Leave(textBox3, e);
-            textBox4_Leave(textBox4, e);
-            textBox5_Leave(textBox5, e);
-            textBox6_Leave(textBox6, e);
+            LängeBaugrube.Text = "30,00";
+            BreiteBaugrube.Text = "15,00";
+            Wasserspiegeldifferenz.Text = "10,00";
+            Aquivermächtigkeit.Text = "30,00";
+            WichteAuftrieb.Text = "11,00";
+            GlobaleSicherheit.Text = "1,368";
+            textBox1_Leave(LängeBaugrube, e);
+            textBox2_Leave(BreiteBaugrube, e);
+            textBox3_Leave(Wasserspiegeldifferenz, e);
+            textBox4_Leave(GlobaleSicherheit, e);
+            textBox5_Leave(WichteAuftrieb, e);
+            textBox6_Leave(Aquivermächtigkeit, e);
             Berechnen_Click(sender, e);
             aufAlleUebernehmen = false;
         }

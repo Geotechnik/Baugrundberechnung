@@ -29,43 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Be = new System.Windows.Forms.Label();
-            this.A_eben = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.U_eben = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.U_Längs = new System.Windows.Forms.Label();
-            this.A_Längs = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.U_Stirn = new System.Windows.Forms.Label();
-            this.A_Stirn = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.U_Ecke = new System.Windows.Forms.Label();
-            this.A_Ecke = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
+            this.label_laenge = new System.Windows.Forms.Label();
+            this.LängeBaugrube = new System.Windows.Forms.TextBox();
+            this.BreiteBaugrube = new System.Windows.Forms.TextBox();
+            this.label_Breite = new System.Windows.Forms.Label();
+            this.Wasserspiegeldifferenz = new System.Windows.Forms.TextBox();
+            this.label_Wasserspiegel = new System.Windows.Forms.Label();
+            this.GlobaleSicherheit = new System.Windows.Forms.TextBox();
+            this.label_Sicherheit = new System.Windows.Forms.Label();
+            this.WichteAuftrieb = new System.Windows.Forms.TextBox();
+            this.label_WichteAuftrieb = new System.Windows.Forms.Label();
+            this.Aquivermächtigkeit = new System.Windows.Forms.TextBox();
+            this.label_Aquifermächtigkeit = new System.Windows.Forms.Label();
+            this.Label_GegebeneWerte = new System.Windows.Forms.Label();
+            this.LabelBemessungsbeiwert = new System.Windows.Forms.Label();
+            this.Bemessungsbeiwert = new System.Windows.Forms.Label();
+            this.Anströmung_eben = new System.Windows.Forms.Label();
+            this.Anströmung = new System.Windows.Forms.Label();
+            this.Umfeld_eben = new System.Windows.Forms.Label();
+            this.EinflussUmfeld = new System.Windows.Forms.Label();
+            this.label_eben = new System.Windows.Forms.Label();
+            this.label_laengs = new System.Windows.Forms.Label();
+            this.Umfeld_Längs = new System.Windows.Forms.Label();
+            this.Anströmung_Längs = new System.Windows.Forms.Label();
+            this.label_stirn = new System.Windows.Forms.Label();
+            this.Umfeld_Stirn = new System.Windows.Forms.Label();
+            this.Anströmung_Stirn = new System.Windows.Forms.Label();
+            this.label_Ecke = new System.Windows.Forms.Label();
+            this.Umfeld_Ecke = new System.Windows.Forms.Label();
+            this.Anströmung_Ecke = new System.Windows.Forms.Label();
+            this.label_Benutzereingabe = new System.Windows.Forms.Label();
+            this.label_Ausgabe = new System.Windows.Forms.Label();
+            this.label_ecke2 = new System.Windows.Forms.Label();
+            this.label_Stirn2 = new System.Windows.Forms.Label();
+            this.label_laengs2 = new System.Windows.Forms.Label();
+            this.label_eben2 = new System.Windows.Forms.Label();
+            this.label_tmitbe = new System.Windows.Forms.Label();
+            this.label_tohneBe = new System.Windows.Forms.Label();
             this.Ergebnis_eben_ohne_Be_Label = new System.Windows.Forms.Label();
             this.Ergebnis_eben_mi_Be_Label = new System.Windows.Forms.Label();
             this.Ergebnis_Längs_ohne_Be_Label = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             this.Ergebnis_Stirn_mit_Be_Label = new System.Windows.Forms.Label();
             this.Ergebnis_Ecke_ohne_Be_Label = new System.Windows.Forms.Label();
             this.Ergebnis_Ecke_mit_Be_Label = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.minus = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -94,378 +94,378 @@
             this.hScrollBar6 = new System.Windows.Forms.HScrollBar();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
+            this.laengeMin = new System.Windows.Forms.Label();
+            this.breiteMin = new System.Windows.Forms.Label();
+            this.AquifermächtigkeitMin = new System.Windows.Forms.Label();
+            this.WasserspiegelMin = new System.Windows.Forms.Label();
+            this.SicherheitMin = new System.Windows.Forms.Label();
+            this.WichteMin = new System.Windows.Forms.Label();
+            this.SicherheitMax = new System.Windows.Forms.Label();
+            this.wichteMax = new System.Windows.Forms.Label();
+            this.AquifermächtigkeitMax = new System.Windows.Forms.Label();
+            this.wasserspiegelMax = new System.Windows.Forms.Label();
+            this.breiteMax = new System.Windows.Forms.Label();
+            this.laengeMax = new System.Windows.Forms.Label();
             this.menueleisteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.haftungsausschlussToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoMenue = new System.Windows.Forms.ToolStripMenuItem();
+            this.haftungsausschlussMenue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programmBeendenDatei = new System.Windows.Forms.ToolStripMenuItem();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.ZurücksetzenButton = new System.Windows.Forms.Button();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
+            this.laengeGleich = new System.Windows.Forms.Label();
+            this.breitegleich = new System.Windows.Forms.Label();
+            this.wasserspiegeldifferenzgleich = new System.Windows.Forms.Label();
+            this.Aquivermächtigkeitgeich = new System.Windows.Forms.Label();
+            this.wichtegleich = new System.Windows.Forms.Label();
+            this.Sicherheitgleich = new System.Windows.Forms.Label();
             this.berechnungOhneBe = new System.Windows.Forms.CheckBox();
             this.horizontal = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.LogoZai = new System.Windows.Forms.PictureBox();
+            this.Dahmen = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoZai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dahmen)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 320);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Länge der Baugrube";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(209, 317);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "30,00";
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(209, 348);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "15,00";
-            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 351);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Breite der Baugrube";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(209, 377);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "10,00";
-            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 380);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Wasserspiegeldifferzenz";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(209, 467);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 11;
-            this.textBox4.Text = "1,368";
-            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 470);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Geforderte globale Sicherheit ";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(209, 438);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
-            this.textBox5.Text = "11,00";
-            this.textBox5.Leave += new System.EventHandler(this.textBox5_Leave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 441);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Wichte unter Auftrieb ";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(209, 407);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 7;
-            this.textBox6.Text = "30,00";
-            this.textBox6.Leave += new System.EventHandler(this.textBox6_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 410);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Aquifermächtigkeit ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Gegebene Werte:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 173);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Bemessungsbeiwert Be=";
-            // 
-            // Be
-            // 
-            this.Be.AutoSize = true;
-            this.Be.Location = new System.Drawing.Point(233, 173);
-            this.Be.Name = "Be";
-            this.Be.Size = new System.Drawing.Size(34, 13);
-            this.Be.TabIndex = 15;
-            this.Be.Text = "1,065";
-            // 
-            // A_eben
-            // 
-            this.A_eben.AutoSize = true;
-            this.A_eben.Location = new System.Drawing.Point(233, 218);
-            this.A_eben.Name = "A_eben";
-            this.A_eben.Size = new System.Drawing.Size(28, 13);
-            this.A_eben.TabIndex = 17;
-            this.A_eben.Text = "1,00";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 218);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(192, 13);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Faktor für die räumliche Anströmung A=";
-            // 
-            // U_eben
-            // 
-            this.U_eben.AutoSize = true;
-            this.U_eben.Location = new System.Drawing.Point(233, 240);
-            this.U_eben.Name = "U_eben";
-            this.U_eben.Size = new System.Drawing.Size(28, 13);
-            this.U_eben.TabIndex = 19;
-            this.U_eben.Text = "1,00";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 240);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(196, 13);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Faktor für den Einfluss des Umfeldes U=";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(233, 196);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "eben";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(280, 196);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 13);
-            this.label15.TabIndex = 23;
-            this.label15.Text = "Längsseite";
-            // 
-            // U_Längs
-            // 
-            this.U_Längs.AutoSize = true;
-            this.U_Längs.Location = new System.Drawing.Point(280, 240);
-            this.U_Längs.Name = "U_Längs";
-            this.U_Längs.Size = new System.Drawing.Size(28, 13);
-            this.U_Längs.TabIndex = 22;
-            this.U_Längs.Text = "1,32";
-            // 
-            // A_Längs
-            // 
-            this.A_Längs.AutoSize = true;
-            this.A_Längs.Location = new System.Drawing.Point(280, 218);
-            this.A_Längs.Name = "A_Längs";
-            this.A_Längs.Size = new System.Drawing.Size(28, 13);
-            this.A_Längs.TabIndex = 21;
-            this.A_Längs.Text = "1,00";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(344, 196);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 13);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Stirnseite";
-            // 
-            // U_Stirn
-            // 
-            this.U_Stirn.AutoSize = true;
-            this.U_Stirn.Location = new System.Drawing.Point(344, 240);
-            this.U_Stirn.Name = "U_Stirn";
-            this.U_Stirn.Size = new System.Drawing.Size(28, 13);
-            this.U_Stirn.TabIndex = 25;
-            this.U_Stirn.Text = "1,99";
-            // 
-            // A_Stirn
-            // 
-            this.A_Stirn.AutoSize = true;
-            this.A_Stirn.Location = new System.Drawing.Point(344, 218);
-            this.A_Stirn.Name = "A_Stirn";
-            this.A_Stirn.Size = new System.Drawing.Size(28, 13);
-            this.A_Stirn.TabIndex = 24;
-            this.A_Stirn.Text = "1,04";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(400, 196);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 13);
-            this.label21.TabIndex = 29;
-            this.label21.Text = "Ecke";
-            // 
-            // U_Ecke
-            // 
-            this.U_Ecke.AutoSize = true;
-            this.U_Ecke.Location = new System.Drawing.Point(400, 240);
-            this.U_Ecke.Name = "U_Ecke";
-            this.U_Ecke.Size = new System.Drawing.Size(28, 13);
-            this.U_Ecke.TabIndex = 28;
-            this.U_Ecke.Text = "1,69";
-            // 
-            // A_Ecke
-            // 
-            this.A_Ecke.AutoSize = true;
-            this.A_Ecke.Location = new System.Drawing.Point(400, 218);
-            this.A_Ecke.Name = "A_Ecke";
-            this.A_Ecke.Size = new System.Drawing.Size(28, 13);
-            this.A_Ecke.TabIndex = 27;
-            this.A_Ecke.Text = "2,08";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(10, 271);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(136, 17);
-            this.label24.TabIndex = 30;
-            this.label24.Text = "Benutzereingabe:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(13, 524);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(76, 17);
-            this.label25.TabIndex = 31;
-            this.label25.Text = "Ausgabe:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(397, 541);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(32, 13);
-            this.label26.TabIndex = 45;
-            this.label26.Text = "Ecke";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(341, 541);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(50, 13);
-            this.label29.TabIndex = 42;
-            this.label29.Text = "Stirnseite";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(277, 541);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(58, 13);
-            this.label32.TabIndex = 39;
-            this.label32.Text = "Längsseite";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(230, 541);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(31, 13);
-            this.label35.TabIndex = 36;
-            this.label35.Text = "eben";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(10, 585);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(184, 13);
-            this.label37.TabIndex = 34;
-            this.label37.Text = "Erforderliche Einbindetiefe mit Be Td=";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(10, 563);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(189, 13);
-            this.label39.TabIndex = 32;
-            this.label39.Text = "Erforderliche Einbindetiefe ohne Be T=";
+            // label_laenge
+            // 
+            this.label_laenge.AutoSize = true;
+            this.label_laenge.Location = new System.Drawing.Point(10, 320);
+            this.label_laenge.Name = "label_laenge";
+            this.label_laenge.Size = new System.Drawing.Size(104, 13);
+            this.label_laenge.TabIndex = 0;
+            this.label_laenge.Text = "Länge der Baugrube";
+            // 
+            // LängeBaugrube
+            // 
+            this.LängeBaugrube.Location = new System.Drawing.Point(209, 317);
+            this.LängeBaugrube.Name = "LängeBaugrube";
+            this.LängeBaugrube.Size = new System.Drawing.Size(100, 20);
+            this.LängeBaugrube.TabIndex = 1;
+            this.LängeBaugrube.Text = "30,00";
+            this.LängeBaugrube.Leave += new System.EventHandler(this.textBox1_Leave);
+            // 
+            // BreiteBaugrube
+            // 
+            this.BreiteBaugrube.Location = new System.Drawing.Point(209, 348);
+            this.BreiteBaugrube.Name = "BreiteBaugrube";
+            this.BreiteBaugrube.Size = new System.Drawing.Size(100, 20);
+            this.BreiteBaugrube.TabIndex = 3;
+            this.BreiteBaugrube.Text = "15,00";
+            this.BreiteBaugrube.Leave += new System.EventHandler(this.textBox2_Leave);
+            // 
+            // label_Breite
+            // 
+            this.label_Breite.AutoSize = true;
+            this.label_Breite.Location = new System.Drawing.Point(10, 351);
+            this.label_Breite.Name = "label_Breite";
+            this.label_Breite.Size = new System.Drawing.Size(101, 13);
+            this.label_Breite.TabIndex = 2;
+            this.label_Breite.Text = "Breite der Baugrube";
+            // 
+            // Wasserspiegeldifferenz
+            // 
+            this.Wasserspiegeldifferenz.Location = new System.Drawing.Point(209, 377);
+            this.Wasserspiegeldifferenz.Name = "Wasserspiegeldifferenz";
+            this.Wasserspiegeldifferenz.Size = new System.Drawing.Size(100, 20);
+            this.Wasserspiegeldifferenz.TabIndex = 5;
+            this.Wasserspiegeldifferenz.Text = "10,00";
+            this.Wasserspiegeldifferenz.Leave += new System.EventHandler(this.textBox3_Leave);
+            // 
+            // label_Wasserspiegel
+            // 
+            this.label_Wasserspiegel.AutoSize = true;
+            this.label_Wasserspiegel.Location = new System.Drawing.Point(10, 380);
+            this.label_Wasserspiegel.Name = "label_Wasserspiegel";
+            this.label_Wasserspiegel.Size = new System.Drawing.Size(121, 13);
+            this.label_Wasserspiegel.TabIndex = 4;
+            this.label_Wasserspiegel.Text = "Wasserspiegeldifferzenz";
+            // 
+            // GlobaleSicherheit
+            // 
+            this.GlobaleSicherheit.Location = new System.Drawing.Point(209, 467);
+            this.GlobaleSicherheit.Name = "GlobaleSicherheit";
+            this.GlobaleSicherheit.Size = new System.Drawing.Size(100, 20);
+            this.GlobaleSicherheit.TabIndex = 11;
+            this.GlobaleSicherheit.Text = "1,368";
+            this.GlobaleSicherheit.Leave += new System.EventHandler(this.textBox4_Leave);
+            // 
+            // label_Sicherheit
+            // 
+            this.label_Sicherheit.AutoSize = true;
+            this.label_Sicherheit.Location = new System.Drawing.Point(10, 470);
+            this.label_Sicherheit.Name = "label_Sicherheit";
+            this.label_Sicherheit.Size = new System.Drawing.Size(147, 13);
+            this.label_Sicherheit.TabIndex = 10;
+            this.label_Sicherheit.Text = "Geforderte globale Sicherheit ";
+            // 
+            // WichteAuftrieb
+            // 
+            this.WichteAuftrieb.Location = new System.Drawing.Point(209, 438);
+            this.WichteAuftrieb.Name = "WichteAuftrieb";
+            this.WichteAuftrieb.Size = new System.Drawing.Size(100, 20);
+            this.WichteAuftrieb.TabIndex = 9;
+            this.WichteAuftrieb.Text = "11,00";
+            this.WichteAuftrieb.Leave += new System.EventHandler(this.textBox5_Leave);
+            // 
+            // label_WichteAuftrieb
+            // 
+            this.label_WichteAuftrieb.AutoSize = true;
+            this.label_WichteAuftrieb.Location = new System.Drawing.Point(10, 441);
+            this.label_WichteAuftrieb.Name = "label_WichteAuftrieb";
+            this.label_WichteAuftrieb.Size = new System.Drawing.Size(110, 13);
+            this.label_WichteAuftrieb.TabIndex = 8;
+            this.label_WichteAuftrieb.Text = "Wichte unter Auftrieb ";
+            // 
+            // Aquivermächtigkeit
+            // 
+            this.Aquivermächtigkeit.Location = new System.Drawing.Point(209, 407);
+            this.Aquivermächtigkeit.Name = "Aquivermächtigkeit";
+            this.Aquivermächtigkeit.Size = new System.Drawing.Size(100, 20);
+            this.Aquivermächtigkeit.TabIndex = 7;
+            this.Aquivermächtigkeit.Text = "30,00";
+            this.Aquivermächtigkeit.Leave += new System.EventHandler(this.textBox6_Leave);
+            // 
+            // label_Aquifermächtigkeit
+            // 
+            this.label_Aquifermächtigkeit.AutoSize = true;
+            this.label_Aquifermächtigkeit.Location = new System.Drawing.Point(10, 410);
+            this.label_Aquifermächtigkeit.Name = "label_Aquifermächtigkeit";
+            this.label_Aquifermächtigkeit.Size = new System.Drawing.Size(97, 13);
+            this.label_Aquifermächtigkeit.TabIndex = 6;
+            this.label_Aquifermächtigkeit.Text = "Aquifermächtigkeit ";
+            // 
+            // Label_GegebeneWerte
+            // 
+            this.Label_GegebeneWerte.AutoSize = true;
+            this.Label_GegebeneWerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_GegebeneWerte.Location = new System.Drawing.Point(13, 147);
+            this.Label_GegebeneWerte.Name = "Label_GegebeneWerte";
+            this.Label_GegebeneWerte.Size = new System.Drawing.Size(136, 17);
+            this.Label_GegebeneWerte.TabIndex = 12;
+            this.Label_GegebeneWerte.Text = "Gegebene Werte:";
+            // 
+            // LabelBemessungsbeiwert
+            // 
+            this.LabelBemessungsbeiwert.AutoSize = true;
+            this.LabelBemessungsbeiwert.Location = new System.Drawing.Point(13, 173);
+            this.LabelBemessungsbeiwert.Name = "LabelBemessungsbeiwert";
+            this.LabelBemessungsbeiwert.Size = new System.Drawing.Size(123, 13);
+            this.LabelBemessungsbeiwert.TabIndex = 13;
+            this.LabelBemessungsbeiwert.Text = "Bemessungsbeiwert Be=";
+            // 
+            // Bemessungsbeiwert
+            // 
+            this.Bemessungsbeiwert.AutoSize = true;
+            this.Bemessungsbeiwert.Location = new System.Drawing.Point(233, 173);
+            this.Bemessungsbeiwert.Name = "Bemessungsbeiwert";
+            this.Bemessungsbeiwert.Size = new System.Drawing.Size(34, 13);
+            this.Bemessungsbeiwert.TabIndex = 15;
+            this.Bemessungsbeiwert.Text = "1,065";
+            // 
+            // Anströmung_eben
+            // 
+            this.Anströmung_eben.AutoSize = true;
+            this.Anströmung_eben.Location = new System.Drawing.Point(233, 218);
+            this.Anströmung_eben.Name = "Anströmung_eben";
+            this.Anströmung_eben.Size = new System.Drawing.Size(28, 13);
+            this.Anströmung_eben.TabIndex = 17;
+            this.Anströmung_eben.Text = "1,00";
+            // 
+            // Anströmung
+            // 
+            this.Anströmung.AutoSize = true;
+            this.Anströmung.Location = new System.Drawing.Point(13, 218);
+            this.Anströmung.Name = "Anströmung";
+            this.Anströmung.Size = new System.Drawing.Size(192, 13);
+            this.Anströmung.TabIndex = 16;
+            this.Anströmung.Text = "Faktor für die räumliche Anströmung A=";
+            // 
+            // Umfeld_eben
+            // 
+            this.Umfeld_eben.AutoSize = true;
+            this.Umfeld_eben.Location = new System.Drawing.Point(233, 240);
+            this.Umfeld_eben.Name = "Umfeld_eben";
+            this.Umfeld_eben.Size = new System.Drawing.Size(28, 13);
+            this.Umfeld_eben.TabIndex = 19;
+            this.Umfeld_eben.Text = "1,00";
+            // 
+            // EinflussUmfeld
+            // 
+            this.EinflussUmfeld.AutoSize = true;
+            this.EinflussUmfeld.Location = new System.Drawing.Point(13, 240);
+            this.EinflussUmfeld.Name = "EinflussUmfeld";
+            this.EinflussUmfeld.Size = new System.Drawing.Size(196, 13);
+            this.EinflussUmfeld.TabIndex = 18;
+            this.EinflussUmfeld.Text = "Faktor für den Einfluss des Umfeldes U=";
+            this.EinflussUmfeld.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // label_eben
+            // 
+            this.label_eben.AutoSize = true;
+            this.label_eben.Location = new System.Drawing.Point(233, 196);
+            this.label_eben.Name = "label_eben";
+            this.label_eben.Size = new System.Drawing.Size(31, 13);
+            this.label_eben.TabIndex = 20;
+            this.label_eben.Text = "eben";
+            // 
+            // label_laengs
+            // 
+            this.label_laengs.AutoSize = true;
+            this.label_laengs.Location = new System.Drawing.Point(280, 196);
+            this.label_laengs.Name = "label_laengs";
+            this.label_laengs.Size = new System.Drawing.Size(58, 13);
+            this.label_laengs.TabIndex = 23;
+            this.label_laengs.Text = "Längsseite";
+            // 
+            // Umfeld_Längs
+            // 
+            this.Umfeld_Längs.AutoSize = true;
+            this.Umfeld_Längs.Location = new System.Drawing.Point(280, 240);
+            this.Umfeld_Längs.Name = "Umfeld_Längs";
+            this.Umfeld_Längs.Size = new System.Drawing.Size(28, 13);
+            this.Umfeld_Längs.TabIndex = 22;
+            this.Umfeld_Längs.Text = "1,32";
+            // 
+            // Anströmung_Längs
+            // 
+            this.Anströmung_Längs.AutoSize = true;
+            this.Anströmung_Längs.Location = new System.Drawing.Point(280, 218);
+            this.Anströmung_Längs.Name = "Anströmung_Längs";
+            this.Anströmung_Längs.Size = new System.Drawing.Size(28, 13);
+            this.Anströmung_Längs.TabIndex = 21;
+            this.Anströmung_Längs.Text = "1,00";
+            // 
+            // label_stirn
+            // 
+            this.label_stirn.AutoSize = true;
+            this.label_stirn.Location = new System.Drawing.Point(344, 196);
+            this.label_stirn.Name = "label_stirn";
+            this.label_stirn.Size = new System.Drawing.Size(50, 13);
+            this.label_stirn.TabIndex = 26;
+            this.label_stirn.Text = "Stirnseite";
+            // 
+            // Umfeld_Stirn
+            // 
+            this.Umfeld_Stirn.AutoSize = true;
+            this.Umfeld_Stirn.Location = new System.Drawing.Point(344, 240);
+            this.Umfeld_Stirn.Name = "Umfeld_Stirn";
+            this.Umfeld_Stirn.Size = new System.Drawing.Size(28, 13);
+            this.Umfeld_Stirn.TabIndex = 25;
+            this.Umfeld_Stirn.Text = "1,99";
+            // 
+            // Anströmung_Stirn
+            // 
+            this.Anströmung_Stirn.AutoSize = true;
+            this.Anströmung_Stirn.Location = new System.Drawing.Point(344, 218);
+            this.Anströmung_Stirn.Name = "Anströmung_Stirn";
+            this.Anströmung_Stirn.Size = new System.Drawing.Size(28, 13);
+            this.Anströmung_Stirn.TabIndex = 24;
+            this.Anströmung_Stirn.Text = "1,04";
+            // 
+            // label_Ecke
+            // 
+            this.label_Ecke.AutoSize = true;
+            this.label_Ecke.Location = new System.Drawing.Point(400, 196);
+            this.label_Ecke.Name = "label_Ecke";
+            this.label_Ecke.Size = new System.Drawing.Size(32, 13);
+            this.label_Ecke.TabIndex = 29;
+            this.label_Ecke.Text = "Ecke";
+            // 
+            // Umfeld_Ecke
+            // 
+            this.Umfeld_Ecke.AutoSize = true;
+            this.Umfeld_Ecke.Location = new System.Drawing.Point(400, 240);
+            this.Umfeld_Ecke.Name = "Umfeld_Ecke";
+            this.Umfeld_Ecke.Size = new System.Drawing.Size(28, 13);
+            this.Umfeld_Ecke.TabIndex = 28;
+            this.Umfeld_Ecke.Text = "1,69";
+            // 
+            // Anströmung_Ecke
+            // 
+            this.Anströmung_Ecke.AutoSize = true;
+            this.Anströmung_Ecke.Location = new System.Drawing.Point(400, 218);
+            this.Anströmung_Ecke.Name = "Anströmung_Ecke";
+            this.Anströmung_Ecke.Size = new System.Drawing.Size(28, 13);
+            this.Anströmung_Ecke.TabIndex = 27;
+            this.Anströmung_Ecke.Text = "2,08";
+            // 
+            // label_Benutzereingabe
+            // 
+            this.label_Benutzereingabe.AutoSize = true;
+            this.label_Benutzereingabe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Benutzereingabe.Location = new System.Drawing.Point(10, 271);
+            this.label_Benutzereingabe.Name = "label_Benutzereingabe";
+            this.label_Benutzereingabe.Size = new System.Drawing.Size(136, 17);
+            this.label_Benutzereingabe.TabIndex = 30;
+            this.label_Benutzereingabe.Text = "Benutzereingabe:";
+            // 
+            // label_Ausgabe
+            // 
+            this.label_Ausgabe.AutoSize = true;
+            this.label_Ausgabe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Ausgabe.Location = new System.Drawing.Point(13, 524);
+            this.label_Ausgabe.Name = "label_Ausgabe";
+            this.label_Ausgabe.Size = new System.Drawing.Size(76, 17);
+            this.label_Ausgabe.TabIndex = 31;
+            this.label_Ausgabe.Text = "Ausgabe:";
+            // 
+            // label_ecke2
+            // 
+            this.label_ecke2.AutoSize = true;
+            this.label_ecke2.Location = new System.Drawing.Point(397, 541);
+            this.label_ecke2.Name = "label_ecke2";
+            this.label_ecke2.Size = new System.Drawing.Size(32, 13);
+            this.label_ecke2.TabIndex = 45;
+            this.label_ecke2.Text = "Ecke";
+            // 
+            // label_Stirn2
+            // 
+            this.label_Stirn2.AutoSize = true;
+            this.label_Stirn2.Location = new System.Drawing.Point(341, 541);
+            this.label_Stirn2.Name = "label_Stirn2";
+            this.label_Stirn2.Size = new System.Drawing.Size(50, 13);
+            this.label_Stirn2.TabIndex = 42;
+            this.label_Stirn2.Text = "Stirnseite";
+            // 
+            // label_laengs2
+            // 
+            this.label_laengs2.AutoSize = true;
+            this.label_laengs2.Location = new System.Drawing.Point(277, 541);
+            this.label_laengs2.Name = "label_laengs2";
+            this.label_laengs2.Size = new System.Drawing.Size(58, 13);
+            this.label_laengs2.TabIndex = 39;
+            this.label_laengs2.Text = "Längsseite";
+            // 
+            // label_eben2
+            // 
+            this.label_eben2.AutoSize = true;
+            this.label_eben2.Location = new System.Drawing.Point(230, 541);
+            this.label_eben2.Name = "label_eben2";
+            this.label_eben2.Size = new System.Drawing.Size(31, 13);
+            this.label_eben2.TabIndex = 36;
+            this.label_eben2.Text = "eben";
+            // 
+            // label_tmitbe
+            // 
+            this.label_tmitbe.AutoSize = true;
+            this.label_tmitbe.Location = new System.Drawing.Point(10, 585);
+            this.label_tmitbe.Name = "label_tmitbe";
+            this.label_tmitbe.Size = new System.Drawing.Size(184, 13);
+            this.label_tmitbe.TabIndex = 34;
+            this.label_tmitbe.Text = "Erforderliche Einbindetiefe mit Be Td=";
+            // 
+            // label_tohneBe
+            // 
+            this.label_tohneBe.AutoSize = true;
+            this.label_tohneBe.Location = new System.Drawing.Point(10, 563);
+            this.label_tohneBe.Name = "label_tohneBe";
+            this.label_tohneBe.Size = new System.Drawing.Size(189, 13);
+            this.label_tohneBe.TabIndex = 32;
+            this.label_tohneBe.Text = "Erforderliche Einbindetiefe ohne Be T=";
             // 
             // Ergebnis_eben_ohne_Be_Label
             // 
@@ -531,14 +531,14 @@
             this.Ergebnis_Ecke_mit_Be_Label.Size = new System.Drawing.Size(0, 13);
             this.Ergebnis_Ecke_mit_Be_Label.TabIndex = 44;
             // 
-            // label10
+            // minus
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(280, 173);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(22, 13);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "[ - ]";
+            this.minus.AutoSize = true;
+            this.minus.Location = new System.Drawing.Point(280, 173);
+            this.minus.Name = "minus";
+            this.minus.Size = new System.Drawing.Size(22, 13);
+            this.minus.TabIndex = 46;
+            this.minus.Text = "[ - ]";
             // 
             // label9
             // 
@@ -730,136 +730,136 @@
             this.label31.TabIndex = 65;
             this.label31.Text = "Max";
             // 
-            // label33
+            // laengeMin
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(378, 320);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(13, 13);
-            this.label33.TabIndex = 66;
-            this.label33.Text = "1";
+            this.laengeMin.AutoSize = true;
+            this.laengeMin.Location = new System.Drawing.Point(378, 320);
+            this.laengeMin.Name = "laengeMin";
+            this.laengeMin.Size = new System.Drawing.Size(13, 13);
+            this.laengeMin.TabIndex = 66;
+            this.laengeMin.Text = "1";
             // 
-            // label34
+            // breiteMin
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(378, 351);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(13, 13);
-            this.label34.TabIndex = 67;
-            this.label34.Text = "1";
+            this.breiteMin.AutoSize = true;
+            this.breiteMin.Location = new System.Drawing.Point(378, 351);
+            this.breiteMin.Name = "breiteMin";
+            this.breiteMin.Size = new System.Drawing.Size(13, 13);
+            this.breiteMin.TabIndex = 67;
+            this.breiteMin.Text = "1";
             // 
-            // label36
+            // AquifermächtigkeitMin
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(378, 411);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(13, 13);
-            this.label36.TabIndex = 69;
-            this.label36.Text = "4";
+            this.AquifermächtigkeitMin.AutoSize = true;
+            this.AquifermächtigkeitMin.Location = new System.Drawing.Point(378, 411);
+            this.AquifermächtigkeitMin.Name = "AquifermächtigkeitMin";
+            this.AquifermächtigkeitMin.Size = new System.Drawing.Size(13, 13);
+            this.AquifermächtigkeitMin.TabIndex = 69;
+            this.AquifermächtigkeitMin.Text = "4";
             // 
-            // label38
+            // WasserspiegelMin
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(378, 380);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(13, 13);
-            this.label38.TabIndex = 68;
-            this.label38.Text = "1";
+            this.WasserspiegelMin.AutoSize = true;
+            this.WasserspiegelMin.Location = new System.Drawing.Point(378, 380);
+            this.WasserspiegelMin.Name = "WasserspiegelMin";
+            this.WasserspiegelMin.Size = new System.Drawing.Size(13, 13);
+            this.WasserspiegelMin.TabIndex = 68;
+            this.WasserspiegelMin.Text = "1";
             // 
-            // label40
+            // SicherheitMin
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(378, 472);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(22, 13);
-            this.label40.TabIndex = 71;
-            this.label40.Text = "1,0";
+            this.SicherheitMin.AutoSize = true;
+            this.SicherheitMin.Location = new System.Drawing.Point(378, 472);
+            this.SicherheitMin.Name = "SicherheitMin";
+            this.SicherheitMin.Size = new System.Drawing.Size(22, 13);
+            this.SicherheitMin.TabIndex = 71;
+            this.SicherheitMin.Text = "1,0";
             // 
-            // label41
+            // WichteMin
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(378, 441);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(13, 13);
-            this.label41.TabIndex = 70;
-            this.label41.Text = "8";
+            this.WichteMin.AutoSize = true;
+            this.WichteMin.Location = new System.Drawing.Point(378, 441);
+            this.WichteMin.Name = "WichteMin";
+            this.WichteMin.Size = new System.Drawing.Size(13, 13);
+            this.WichteMin.TabIndex = 70;
+            this.WichteMin.Text = "8";
             // 
-            // label42
+            // SicherheitMax
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(580, 472);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(22, 13);
-            this.label42.TabIndex = 77;
-            this.label42.Text = "2,0";
+            this.SicherheitMax.AutoSize = true;
+            this.SicherheitMax.Location = new System.Drawing.Point(580, 472);
+            this.SicherheitMax.Name = "SicherheitMax";
+            this.SicherheitMax.Size = new System.Drawing.Size(22, 13);
+            this.SicherheitMax.TabIndex = 77;
+            this.SicherheitMax.Text = "2,0";
             // 
-            // label43
+            // wichteMax
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(580, 441);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(19, 13);
-            this.label43.TabIndex = 76;
-            this.label43.Text = "13";
+            this.wichteMax.AutoSize = true;
+            this.wichteMax.Location = new System.Drawing.Point(580, 441);
+            this.wichteMax.Name = "wichteMax";
+            this.wichteMax.Size = new System.Drawing.Size(19, 13);
+            this.wichteMax.TabIndex = 76;
+            this.wichteMax.Text = "13";
             // 
-            // label44
+            // AquifermächtigkeitMax
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(580, 411);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(19, 13);
-            this.label44.TabIndex = 75;
-            this.label44.Text = "90";
+            this.AquifermächtigkeitMax.AutoSize = true;
+            this.AquifermächtigkeitMax.Location = new System.Drawing.Point(580, 411);
+            this.AquifermächtigkeitMax.Name = "AquifermächtigkeitMax";
+            this.AquifermächtigkeitMax.Size = new System.Drawing.Size(19, 13);
+            this.AquifermächtigkeitMax.TabIndex = 75;
+            this.AquifermächtigkeitMax.Text = "90";
             // 
-            // label45
+            // wasserspiegelMax
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(580, 380);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(19, 13);
-            this.label45.TabIndex = 74;
-            this.label45.Text = "30";
+            this.wasserspiegelMax.AutoSize = true;
+            this.wasserspiegelMax.Location = new System.Drawing.Point(580, 380);
+            this.wasserspiegelMax.Name = "wasserspiegelMax";
+            this.wasserspiegelMax.Size = new System.Drawing.Size(19, 13);
+            this.wasserspiegelMax.TabIndex = 74;
+            this.wasserspiegelMax.Text = "30";
             // 
-            // label46
+            // breiteMax
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(580, 351);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(25, 13);
-            this.label46.TabIndex = 73;
-            this.label46.Text = "100";
+            this.breiteMax.AutoSize = true;
+            this.breiteMax.Location = new System.Drawing.Point(580, 351);
+            this.breiteMax.Name = "breiteMax";
+            this.breiteMax.Size = new System.Drawing.Size(25, 13);
+            this.breiteMax.TabIndex = 73;
+            this.breiteMax.Text = "100";
             // 
-            // label47
+            // laengeMax
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(580, 320);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(25, 13);
-            this.label47.TabIndex = 72;
-            this.label47.Text = "333";
+            this.laengeMax.AutoSize = true;
+            this.laengeMax.Location = new System.Drawing.Point(580, 320);
+            this.laengeMax.Name = "laengeMax";
+            this.laengeMax.Size = new System.Drawing.Size(25, 13);
+            this.laengeMax.TabIndex = 72;
+            this.laengeMax.Text = "333";
             // 
             // menueleisteToolStripMenuItem
             // 
             this.menueleisteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoToolStripMenuItem,
-            this.haftungsausschlussToolStripMenuItem});
+            this.infoMenue,
+            this.haftungsausschlussMenue});
             this.menueleisteToolStripMenuItem.Name = "menueleisteToolStripMenuItem";
             this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menueleisteToolStripMenuItem.Text = "Menü";
             // 
-            // infoToolStripMenuItem
+            // infoMenue
             // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.infoToolStripMenuItem.Text = "Info";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click_1);
+            this.infoMenue.Name = "infoMenue";
+            this.infoMenue.Size = new System.Drawing.Size(179, 22);
+            this.infoMenue.Text = "Info";
+            this.infoMenue.Click += new System.EventHandler(this.infoToolStripMenuItem_Click_1);
             // 
-            // haftungsausschlussToolStripMenuItem
+            // haftungsausschlussMenue
             // 
-            this.haftungsausschlussToolStripMenuItem.Name = "haftungsausschlussToolStripMenuItem";
-            this.haftungsausschlussToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.haftungsausschlussToolStripMenuItem.Text = "Haftungsausschluss";
-            this.haftungsausschlussToolStripMenuItem.Click += new System.EventHandler(this.haftungsausschlussToolStripMenuItem_Click);
+            this.haftungsausschlussMenue.Name = "haftungsausschlussMenue";
+            this.haftungsausschlussMenue.Size = new System.Drawing.Size(179, 22);
+            this.haftungsausschlussMenue.Text = "Haftungsausschluss";
+            this.haftungsausschlussMenue.Click += new System.EventHandler(this.haftungsausschlussToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -875,17 +875,17 @@
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.programmBeendenToolStripMenuItem});
+            this.programmBeendenDatei});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
-            // programmBeendenToolStripMenuItem
+            // programmBeendenDatei
             // 
-            this.programmBeendenToolStripMenuItem.Name = "programmBeendenToolStripMenuItem";
-            this.programmBeendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.programmBeendenToolStripMenuItem.Text = "Programm beenden";
-            this.programmBeendenToolStripMenuItem.Click += new System.EventHandler(this.programmBeendenToolStripMenuItem_Click);
+            this.programmBeendenDatei.Name = "programmBeendenDatei";
+            this.programmBeendenDatei.Size = new System.Drawing.Size(180, 22);
+            this.programmBeendenDatei.Text = "Programm beenden";
+            this.programmBeendenDatei.Click += new System.EventHandler(this.programmBeendenToolStripMenuItem_Click);
             // 
             // label49
             // 
@@ -913,59 +913,59 @@
             this.ZurücksetzenButton.UseVisualStyleBackColor = true;
             this.ZurücksetzenButton.Click += new System.EventHandler(this.ZurücksetzenButton_Click);
             // 
-            // label51
+            // laengeGleich
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(181, 320);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(25, 13);
-            this.label51.TabIndex = 83;
-            this.label51.Text = " L =";
+            this.laengeGleich.AutoSize = true;
+            this.laengeGleich.Location = new System.Drawing.Point(181, 320);
+            this.laengeGleich.Name = "laengeGleich";
+            this.laengeGleich.Size = new System.Drawing.Size(25, 13);
+            this.laengeGleich.TabIndex = 83;
+            this.laengeGleich.Text = " L =";
             // 
-            // label52
+            // breitegleich
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(181, 351);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(23, 13);
-            this.label52.TabIndex = 84;
-            this.label52.Text = "B =";
+            this.breitegleich.AutoSize = true;
+            this.breitegleich.Location = new System.Drawing.Point(181, 351);
+            this.breitegleich.Name = "breitegleich";
+            this.breitegleich.Size = new System.Drawing.Size(23, 13);
+            this.breitegleich.TabIndex = 84;
+            this.breitegleich.Text = "B =";
             // 
-            // label53
+            // wasserspiegeldifferenzgleich
             // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(181, 380);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(24, 13);
-            this.label53.TabIndex = 85;
-            this.label53.Text = "H =";
+            this.wasserspiegeldifferenzgleich.AutoSize = true;
+            this.wasserspiegeldifferenzgleich.Location = new System.Drawing.Point(181, 380);
+            this.wasserspiegeldifferenzgleich.Name = "wasserspiegeldifferenzgleich";
+            this.wasserspiegeldifferenzgleich.Size = new System.Drawing.Size(24, 13);
+            this.wasserspiegeldifferenzgleich.TabIndex = 85;
+            this.wasserspiegeldifferenzgleich.Text = "H =";
             // 
-            // label54
+            // Aquivermächtigkeitgeich
             // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(181, 411);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(23, 13);
-            this.label54.TabIndex = 86;
-            this.label54.Text = "S =";
+            this.Aquivermächtigkeitgeich.AutoSize = true;
+            this.Aquivermächtigkeitgeich.Location = new System.Drawing.Point(181, 411);
+            this.Aquivermächtigkeitgeich.Name = "Aquivermächtigkeitgeich";
+            this.Aquivermächtigkeitgeich.Size = new System.Drawing.Size(23, 13);
+            this.Aquivermächtigkeitgeich.TabIndex = 86;
+            this.Aquivermächtigkeitgeich.Text = "S =";
             // 
-            // label55
+            // wichtegleich
             // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(181, 441);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(24, 13);
-            this.label55.TabIndex = 87;
-            this.label55.Text = "γ\' =";
+            this.wichtegleich.AutoSize = true;
+            this.wichtegleich.Location = new System.Drawing.Point(181, 441);
+            this.wichtegleich.Name = "wichtegleich";
+            this.wichtegleich.Size = new System.Drawing.Size(24, 13);
+            this.wichtegleich.TabIndex = 87;
+            this.wichtegleich.Text = "γ\' =";
             // 
-            // label56
+            // Sicherheitgleich
             // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(181, 470);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(22, 13);
-            this.label56.TabIndex = 88;
-            this.label56.Text = "η =";
+            this.Sicherheitgleich.AutoSize = true;
+            this.Sicherheitgleich.Location = new System.Drawing.Point(181, 470);
+            this.Sicherheitgleich.Name = "Sicherheitgleich";
+            this.Sicherheitgleich.Size = new System.Drawing.Size(22, 13);
+            this.Sicherheitgleich.TabIndex = 88;
+            this.Sicherheitgleich.Text = "η =";
             // 
             // berechnungOhneBe
             // 
@@ -986,55 +986,55 @@
             this.horizontal.Size = new System.Drawing.Size(2, 768);
             this.horizontal.TabIndex = 90;
             // 
-            // pictureBox1
+            // LogoZai
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(55, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 108);
-            this.pictureBox1.TabIndex = 91;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.LogoZai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogoZai.BackgroundImage")));
+            this.LogoZai.Location = new System.Drawing.Point(55, 27);
+            this.LogoZai.Name = "LogoZai";
+            this.LogoZai.Size = new System.Drawing.Size(520, 108);
+            this.LogoZai.TabIndex = 91;
+            this.LogoZai.TabStop = false;
+            this.LogoZai.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox2
+            // Dahmen
             // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(55, 615);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(536, 102);
-            this.pictureBox2.TabIndex = 92;
-            this.pictureBox2.TabStop = false;
+            this.Dahmen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dahmen.BackgroundImage")));
+            this.Dahmen.Location = new System.Drawing.Point(55, 615);
+            this.Dahmen.Name = "Dahmen";
+            this.Dahmen.Size = new System.Drawing.Size(536, 102);
+            this.Dahmen.TabIndex = 92;
+            this.Dahmen.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Dahmen);
+            this.Controls.Add(this.LogoZai);
             this.Controls.Add(this.horizontal);
             this.Controls.Add(this.berechnungOhneBe);
-            this.Controls.Add(this.label56);
-            this.Controls.Add(this.label55);
-            this.Controls.Add(this.label54);
-            this.Controls.Add(this.label53);
-            this.Controls.Add(this.label52);
-            this.Controls.Add(this.label51);
+            this.Controls.Add(this.Sicherheitgleich);
+            this.Controls.Add(this.wichtegleich);
+            this.Controls.Add(this.Aquivermächtigkeitgeich);
+            this.Controls.Add(this.wasserspiegeldifferenzgleich);
+            this.Controls.Add(this.breitegleich);
+            this.Controls.Add(this.laengeGleich);
             this.Controls.Add(this.ZurücksetzenButton);
             this.Controls.Add(this.label50);
             this.Controls.Add(this.label49);
-            this.Controls.Add(this.label42);
-            this.Controls.Add(this.label43);
-            this.Controls.Add(this.label44);
-            this.Controls.Add(this.label45);
-            this.Controls.Add(this.label46);
-            this.Controls.Add(this.label47);
-            this.Controls.Add(this.label40);
-            this.Controls.Add(this.label41);
-            this.Controls.Add(this.label36);
-            this.Controls.Add(this.label38);
-            this.Controls.Add(this.label34);
-            this.Controls.Add(this.label33);
+            this.Controls.Add(this.SicherheitMax);
+            this.Controls.Add(this.wichteMax);
+            this.Controls.Add(this.AquifermächtigkeitMax);
+            this.Controls.Add(this.wasserspiegelMax);
+            this.Controls.Add(this.breiteMax);
+            this.Controls.Add(this.laengeMax);
+            this.Controls.Add(this.SicherheitMin);
+            this.Controls.Add(this.WichteMin);
+            this.Controls.Add(this.AquifermächtigkeitMin);
+            this.Controls.Add(this.WasserspiegelMin);
+            this.Controls.Add(this.breiteMin);
+            this.Controls.Add(this.laengeMin);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.hScrollBar5);
@@ -1054,52 +1054,52 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label26);
+            this.Controls.Add(this.minus);
+            this.Controls.Add(this.label_ecke2);
             this.Controls.Add(this.Ergebnis_Ecke_mit_Be_Label);
             this.Controls.Add(this.Ergebnis_Ecke_ohne_Be_Label);
-            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label_Stirn2);
             this.Controls.Add(this.Ergebnis_Stirn_mit_Be_Label);
             this.Controls.Add(this.Ergebnis_Stirn_ohne_Be_Label);
-            this.Controls.Add(this.label32);
+            this.Controls.Add(this.label_laengs2);
             this.Controls.Add(this.Ergebnis_Länge_mit_Be_Label);
             this.Controls.Add(this.Ergebnis_Längs_ohne_Be_Label);
-            this.Controls.Add(this.label35);
+            this.Controls.Add(this.label_eben2);
             this.Controls.Add(this.Ergebnis_eben_mi_Be_Label);
-            this.Controls.Add(this.label37);
+            this.Controls.Add(this.label_tmitbe);
             this.Controls.Add(this.Ergebnis_eben_ohne_Be_Label);
-            this.Controls.Add(this.label39);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.U_Ecke);
-            this.Controls.Add(this.A_Ecke);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.U_Stirn);
-            this.Controls.Add(this.A_Stirn);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.U_Längs);
-            this.Controls.Add(this.A_Längs);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.U_eben);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.A_eben);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.Be);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_tohneBe);
+            this.Controls.Add(this.label_Ausgabe);
+            this.Controls.Add(this.label_Benutzereingabe);
+            this.Controls.Add(this.label_Ecke);
+            this.Controls.Add(this.Umfeld_Ecke);
+            this.Controls.Add(this.Anströmung_Ecke);
+            this.Controls.Add(this.label_stirn);
+            this.Controls.Add(this.Umfeld_Stirn);
+            this.Controls.Add(this.Anströmung_Stirn);
+            this.Controls.Add(this.label_laengs);
+            this.Controls.Add(this.Umfeld_Längs);
+            this.Controls.Add(this.Anströmung_Längs);
+            this.Controls.Add(this.label_eben);
+            this.Controls.Add(this.Umfeld_eben);
+            this.Controls.Add(this.EinflussUmfeld);
+            this.Controls.Add(this.Anströmung_eben);
+            this.Controls.Add(this.Anströmung);
+            this.Controls.Add(this.Bemessungsbeiwert);
+            this.Controls.Add(this.LabelBemessungsbeiwert);
+            this.Controls.Add(this.Label_GegebeneWerte);
+            this.Controls.Add(this.GlobaleSicherheit);
+            this.Controls.Add(this.label_Sicherheit);
+            this.Controls.Add(this.WichteAuftrieb);
+            this.Controls.Add(this.label_WichteAuftrieb);
+            this.Controls.Add(this.Aquivermächtigkeit);
+            this.Controls.Add(this.label_Aquifermächtigkeit);
+            this.Controls.Add(this.Wasserspiegeldifferenz);
+            this.Controls.Add(this.label_Wasserspiegel);
+            this.Controls.Add(this.BreiteBaugrube);
+            this.Controls.Add(this.label_Breite);
+            this.Controls.Add(this.LängeBaugrube);
+            this.Controls.Add(this.label_laenge);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1024, 768);
@@ -1111,8 +1111,8 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoZai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dahmen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1120,43 +1120,43 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label Be;
-        private System.Windows.Forms.Label A_eben;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label U_eben;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label U_Längs;
-        private System.Windows.Forms.Label A_Längs;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label U_Stirn;
-        private System.Windows.Forms.Label A_Stirn;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label U_Ecke;
-        private System.Windows.Forms.Label A_Ecke;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label_laenge;
+        public System.Windows.Forms.TextBox LängeBaugrube;
+        public System.Windows.Forms.TextBox BreiteBaugrube;
+        private System.Windows.Forms.Label label_Breite;
+        public System.Windows.Forms.TextBox Wasserspiegeldifferenz;
+        private System.Windows.Forms.Label label_Wasserspiegel;
+        public System.Windows.Forms.TextBox GlobaleSicherheit;
+        private System.Windows.Forms.Label label_Sicherheit;
+        public System.Windows.Forms.TextBox WichteAuftrieb;
+        private System.Windows.Forms.Label label_WichteAuftrieb;
+        public System.Windows.Forms.TextBox Aquivermächtigkeit;
+        private System.Windows.Forms.Label label_Aquifermächtigkeit;
+        private System.Windows.Forms.Label Label_GegebeneWerte;
+        private System.Windows.Forms.Label LabelBemessungsbeiwert;
+        private System.Windows.Forms.Label Bemessungsbeiwert;
+        private System.Windows.Forms.Label Anströmung_eben;
+        private System.Windows.Forms.Label Anströmung;
+        private System.Windows.Forms.Label Umfeld_eben;
+        private System.Windows.Forms.Label EinflussUmfeld;
+        private System.Windows.Forms.Label label_eben;
+        private System.Windows.Forms.Label label_laengs;
+        private System.Windows.Forms.Label Umfeld_Längs;
+        private System.Windows.Forms.Label Anströmung_Längs;
+        private System.Windows.Forms.Label label_stirn;
+        private System.Windows.Forms.Label Umfeld_Stirn;
+        private System.Windows.Forms.Label Anströmung_Stirn;
+        private System.Windows.Forms.Label label_Ecke;
+        private System.Windows.Forms.Label Umfeld_Ecke;
+        private System.Windows.Forms.Label Anströmung_Ecke;
+        private System.Windows.Forms.Label label_Benutzereingabe;
+        private System.Windows.Forms.Label label_Ausgabe;
+        private System.Windows.Forms.Label label_ecke2;
+        private System.Windows.Forms.Label label_Stirn2;
+        private System.Windows.Forms.Label label_laengs2;
+        private System.Windows.Forms.Label label_eben2;
+        private System.Windows.Forms.Label label_tmitbe;
+        private System.Windows.Forms.Label label_tohneBe;
         private System.Windows.Forms.Label Ergebnis_eben_ohne_Be_Label;
         private System.Windows.Forms.Label Ergebnis_eben_mi_Be_Label;
         private System.Windows.Forms.Label Ergebnis_Längs_ohne_Be_Label;
@@ -1165,7 +1165,7 @@
         private System.Windows.Forms.Label Ergebnis_Stirn_mit_Be_Label;
         private System.Windows.Forms.Label Ergebnis_Ecke_ohne_Be_Label;
         private System.Windows.Forms.Label Ergebnis_Ecke_mit_Be_Label;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label minus;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
@@ -1185,37 +1185,37 @@
         private System.Windows.Forms.HScrollBar hScrollBar6;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label laengeMin;
+        private System.Windows.Forms.Label breiteMin;
+        private System.Windows.Forms.Label AquifermächtigkeitMin;
+        private System.Windows.Forms.Label WasserspiegelMin;
+        private System.Windows.Forms.Label SicherheitMin;
+        private System.Windows.Forms.Label WichteMin;
+        private System.Windows.Forms.Label SicherheitMax;
+        private System.Windows.Forms.Label wichteMax;
+        private System.Windows.Forms.Label AquifermächtigkeitMax;
+        private System.Windows.Forms.Label wasserspiegelMax;
+        private System.Windows.Forms.Label breiteMax;
+        private System.Windows.Forms.Label laengeMax;
         private System.Windows.Forms.ToolStripMenuItem menueleisteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoMenue;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button ZurücksetzenButton;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label laengeGleich;
+        private System.Windows.Forms.Label breitegleich;
+        private System.Windows.Forms.Label wasserspiegeldifferenzgleich;
+        private System.Windows.Forms.Label Aquivermächtigkeitgeich;
+        private System.Windows.Forms.Label wichtegleich;
+        private System.Windows.Forms.Label Sicherheitgleich;
         private System.Windows.Forms.CheckBox berechnungOhneBe;
         private System.Windows.Forms.Label horizontal;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripMenuItem haftungsausschlussToolStripMenuItem;
+        private System.Windows.Forms.PictureBox LogoZai;
+        private System.Windows.Forms.PictureBox Dahmen;
+        private System.Windows.Forms.ToolStripMenuItem haftungsausschlussMenue;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem programmBeendenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem programmBeendenDatei;
     }
 }
 
