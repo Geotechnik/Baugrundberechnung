@@ -58,67 +58,67 @@ namespace Baugrundberechnung
                 {
                     case "H": if (zahl <= 30 && zahl >= 1)
                         {
-                            refToForm.Wasserspiegeldifferenz.BackColor = Color.White;
+                            refToForm.textBox3.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.Wasserspiegeldifferenz.BackColor = Color.Red;
+                            refToForm.textBox3.BackColor = Color.Red;
                             return false;
                         }
 
                     case "B": if (zahl <= 100 && zahl >= 1)
                         {
-                            refToForm.BreiteBaugrube.BackColor = Color.White;
+                            refToForm.textBox2.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.BreiteBaugrube.BackColor = Color.Red;
+                            refToForm.textBox2.BackColor = Color.Red;
                             return false;
                         }
 
                     case "L": if (zahl <= 333 && zahl >= 1)
                         {
-                            refToForm.LängeBaugrube.BackColor = Color.White;
+                            refToForm.textBox1.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.LängeBaugrube.BackColor = Color.Red;
+                            refToForm.textBox1.BackColor = Color.Red;
                             return false;
                         }
 
                     case "S": if (zahl <= 90 && zahl >= 4)
                         {
-                            refToForm.Aquivermächtigkeit.BackColor = Color.White;
+                            refToForm.textBox6.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.Aquivermächtigkeit.BackColor = Color.Red;
+                            refToForm.textBox6.BackColor = Color.Red;
                             return false;
                         }
 
                     case "γ": if (zahl <= 13 && zahl >= 8)
                         {
-                            refToForm.WichteAuftrieb.BackColor = Color.White;
+                            refToForm.textBox5.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.WichteAuftrieb.BackColor = Color.Red;
+                            refToForm.textBox5.BackColor = Color.Red;
                             return false;
                         }
 
                     case "n": if (zahl <= 2 && zahl >= 1)
                         {
-                            refToForm.GlobaleSicherheit.BackColor = Color.White;
+                            refToForm.textBox4.BackColor = Color.White;
                             return true;
                         }
                         else
                         {
-                            refToForm.GlobaleSicherheit.BackColor = Color.Red;
+                            refToForm.textBox4.BackColor = Color.Red;
                             return false;
                         }
 
@@ -131,37 +131,37 @@ namespace Baugrundberechnung
                 {
                     case "H":
                         {
-                            refToForm.Wasserspiegeldifferenz.BackColor = Color.Red;
+                            refToForm.textBox3.BackColor = Color.Red;
                             return false;
                         }
 
                     case "B":
                         {
-                            refToForm.BreiteBaugrube.BackColor = Color.Red;
+                            refToForm.textBox2.BackColor = Color.Red;
                             return false;
                         }
 
                     case "L":
                         {
-                            refToForm.LängeBaugrube.BackColor = Color.Red;
+                            refToForm.textBox1.BackColor = Color.Red;
                             return false;
                         }
 
                     case "S":
                         {
-                            refToForm.Aquivermächtigkeit.BackColor = Color.Red;
+                            refToForm.textBox6.BackColor = Color.Red;
                             return false;
                         }
 
                     case "γ":
                         {
-                            refToForm.WichteAuftrieb.BackColor = Color.Red;
+                            refToForm.textBox5.BackColor = Color.Red;
                             return false;
                         }
 
                     case "n":
                         {
-                            refToForm.GlobaleSicherheit.BackColor = Color.Red;
+                            refToForm.textBox4.BackColor = Color.Red;
                             return false;
                         }
 
