@@ -231,19 +231,19 @@ namespace Baugrundberechnung
             ZeichnePfeil(new Point( xmitte + 10, (int)(ObenRechtsPunkt.Y + 10)) , new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y  + max *htemp/100)), f);
             // 1035, 200 - (int)(lmbd * (h + s)) ;   1035, 200 - (int)(lmbd * s)), f
             ZeichnePfeil(new Point(xmitte + 10,(int)(ObenRechtsPunkt.Y  + max *htemp/100)), new Point(xmitte + 10, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100))), f);
-            
-            
-            f.BaugrubeSeite.Location = new System.Drawing.Point((int)(3 / 4.0 * (xmax - xnull) + xnull) - 60, 30);
-            f.BaugrubeSeite.Text = "Zeichnung von der Seite";
-            f.BaugrubeSeite.AutoSize = true;
-            f.Controls.Add(f.BaugrubeSeite);
-            f.BaugrubeSeite.Show();
-            f.S_labelSeite.Location = new System.Drawing.Point(xmitte + 5, (int)(ObenRechtsPunkt.Y + max * htemp / 100)+10);
-            f.S_labelSeite.Text = "S = " + S;
-            f.S_labelSeite.BackColor = Color.LightGray;
-            f.S_labelSeite.AutoSize = true;
-            f.Controls.Add(f.S_labelSeite);
-            f.S_labelSeite.Show();
+
+
+            f.H_Seite_stirn_ecke_eben_laengs_SeiteS[0].Location = new System.Drawing.Point((int)(3 / 4.0 * (xmax - xnull) + xnull) - 60, 30);
+            f.H_Seite_stirn_ecke_eben_laengs_SeiteS[0].Text = "Zeichnung von der Seite";
+            f.H_Seite_stirn_ecke_eben_laengs_SeiteS[0].AutoSize = true;
+            f.Controls.Add(f.H_Seite_stirn_ecke_eben_laengs_SeiteS[0]);
+            f.H_Seite_stirn_ecke_eben_laengs_SeiteS[0].Show();
+            f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0].Location = new System.Drawing.Point(xmitte + 5, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + 10);
+            f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0].Text = "S = " + S;
+            f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0].BackColor = Color.LightGray;
+            f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0].AutoSize = true;
+            f.Controls.Add(f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0]);
+            f.T_Seite_stirn_ecke_eben_laengs_SeiteB[0].Show();
         
         }
         /// <summary>
@@ -324,104 +324,104 @@ namespace Baugrundberechnung
              
             if(zuZeichnen == "T_stirn" )
             {
-                f.T_stirn.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
-                f.T_stirn.Text = "Stirnseite 🔍";
-                f.T_stirn.AutoSize = true;
-                f.Controls.Add(f.T_stirn);
-                f.T_stirn.Show();
-                f.T_label_Stirn.Location = new System.Drawing.Point(ursprung.X +(int)(ende / 2)-20, ursprung.Y+(int)(1 / lmbd * H)-20);
-                f.T_label_Stirn.Text = "H = " + H;
-                f.T_label_Stirn.BackColor = Color.LightGray;
-                f.T_label_Stirn.AutoSize = true;
-                f.Controls.Add(f.T_label_Stirn);
-                f.T_label_Stirn.Show();
-                f.H_label_Stirn.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
-                f.H_label_Stirn.Text = "T = " + T;
-                f.H_label_Stirn.BackColor = Color.LightGray;
-                f.H_label_Stirn.AutoSize = true;
-                f.H_label_Stirn.ForeColor = Color.Black;
-                f.Controls.Add(f.H_label_Stirn);
+                f.T_stirn_ecke_eben_laengs_Label[0].Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
+                f.T_stirn_ecke_eben_laengs_Label[0].Text = "Stirnseite 🔍";
+                f.T_stirn_ecke_eben_laengs_Label[0].AutoSize = true;
+                f.Controls.Add(f.T_stirn_ecke_eben_laengs_Label[0]);
+                f.T_stirn_ecke_eben_laengs_Label[0].Show();
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1].Text = "H = " + H;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1].BackColor = Color.LightGray;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1].AutoSize = true;
+                f.Controls.Add(f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1]);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[1].Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].Text = "T = " + T;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].BackColor = Color.LightGray;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].AutoSize = true;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].ForeColor = Color.Black;
+                f.Controls.Add(f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1]);
                 if(!mitBe)
                 {
-                    f.H_label_Stirn.ForeColor = Color.Red;
+                    f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].ForeColor = Color.Red;
                 }
-                f.H_label_Stirn.Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[1].Show();
 
             }
             else if (zuZeichnen == "T_ecke")
             {
-                f.T_ecke.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
-                f.T_ecke.Text = "Ecke 🔍";
-                f.T_ecke.AutoSize = true;
-                f.Controls.Add(f.T_ecke);
-                f.T_ecke.Show();
-                f.T_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
-                f.T_label_Ecke.Text = "H = " + H;
-                f.T_label_Ecke.BackColor = Color.LightGray;
-                f.T_label_Ecke.AutoSize = true;
-                f.Controls.Add(f.T_label_Ecke);
-                f.T_label_Ecke.Show();
-                f.H_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
-                f.H_label_Ecke.Text = "T = " + T;
-                f.H_label_Ecke.BackColor = Color.LightGray;
-                f.H_label_Ecke.AutoSize = true;
-                f.Controls.Add(f.H_label_Ecke);
-                f.H_label_Ecke.ForeColor = Color.Black;
+                f.T_stirn_ecke_eben_laengs_Label[1].Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
+                f.T_stirn_ecke_eben_laengs_Label[1].Text = "Ecke 🔍";
+                f.T_stirn_ecke_eben_laengs_Label[1].AutoSize = true;
+                f.Controls.Add(f.T_stirn_ecke_eben_laengs_Label[1]);
+                f.T_stirn_ecke_eben_laengs_Label[1].Show();
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2].Text = "H = " + H;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2].BackColor = Color.LightGray;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2].AutoSize = true;
+                f.Controls.Add(f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2]);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[2].Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].Text = "T = " + T;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].BackColor = Color.LightGray;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].AutoSize = true;
+                f.Controls.Add(f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2]);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].ForeColor = Color.Black;
                 if (!mitBe)
                 {
-                    f.H_label_Ecke.ForeColor = Color.Red;
+                    f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].ForeColor = Color.Red;
                 }
-                f.H_label_Ecke.Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[2].Show();
             }
             else if(zuZeichnen == "T_eben")
             {
-                f.T_eben.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y );
-                f.T_eben.Text = "eben 🔍";
-                f.T_eben.AutoSize = true;
-                f.Controls.Add(f.T_eben);
-                f.T_eben.Show();
-                f.T_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
-                f.T_label_Eben.Text = "H = " + H;
-                f.T_label_Eben.BackColor = Color.LightGray;
-                f.T_label_Eben.AutoSize = true;
-                f.Controls.Add(f.T_label_Eben);
-                f.T_label_Eben.Show();
-                f.H_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
-                f.H_label_Eben.Text = "T = " + T;
-                f.H_label_Eben.BackColor = Color.LightGray;
-                f.H_label_Eben.AutoSize = true;
-                f.Controls.Add(f.H_label_Eben);
-                f.H_label_Eben.ForeColor = Color.Black;
+                f.T_stirn_ecke_eben_laengs_Label[2].Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y );
+                f.T_stirn_ecke_eben_laengs_Label[2].Text = "eben 🔍";
+                f.T_stirn_ecke_eben_laengs_Label[2].AutoSize = true;
+                f.Controls.Add(f.T_stirn_ecke_eben_laengs_Label[2]);
+                f.T_stirn_ecke_eben_laengs_Label[2].Show();
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3].Text = "H = " + H;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3].BackColor = Color.LightGray;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3].AutoSize = true;
+                f.Controls.Add(f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3]);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[3].Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) + 30);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].Text = "T = " + T;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].BackColor = Color.LightGray;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].AutoSize = true;
+                f.Controls.Add(f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3]);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].ForeColor = Color.Black;
                 if (!mitBe)
                 {
-                    f.H_label_Eben.ForeColor = Color.Red;
+                    f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].ForeColor = Color.Red;
                 }
-                f.H_label_Eben.Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[3].Show();
             }
             else if (zuZeichnen == "T_laengs")
             {
-                f.T_laengs.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
-                f.T_laengs.Text = "Längs 🔍";
-                f.T_laengs.AutoSize = true;
-                f.Controls.Add(f.T_laengs);
-                f.T_laengs.Show();
-                f.T_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
-                f.T_label_Längs.Text = "H = " + H;
-                f.T_label_Längs.BackColor = Color.LightGray;
-                f.T_label_Längs.AutoSize = true;
-                f.Controls.Add(f.T_label_Längs);
-                f.T_label_Längs.Show();
-                f.H_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) +30);
-                f.H_label_Längs.Text = "T = " + T;
-                f.H_label_Längs.BackColor = Color.LightGray;
-                f.H_label_Längs.AutoSize = true;
-                f.Controls.Add(f.H_label_Längs);
-                f.H_label_Längs.ForeColor = Color.Black;
+                f.T_stirn_ecke_eben_laengs_Label[2].Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
+                f.T_stirn_ecke_eben_laengs_Label[2].Text = "Längs 🔍";
+                f.T_stirn_ecke_eben_laengs_Label[2].AutoSize = true;
+                f.Controls.Add(f.T_stirn_ecke_eben_laengs_Label[2]);
+                f.T_stirn_ecke_eben_laengs_Label[2].Show();
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) - 20);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4].Text = "H = " + H;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4].BackColor = Color.LightGray;
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4].AutoSize = true;
+                f.Controls.Add(f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4]);
+                f.H_Seite_stirn_ecke_eben_laengs_SeiteS[4].Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(1 / lmbd * H) +30);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].Text = "T = " + T;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].BackColor = Color.LightGray;
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].AutoSize = true;
+                f.Controls.Add(f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4]);
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].ForeColor = Color.Black;
                 if (!mitBe)
                 {
-                    f.H_label_Längs.ForeColor = Color.Red;
+                    f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].ForeColor = Color.Red;
                 }
-                f.H_label_Längs.Show();
+                f.T_Seite_stirn_ecke_eben_laengs_SeiteB[4].Show();
             }
         }
         /// <summary>
