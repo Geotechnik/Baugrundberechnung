@@ -334,27 +334,27 @@ namespace Baugrundberechnung
         /// <returns></returns>
         private bool gueltigeNummern(TextBox active)
         {
-            if (active.Name == "textBox1")
+            if (active.Name == "LängeBaugrube")
             {
                return Validierung.isValidNumber(LängeBaugrube.Text, "L");
             }
-            else if (active.Name == "textBox2")
+            else if (active.Name == "BreiteBaugrube")
             {
                 return Validierung.isValidNumber(BreiteBaugrube.Text, "B");
             }
-            else if (active.Name == "textBox3")
+            else if (active.Name == "Wasserspiegeldifferenz")
             {
                 return Validierung.isValidNumber(Wasserspiegeldifferenz.Text, "H");
             }
-            else if (active.Name == "textBox4")
+            else if (active.Name == "GlobaleSicherheit")
             {
                 return Validierung.isValidNumber(GlobaleSicherheit.Text, "n");
             }
-            else if (active.Name == "textBox5")
+            else if (active.Name == "WichteAuftrieb")
             {
                 return Validierung.isValidNumber(WichteAuftrieb.Text, "γ");
             }
-            else if (active.Name == "textBox6")
+            else if (active.Name == "Aquivermächtigkeit")
             {
                 return Validierung.isValidNumber(Aquivermächtigkeit.Text, "S");
             }
@@ -427,13 +427,13 @@ namespace Baugrundberechnung
         private void hScrollBar5_ValueChanged(object sender, EventArgs e)
         {
             // Überprüft ob die Zahl eine Nachkommastelle hat
-            if ((hScrollBar5.Value / 1000.0) % 1 == 0)
+            if ((sicherheitScroll.Value / 1000.0) % 1 == 0)
             {
-                GlobaleSicherheit.Text = (hScrollBar5.Value / 1000.0) + ",000";
+                GlobaleSicherheit.Text = (sicherheitScroll.Value / 1000.0) + ",000";
             }
             else
             {
-                GlobaleSicherheit.Text = (hScrollBar5.Value / 1000.0) + "";
+                GlobaleSicherheit.Text = (sicherheitScroll.Value / 1000.0) + "";
             }
 
             Berechnen_Click(sender, e);
@@ -541,7 +541,7 @@ namespace Baugrundberechnung
             {
                 TextBox tempTextBox = (TextBox)sender;
                 // Überprüft ob die Checkbox angehakt ist und ob es ScrollBar5 ist.
-                if (aufAlleUebernehmen && bezugsScrollBar.Name == "hScrollBar5")
+                if (aufAlleUebernehmen && bezugsScrollBar.Name == "sicherheitScroll")
                 {
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 3 Nachkommastellen zum runden da sind.
                     if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 1000) % 1 != 0)
@@ -553,7 +553,7 @@ namespace Baugrundberechnung
                     }
                 }
                 // Überprüft ob Checkbox nicht angehakt wurde und ob es Scrollbar5 ist.
-                else if (!aufAlleUebernehmen && bezugsScrollBar.Name == "hScrollBar5")
+                else if (!aufAlleUebernehmen && bezugsScrollBar.Name == "sicherheitScroll")
                 {
                     //Überprüft ob gerundet werden muss
                     if ((Convertieren.convertToDouble(tempTextBox.Text) * 1000) % 1 != 0)
@@ -571,7 +571,7 @@ namespace Baugrundberechnung
                     }
                 }
                 // Überprüft ob Checkbox angehakt ist und ob es nicht Scrollbar5 ist.
-                else if (aufAlleUebernehmen && bezugsScrollBar.Name != "hScrollBar5")
+                else if (aufAlleUebernehmen && bezugsScrollBar.Name != "sicherheitScroll")
                 {
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 2 Nachkommastellen zum runden da sind.
                     if (bezugsScrollBar.Value != (int)(Convertieren.convertToDouble(tempTextBox.Text) * 100 + 0.5) || (Convertieren.convertToDouble(tempTextBox.Text) * 100) % 1 != 0)
@@ -583,7 +583,7 @@ namespace Baugrundberechnung
                     }
                 }
                 // Überprüft ob Checkbox nicht angehakt wurde und ob es nicht Scrollbar5 ist.
-                else if (!aufAlleUebernehmen && bezugsScrollBar.Name != "hScrollBar5")
+                else if (!aufAlleUebernehmen && bezugsScrollBar.Name != "sicherheitScroll")
                 {
                     //Überprüft ob gerundet werden muss
                     if ((Convertieren.convertToDouble(tempTextBox.Text) * 100) % 1 != 0)
@@ -617,7 +617,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar1, "L");
+            Runden_und_Ueberschreiben(sender, laengeScroll, "L");
         }
 
         /// <summary>
@@ -628,7 +628,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox2_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar2, "B");
+            Runden_und_Ueberschreiben(sender, breiteScroll, "B");
         }
 
         /// <summary>
@@ -639,7 +639,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox3_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar4, "H");
+            Runden_und_Ueberschreiben(sender, wasserspiegelScroll, "H");
         }
 
         /// <summary>
@@ -650,7 +650,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox6_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar3, "S");
+            Runden_und_Ueberschreiben(sender, aquiferScroll, "S");
         }
 
         /// <summary>
@@ -661,7 +661,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox5_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar6, "γ");
+            Runden_und_Ueberschreiben(sender, auftriebScroll, "γ");
         }
 
         /// <summary>
@@ -672,7 +672,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void textBox4_Leave(object sender, EventArgs e)
         {
-            Runden_und_Ueberschreiben(sender, hScrollBar5, "n");
+            Runden_und_Ueberschreiben(sender, sicherheitScroll, "n");
         }
         
         /// <summary>
