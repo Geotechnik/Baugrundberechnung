@@ -40,7 +40,7 @@ namespace Baugrundberechnung
         public static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
         private int[] counter_stirn_ecke_eben_laengs = new int[5];
         private double[] T_stirn_ecke_eben_laengs = new double[4]; 
-        private double laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit, anströmung_eben, anströmung_laengs, anströmung_stirn, anströmung_ecke, umfeld_eben, umfeld_laengs, umfeld_stirn, umfeld_ecke, bemessungsbeiwert;
+        private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
         public static bool aufAlleUebernehmen = false;
         public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
         /// <summary>
@@ -67,8 +67,8 @@ namespace Baugrundberechnung
             {
                 //Wandelt die Strings in double um.
                 variablenSetzen();
-                //Überprüft ob breite<= laenge ist
-                if (breite <= laenge && aquifermächtigkeit>=wasserspiegeldifferenz && breite/laenge >= 0.3)
+                //Überprüft ob B<= L ist
+                if (B <= L && S>=H && B/L >= 0.3)
                 {
                     if (Form1.ActiveForm == this)
                     {
@@ -80,106 +80,106 @@ namespace Baugrundberechnung
                     ergebnisseInLabelSchreiben();
                     if (berechnungOhneBe.Checked)
                     {
-                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenOhneBe(anströmung_eben, umfeld_eben, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungOhneBe(anströmung_laengs, umfeld_laengs, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungOhneBe(anströmung_stirn, umfeld_stirn, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungOhneBe(anströmung_ecke, umfeld_ecke, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        Grafik.zeichnemal(laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, false, this.Size);
+                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, false, this.Size);
                         berechnungOhneBe.Checked = false;
                         if (offen_stirn_ecke_eben_laengs[0])
                         {
                             Stirn.Activate();
-                            Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[1])
                         {
                             Ecke.Activate();
-                            Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[2])
                         {
                             Eben.Activate();
-                            Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[3])
                         {
                             Laengs.Activate();
-                            Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         this.Activate();
                     }
                     else
                     {
-                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenMitBe(anströmung_eben, umfeld_eben, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungMitBe(anströmung_laengs, umfeld_laengs, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungMitBe(anströmung_stirn, umfeld_stirn, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungMitBe(anströmung_ecke, umfeld_ecke, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                        Grafik.zeichnemal(laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, true, this.Size);
+                        T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
+                        T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
+                        Grafik.zeichnemal(L, B, H, S, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, true, this.Size);
                         if (offen_stirn_ecke_eben_laengs[0])
                         {
                             Stirn.Activate();
-                            Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[1])
                         {
                             Ecke.Activate();
-                            Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[2])
                         {
                             Eben.Activate();
-                            Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[3])
                         {   
 
                             Laengs.Activate();
-                            Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         this.Activate();
                     }
                 }
-                else //Wenn breite größer als laenge ist:, oder aquifermächtigkeit kleiner wasserspiegeldifferenz
+                else //Wenn B größer als L ist:, oder S kleiner H
                 {
-                    if (breite > laenge)
+                    if (B > L)
                     {
                         System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss kleiner oder gleich Länge der Baugrube (L) sein. B wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (laenge % 1 == 0)
+                        if (L % 1 == 0)
                         {
-                            BreiteBaugrube.Text = laenge + ",00";
+                            BreiteBaugrube.Text = L + ",00";
                             textBox2_Leave(BreiteBaugrube, e);
                         }
                         else
                         {
-                            BreiteBaugrube.Text = laenge + "";
+                            BreiteBaugrube.Text = L + "";
                             textBox2_Leave(BreiteBaugrube, e);
                         }
                     }
-                    else if (aquifermächtigkeit < wasserspiegeldifferenz)
+                    else if(S<H)
                     {
                         System.Windows.Forms.MessageBox.Show("Aquivermächtigkeit (S) muss größer oder gleich der Wasserspiegeldifferenz (H) sein. H wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (aquifermächtigkeit % 1 == 0)
+                        if (S % 1 == 0)
                         {
-                            Wasserspiegeldifferenz.Text = aquifermächtigkeit + ",00";
+                            Wasserspiegeldifferenz.Text = S + ",00";
                             textBox3_Leave(Wasserspiegeldifferenz, e);
                         }
                         else
                         {
-                            Wasserspiegeldifferenz.Text = aquifermächtigkeit + "";
+                            Wasserspiegeldifferenz.Text = S + "";
                             textBox3_Leave(Wasserspiegeldifferenz, e);
                         }
                     }
-                    else if (breite / laenge < 0.3)
+                    else if(B/L<0.3)
                     {
                         System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss größer oder gleich 0,3 * Länge der Baugrube(L) sein. L wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (breite*3 % 1 == 0)
+                        if (B*3 % 1 == 0)
                         {
-                            LängeBaugrube.Text = (breite * 3) + ",00";
+                            LängeBaugrube.Text = (B*3) + ",00";
                             textBox1_Leave(LängeBaugrube, e);
                         }
                         else
                         {
-                            LängeBaugrube.Text = (breite * 3) + "";
+                            LängeBaugrube.Text = (B*3) + "";
                             textBox1_Leave(LängeBaugrube, e);
                         }
                     }
@@ -211,7 +211,7 @@ namespace Baugrundberechnung
             if(!offen_stirn_ecke_eben_laengs[0])
             {
                 Stirn.Show();
-                Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[0] = true;
                 wieoft_stirn_ecke_eben_laengs[0] = 1;
                 Stirn.Activate();
@@ -219,7 +219,7 @@ namespace Baugrundberechnung
             if (wieoft_stirn_ecke_eben_laengs[0] == 1)
             {
                 Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             
         }
@@ -229,7 +229,7 @@ namespace Baugrundberechnung
             if (!offen_stirn_ecke_eben_laengs[1])
             {
                 Ecke.Show();
-                Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[1] = true;
                 wieoft_stirn_ecke_eben_laengs[1] = 1;
                 Ecke.Activate();
@@ -237,7 +237,7 @@ namespace Baugrundberechnung
             if (wieoft_stirn_ecke_eben_laengs[1] == 1)
             {
                 Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
 
         }
@@ -246,15 +246,22 @@ namespace Baugrundberechnung
             if (!offen_stirn_ecke_eben_laengs[2])
             {
                 Eben.Show();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[2] = true;
                 wieoft_stirn_ecke_eben_laengs[2] = 1;
                 Eben.Activate();
+               /* if (counterEben == 0)
+                {
+                    counterEben++;
+                    Eben.Hide();
+                    Eben.Show();
+                    Eben.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                }*/
             }
             if (wieoft_stirn_ecke_eben_laengs[2] == 1)
             {
                 Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
         }
         private void T_laengsClick(object sender, EventArgs e)
@@ -263,15 +270,21 @@ namespace Baugrundberechnung
             {
                 
                 Laengs.Show();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;
                 wieoft_stirn_ecke_eben_laengs[3] = 1;
                 Laengs.Activate();
-
+                /*if(counterLängs == 0)
+                {
+                    counterLängs++;
+                    Laengs.Hide();
+                    Laengs.Show();
+                    Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                }*/
                 if (wieoft_stirn_ecke_eben_laengs[2] == 1)
                 {
                     Eben.Activate();
-                    Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                    Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 }
                 
             }
@@ -281,35 +294,35 @@ namespace Baugrundberechnung
         /// </summary>
         private void ergebnisseInLabelSchreiben()
         {
-            Ergebnis_eben_mi_Be_Label.Text = "" + Berechnung.berechnungebenMitBe(anströmung_eben, umfeld_eben, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_eben_ohne_Be_Label.Text = "" + Berechnung.berechnungebenOhneBe(anströmung_eben, umfeld_eben, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Länge_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(anströmung_laengs, umfeld_laengs, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Längs_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(anströmung_laengs, umfeld_laengs, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Stirn_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(anströmung_stirn, umfeld_stirn, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Stirn_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(anströmung_stirn, umfeld_stirn, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Ecke_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(anströmung_ecke, umfeld_ecke, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-            Ergebnis_Ecke_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(anströmung_ecke, umfeld_ecke, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
+            Ergebnis_eben_mi_Be_Label.Text = "" + Berechnung.berechnungebenMitBe(A_eb, U_eb, Bei, L, B, H, S, Y, n);
+            Ergebnis_eben_ohne_Be_Label.Text = "" + Berechnung.berechnungebenOhneBe(A_eb, U_eb, L, B, H, S, Y, n);
+            Ergebnis_Länge_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(A_L, U_L, Bei, L, B, H, S, Y, n);
+            Ergebnis_Längs_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(A_L, U_L, L, B, H, S, Y, n);
+            Ergebnis_Stirn_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(A_S, U_S, Bei, L, B, H, S, Y, n);
+            Ergebnis_Stirn_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(A_S, U_S, L, B, H, S, Y, n);
+            Ergebnis_Ecke_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(A_Ec, U_Ec, Bei, L, B, H, S, Y, n);
+            Ergebnis_Ecke_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(A_Ec, U_Ec, L, B, H, S, Y, n);
         }
         /// <summary>
-        /// Setzt die Attribute laenge, B, H, S, Y, n, anströmung_eben, anströmung_laengs, anströmung_stirn, anströmung_ecke, Umfeld_eben, umfeld_laengs, umfeld_stirn, umfeld_ecke und bemessungsbeiwert
+        /// Setzt die Attribute L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec und Bei
         /// </summary>
         private void variablenSetzen()
         {
-            laenge = Convertieren.convertToDouble(LängeBaugrube.Text);
-            breite = Convertieren.convertToDouble(BreiteBaugrube.Text);
-            wasserspiegeldifferenz = Convertieren.convertToDouble(Wasserspiegeldifferenz.Text);
-            aquifermächtigkeit = Convertieren.convertToDouble(Aquivermächtigkeit.Text);
-            wichteAuftrieb = Convertieren.convertToDouble(WichteAuftrieb.Text);
-            globaleSicherheit = Convertieren.convertToDouble(GlobaleSicherheit.Text);
-            anströmung_eben = Convertieren.convertToDouble(Anströmung_eben.Text);
-            umfeld_eben = Convertieren.convertToDouble(Umfeld_eben.Text);
-            anströmung_laengs = Convertieren.convertToDouble(Anströmung_Längs.Text);
-            umfeld_laengs = Convertieren.convertToDouble(Umfeld_Längs.Text);
-            anströmung_stirn = Convertieren.convertToDouble(Anströmung_Stirn.Text);
-            umfeld_stirn = Convertieren.convertToDouble(Umfeld_Stirn.Text);
-            anströmung_ecke = Convertieren.convertToDouble(Anströmung_Ecke.Text);
-            umfeld_ecke = Convertieren.convertToDouble(Umfeld_Ecke.Text);
-            bemessungsbeiwert = Convertieren.convertToDouble(Bemessungsbeiwert.Text);
+            L = Convertieren.convertToDouble(LängeBaugrube.Text);
+            B = Convertieren.convertToDouble(BreiteBaugrube.Text);
+            H = Convertieren.convertToDouble(Wasserspiegeldifferenz.Text);
+            S = Convertieren.convertToDouble(Aquivermächtigkeit.Text);
+            Y = Convertieren.convertToDouble(WichteAuftrieb.Text);
+            n = Convertieren.convertToDouble(GlobaleSicherheit.Text);
+            A_eb = Convertieren.convertToDouble(Anströmung_eben.Text);
+            U_eb = Convertieren.convertToDouble(Umfeld_eben.Text);
+            A_L = Convertieren.convertToDouble(Anströmung_Längs.Text);
+            U_L = Convertieren.convertToDouble(Umfeld_Längs.Text);
+            A_S = Convertieren.convertToDouble(Anströmung_Stirn.Text);
+            U_S = Convertieren.convertToDouble(Umfeld_Stirn.Text);
+            A_Ec = Convertieren.convertToDouble(Anströmung_Ecke.Text);
+            U_Ec = Convertieren.convertToDouble(Umfeld_Ecke.Text);
+            Bei = Convertieren.convertToDouble(Bemessungsbeiwert.Text);
         }
 
         /// <summary>
@@ -469,25 +482,25 @@ namespace Baugrundberechnung
             {
                 counter_stirn_ecke_eben_laengs[1]++;
                 Stirn.Activate();
-                Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[1] && counter_stirn_ecke_eben_laengs[2] == 0)
             {
                 counter_stirn_ecke_eben_laengs[2]++;
                 Ecke.Activate();
-                Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[2] && counter_stirn_ecke_eben_laengs[3] == 0)
             {
                 counter_stirn_ecke_eben_laengs[3]++;
                 Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[3] && counter_stirn_ecke_eben_laengs[4] == 0)
             {
                 counter_stirn_ecke_eben_laengs[4]++;
                 Laengs.Activate();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
             if (counter_stirn_ecke_eben_laengs[0] == 0)
