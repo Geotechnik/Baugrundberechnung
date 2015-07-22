@@ -19,10 +19,7 @@ namespace Baugrundberechnung
         public Label[] T_Seite_stirn_ecke_eben_laengs_SeiteB = new Label[6];
         public Label[] T_stirn_ecke_eben_laengs_Label = new Label[4];
         public Label ohneBeHinweis = new Label();
-        private Form3 Stirn = new Form3();
-        private Form3 Eben = new Form3();
-        private Form3 Laengs = new Form3();
-        private Form3 Ecke = new Form3();
+        private Form3[] form_stirn_ecke_eben_laengs = new Form3[4];
         private double[] T_stirn_ecke_eben_laengs = new double[4];
         //public Label L_label = new Label();
         public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
@@ -35,6 +32,7 @@ namespace Baugrundberechnung
         private int counterEben = 0;
         private int counterEcke = 0;
         private int counterStirn = 0;
+        private int counterZeichnung = 0;
  
         /// <summary>
         /// Initialisiert alle Componenten
@@ -43,6 +41,22 @@ namespace Baugrundberechnung
         {   
             InitializeComponent();
             Validierung.setFormReference(this);
+            for (int i = 0; i < T_stirn_ecke_eben_laengs_Label.Length;i++)
+            {
+                T_stirn_ecke_eben_laengs_Label[i] = new Label();
+            }
+            for (int i = 0; i < H_Seite_stirn_ecke_eben_laengs_SeiteS.Length; i++)
+            {
+                H_Seite_stirn_ecke_eben_laengs_SeiteS[i] = new Label();
+            }
+            for (int i = 0; i < T_Seite_stirn_ecke_eben_laengs_SeiteB.Length; i++)
+            {
+                T_Seite_stirn_ecke_eben_laengs_SeiteB[i] = new Label();
+            }
+            for (int i = 0; i < form_stirn_ecke_eben_laengs.Length; i++)
+            {
+                form_stirn_ecke_eben_laengs[i] = new Form3();
+            } 
             this.T_stirn_ecke_eben_laengs_Label[0].Click += new System.EventHandler(this.T_stirnClick);
             this.T_stirn_ecke_eben_laengs_Label[1].Click += new System.EventHandler(this.T_eckeClick);
             this.T_stirn_ecke_eben_laengs_Label[2].Click += new System.EventHandler(this.T_ebenClick);
@@ -82,23 +96,23 @@ namespace Baugrundberechnung
                         berechnungOhneBe.Checked = false;
                         if (offen_stirn_ecke_eben_laengs[0])
                         {
-                            Stirn.Activate();
-                            Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[0].Activate();
+                            form_stirn_ecke_eben_laengs[0].öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[1])
                         {
-                            Ecke.Activate();
-                            Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[1].Activate();
+                            form_stirn_ecke_eben_laengs[1].öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[2])
                         {
-                            Eben.Activate();
-                            Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[2].Activate();
+                            form_stirn_ecke_eben_laengs[2].öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[3])
                         {
-                            Laengs.Activate();
-                            Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[3].Activate();
+                            form_stirn_ecke_eben_laengs[3].öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         this.Activate();
                     }
@@ -111,24 +125,24 @@ namespace Baugrundberechnung
                         Grafik.zeichnemal(L, B, H, S, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, true, this.Size);
                         if (offen_stirn_ecke_eben_laengs[0])
                         {
-                            Stirn.Activate();
-                            Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[0].Activate();
+                            form_stirn_ecke_eben_laengs[0].öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[1])
                         {
-                            Ecke.Activate();
-                            Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[1].Activate();
+                            form_stirn_ecke_eben_laengs[1].öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[2])
                         {
-                            Eben.Activate();
-                            Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[2].Activate();
+                            form_stirn_ecke_eben_laengs[2].öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         if (offen_stirn_ecke_eben_laengs[3])
-                        {   
+                        {
 
-                            Laengs.Activate();
-                            Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                            form_stirn_ecke_eben_laengs[3].Activate();
+                            form_stirn_ecke_eben_laengs[3].öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                         }
                         this.Activate();
                     }
@@ -204,16 +218,16 @@ namespace Baugrundberechnung
         {
             if(!offen_stirn_ecke_eben_laengs[0])
             {
-                Stirn.Show();
-                Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[0].Show();
+                form_stirn_ecke_eben_laengs[0].öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[0] = true;
                 wieoft_stirn_ecke_eben_laengs[0] = 1;
-                Stirn.Activate();
+                form_stirn_ecke_eben_laengs[0].Activate();
             }
             if (wieoft_stirn_ecke_eben_laengs[0] == 1)
             {
-                Eben.Activate();
-                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[0].Activate();
+                form_stirn_ecke_eben_laengs[0].öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             
         }
@@ -222,16 +236,16 @@ namespace Baugrundberechnung
                 
             if (!offen_stirn_ecke_eben_laengs[1])
             {
-                Ecke.Show();
-                Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[1].Show();
+                form_stirn_ecke_eben_laengs[1].öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[1] = true;
                 wieoft_stirn_ecke_eben_laengs[1] = 1;
-                Ecke.Activate();
+                form_stirn_ecke_eben_laengs[1].Activate();
             }
             if (wieoft_stirn_ecke_eben_laengs[1] == 1)
             {
-                Eben.Activate();
-                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[1].Activate();
+                form_stirn_ecke_eben_laengs[1].öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
 
         }
@@ -239,46 +253,32 @@ namespace Baugrundberechnung
         {
             if (!offen_stirn_ecke_eben_laengs[2])
             {
-                Eben.Show();
-                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[2].Show();
+                form_stirn_ecke_eben_laengs[2].öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[2] = true;
                 wieoft_stirn_ecke_eben_laengs[2] = 1;
-                Eben.Activate();
-               /* if (counterEben == 0)
-                {
-                    counterEben++;
-                    Eben.Hide();
-                    Eben.Show();
-                    Eben.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-                }*/
+                form_stirn_ecke_eben_laengs[2].Activate();
             }
             if (wieoft_stirn_ecke_eben_laengs[2] == 1)
             {
-                Eben.Activate();
-                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[2].Activate();
+                form_stirn_ecke_eben_laengs[2].öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
         }
         private void T_laengsClick(object sender, EventArgs e)
         {
             if (!offen_stirn_ecke_eben_laengs[3])
             {
-                
-                Laengs.Show();
-                Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+
+                form_stirn_ecke_eben_laengs[3].Show();
+                form_stirn_ecke_eben_laengs[3].öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;
                 wieoft_stirn_ecke_eben_laengs[3] = 1;
-                Laengs.Activate();
-                /*if(counterLängs == 0)
-                {
-                    counterLängs++;
-                    Laengs.Hide();
-                    Laengs.Show();
-                    Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-                }*/
+                form_stirn_ecke_eben_laengs[3].Activate();
                 if (wieoft_stirn_ecke_eben_laengs[2] == 1)
                 {
-                    Eben.Activate();
-                    Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                    form_stirn_ecke_eben_laengs[3].Activate();
+                    form_stirn_ecke_eben_laengs[3].öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 }
                 
             }
@@ -474,26 +474,26 @@ namespace Baugrundberechnung
             if (offen_stirn_ecke_eben_laengs[0] && counterStirn ==0)
             {
                 counterStirn++;
-                Stirn.Activate();
-                Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[0].Activate();
+                form_stirn_ecke_eben_laengs[0].öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[1] && counterEcke == 0)
             {
                 counterEcke++;
-                Ecke.Activate();
-                Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[1].Activate();
+                form_stirn_ecke_eben_laengs[1].öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[2] && counterEben == 0)
             {
                 counterEben++;
-                Eben.Activate();
-                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[2].Activate();
+                form_stirn_ecke_eben_laengs[2].öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             if (offen_stirn_ecke_eben_laengs[3] && counterLängs== 0)
             {
                 counterLängs++;
-                Laengs.Activate();
-                Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                form_stirn_ecke_eben_laengs[3].Activate();
+                form_stirn_ecke_eben_laengs[3].öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
             if(counter == 0)
@@ -507,6 +507,7 @@ namespace Baugrundberechnung
                 textBox5_Leave(textBox5, e);
                 textBox6_Leave(textBox6, e);
             }
+            
         }
 
         /// <summary>
