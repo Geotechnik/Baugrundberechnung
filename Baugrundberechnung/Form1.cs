@@ -43,7 +43,11 @@ namespace Baugrundberechnung
         private double L, B, H, S, Y, n, A_eb, A_L, A_S, A_Ec, U_eb, U_L, U_S, U_Ec, Bei;
         private int counter = 0;
         public static bool[] offen_stirn_ecke_eben_laengs= new bool[4];
-        private static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
+        public static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
+        private int counterLängs = 0;
+        private int counterEben = 0;
+        private int counterEcke = 0;
+        private int counterStirn = 0;
  
         /// <summary>
         /// Initialisiert alle Componenten
@@ -219,7 +223,11 @@ namespace Baugrundberechnung
                 wieoft_stirn_ecke_eben_laengs[0] = 1;
                 Stirn.Activate();
             }
-           
+            if (wieoft_stirn_ecke_eben_laengs[0] == 1)
+            {
+                Eben.Activate();
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
             
         }
         private void T_eckeClick(object sender, EventArgs e)
@@ -233,6 +241,11 @@ namespace Baugrundberechnung
                 wieoft_stirn_ecke_eben_laengs[1] = 1;
                 Ecke.Activate();
             }
+            if (wieoft_stirn_ecke_eben_laengs[1] == 1)
+            {
+                Eben.Activate();
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
 
         }
         private void T_ebenClick(object sender, EventArgs e)
@@ -244,6 +257,13 @@ namespace Baugrundberechnung
                 offen_stirn_ecke_eben_laengs[2] = true;
                 wieoft_stirn_ecke_eben_laengs[2] = 1;
                 Eben.Activate();
+               /* if (counterEben == 0)
+                {
+                    counterEben++;
+                    Eben.Hide();
+                    Eben.Show();
+                    Eben.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                }*/
             }
             if (wieoft_stirn_ecke_eben_laengs[2] == 1)
             {
@@ -255,11 +275,25 @@ namespace Baugrundberechnung
         {
             if (!offen_stirn_ecke_eben_laengs[3])
             {
+                
                 Laengs.Show();
                 Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;
                 wieoft_stirn_ecke_eben_laengs[3] = 1;
                 Laengs.Activate();
+                /*if(counterLängs == 0)
+                {
+                    counterLängs++;
+                    Laengs.Hide();
+                    Laengs.Show();
+                    Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                }*/
+                if (wieoft_stirn_ecke_eben_laengs[2] == 1)
+                {
+                    Eben.Activate();
+                    Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                }
+                
             }
         }
         /// <summary>
@@ -451,6 +485,31 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            if (offen_stirn_ecke_eben_laengs[0] && counterStirn ==0)
+            {
+                counterStirn++;
+                Stirn.Activate();
+                Stirn.öffnen("Stirn", L, B, H, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
+            if (offen_stirn_ecke_eben_laengs[1] && counterEcke == 0)
+            {
+                counterEcke++;
+                Ecke.Activate();
+                Ecke.öffnen("Ecke", L, B, H, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
+            if (offen_stirn_ecke_eben_laengs[2] && counterEben == 0)
+            {
+                counterEben++;
+                Eben.Activate();
+                Eben.öffnen("Eben", L, B, H, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
+            if (offen_stirn_ecke_eben_laengs[3] && counterLängs== 0)
+            {
+                counterLängs++;
+                Laengs.Activate();
+                Laengs.öffnen("Längs", L, B, H, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+            }
+            this.Activate();
             if(counter == 0)
             { 
                 Berechnen_Click(null, null);
@@ -668,8 +727,6 @@ namespace Baugrundberechnung
                 berechnungOhneBe.ForeColor = Color.Black;
             }
         }
-
-
         private void haftungsausschlussToolStripMenuItem_Click(object sender, EventArgs e)
         {
             

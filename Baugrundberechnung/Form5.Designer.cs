@@ -1,6 +1,6 @@
 ﻿namespace Baugrundberechnung
 {
-    partial class Form3
+    partial class Form5
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form3
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
-            this.MinimumSize = new System.Drawing.Size(500, 500);
-            this.Name = "Form3";
-            this.Text = "Form3";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
-            this.ResumeLayout(false);
-
+            this.Text = "Form5";
         }
 
         #endregion
-
     }
 }
