@@ -15,9 +15,22 @@ namespace Baugrundberechnung
         //Attribute
         public Label Baugrube = new Label();
         public Label B_label = new Label();
-        public Label[] H_Seite_stirn_ecke_eben_laengs_SeiteS = new Label[6];
-        public Label[] T_Seite_stirn_ecke_eben_laengs_SeiteB = new Label[6];
-        public Label[] T_stirn_ecke_eben_laengs_Label = new Label[4];
+        public Label H_label_SeiteBaugrube = new Label();
+        public Label S_label_SeiteBaugrube = new Label();
+        public Label T_label_Ecke = new Label();
+        public Label H_label_Ecke = new Label();
+        public Label T_label_Stirn = new Label();
+        public Label H_label_Stirn = new Label(); 
+        public Label T_label_Längs = new Label();
+        public Label H_label_Längs = new Label();
+        public Label T_label_Eben = new Label();
+        public Label H_label_Eben = new Label();
+        public Label S_labelSeite = new Label();
+        public Label BaugrubeSeite = new Label();
+        public Label T_stirn = new Label();
+        public Label T_ecke = new Label();
+        public Label T_eben = new Label();
+        public Label T_laengs = new Label();
         public Label ohneBeHinweis = new Label();
         private Form3 Stirn = new Form3();
         private Form3 Eben = new Form3();
@@ -43,10 +56,10 @@ namespace Baugrundberechnung
         {   
             InitializeComponent();
             Validierung.setFormReference(this);
-            this.T_stirn_ecke_eben_laengs_Label[0].Click += new System.EventHandler(this.T_stirnClick);
-            this.T_stirn_ecke_eben_laengs_Label[1].Click += new System.EventHandler(this.T_eckeClick);
-            this.T_stirn_ecke_eben_laengs_Label[2].Click += new System.EventHandler(this.T_ebenClick);
-            this.T_stirn_ecke_eben_laengs_Label[3].Click += new System.EventHandler(this.T_laengsClick);
+            this.T_stirn.Click += new System.EventHandler(this.T_stirnClick);
+            this.T_ecke.Click += new System.EventHandler(this.T_eckeClick);
+            this.T_eben.Click += new System.EventHandler(this.T_ebenClick);
+            this.T_laengs.Click += new System.EventHandler(this.T_laengsClick);
         }
 
         /// <summary>
@@ -379,6 +392,7 @@ namespace Baugrundberechnung
         /// <summary>
         /// koppelt hScrollBar2 mit textBox2 wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
+        
         private void hScrollBar2_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, textBox2);
