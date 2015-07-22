@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace Baugrundberechnung
 {
+    /// <summary>
+    /// Convertiert die Zahl der Eingabe in eine Kommazahl.
+    /// </summary>
     class Convertieren
     {
-        public static double convertToDouble(String zahl)
+        public static double convertToDouble(String str)
         {
-            double ret;
-              if (Regex.IsMatch(zahl, @"^[0-9]+\.[0-9]+$"))
+            double zahl;
+              if (Regex.IsMatch(str, @"^[0-9]+\.[0-9]+$"))
               {
-                  zahl = zahl.Replace(".", ",");
+                  str = str.Replace(".", ",");
               }
-            ret = Convert.ToDouble(zahl);//double.Parse(str, CultureInfo.GetCultureInfo("de-DE").NumberFormat,);
-            //System.Windows.Forms.MessageBox.Show("Decimalzahl ist: " + zahl);
-            return ret;
+            zahl = Convert.ToDouble(str);
+            return zahl;
         }
     }
 }
