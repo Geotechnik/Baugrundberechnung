@@ -91,12 +91,12 @@ namespace Baugrundberechnung
                         if (laenge % 1 == 0)
                         {
                             BreiteBaugrube.Text = laenge + ",00";
-                            textBox2_Leave(BreiteBaugrube, e);
+                            BreiteBaugrube_Leave(BreiteBaugrube, e);
                         }
                         else
                         {
                             BreiteBaugrube.Text = laenge + "";
-                            textBox2_Leave(BreiteBaugrube, e);
+                            BreiteBaugrube_Leave(BreiteBaugrube, e);
                         }
                     }
                     else if (aquifermächtigkeit < wasserspiegeldifferenz)
@@ -105,12 +105,12 @@ namespace Baugrundberechnung
                         if (aquifermächtigkeit % 1 == 0)
                         {
                             Wasserspiegeldifferenz.Text = aquifermächtigkeit + ",00";
-                            textBox3_Leave(Wasserspiegeldifferenz, e);
+                            Wasserspiegeldifferenz_Leave(Wasserspiegeldifferenz, e);
                         }
                         else
                         {
                             Wasserspiegeldifferenz.Text = aquifermächtigkeit + "";
-                            textBox3_Leave(Wasserspiegeldifferenz, e);
+                            Wasserspiegeldifferenz_Leave(Wasserspiegeldifferenz, e);
                         }
                     }
                     else if (breite / laenge < 0.3)
@@ -119,12 +119,12 @@ namespace Baugrundberechnung
                         if (breite * 3 % 1 == 0)
                         {
                             LängeBaugrube.Text = (breite * 3) + ",00";
-                            textBox1_Leave(LängeBaugrube, e);
+                            LängeBaugrube_Leave(LängeBaugrube, e);
                         }
                         else
                         {
                             LängeBaugrube.Text = (breite * 3) + "";
-                            textBox1_Leave(LängeBaugrube, e);
+                            LängeBaugrube_Leave(LängeBaugrube, e);
                         }
                     }
                 }
@@ -150,7 +150,9 @@ namespace Baugrundberechnung
 
             }
         }
-
+        /// <summary>
+        /// Zeichnet im gleichem und neuem Fenster Mit Be
+        /// </summary>
         private void zeichnungenZeichnenMitBe()
         {
             Grafik.zeichnemal(laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, true, this.Size);
@@ -177,7 +179,9 @@ namespace Baugrundberechnung
             }
             this.Activate();
         }
-
+        /// <summary>
+        /// Zeichnet im gleichem und neuem Fenster Ohne Be
+        /// </summary>
         private void zeichnungenZeichnenOhneBe()
         {
             Grafik.zeichnemal(laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], this, false, this.Size);
@@ -204,6 +208,11 @@ namespace Baugrundberechnung
             }
             this.Activate();
         }
+        /// <summary>
+        /// Zeichnet die Form für Stirn im neuem Fenster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void T_stirnClick(object sender, EventArgs e)
         {
             if (!offen_stirn_ecke_eben_laengs[0])
@@ -216,11 +225,16 @@ namespace Baugrundberechnung
             }
             if (wieoft_stirn_ecke_eben_laengs[0] == 1)
             {
-                Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Stirn.Activate();
+                Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
 
         }
+        /// <summary>
+        /// Zeichnet die Form für Ecke im neuem Fenster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void T_eckeClick(object sender, EventArgs e)
         {
 
@@ -234,11 +248,16 @@ namespace Baugrundberechnung
             }
             if (wieoft_stirn_ecke_eben_laengs[1] == 1)
             {
-                Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Ecke.Activate();
+                Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
 
         }
+        /// <summary>
+        /// Zeichnet die Form für Eben im neuem Fenster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void T_ebenClick(object sender, EventArgs e)
         {
             if (!offen_stirn_ecke_eben_laengs[2])
@@ -255,6 +274,11 @@ namespace Baugrundberechnung
                 Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
         }
+        /// <summary>
+        /// Zeichnet die Form für Längs im neuem Fenster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void T_laengsClick(object sender, EventArgs e)
         {
             if (!offen_stirn_ecke_eben_laengs[3])
@@ -265,13 +289,11 @@ namespace Baugrundberechnung
                 offen_stirn_ecke_eben_laengs[3] = true;
                 wieoft_stirn_ecke_eben_laengs[3] = 1;
                 Laengs.Activate();
-
-                if (wieoft_stirn_ecke_eben_laengs[2] == 1)
-                {
-                    Eben.Activate();
-                    Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-                }
-
+            }
+            if (wieoft_stirn_ecke_eben_laengs[3] == 1)
+            {
+                Laengs.Activate();
+                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
         }
         /// <summary>
@@ -279,7 +301,6 @@ namespace Baugrundberechnung
         /// </summary>
         private void ergebnisseInLabelSchreiben()
         {
-
             Ergebnis_eben_mi_Be_Label.Text = "" + Berechnung.berechnungebenMitBe(anströmung_eben, umfeld_eben, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
             Ergebnis_eben_ohne_Be_Label.Text = "" + Berechnung.berechnungebenOhneBe(anströmung_eben, umfeld_eben, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
             Ergebnis_Länge_mit_Be_Label.Text = "" + Berechnung.berechnungMitBe(anströmung_laengs, umfeld_laengs, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
@@ -290,17 +311,17 @@ namespace Baugrundberechnung
             Ergebnis_Ecke_ohne_Be_Label.Text = "" + Berechnung.berechnungOhneBe(anströmung_ecke, umfeld_ecke, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
             if (berechnungOhneBe.Checked)
             {
-                T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenOhneBe(anströmung_eben, umfeld_eben, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungOhneBe(anströmung_laengs, umfeld_laengs, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungOhneBe(anströmung_stirn, umfeld_stirn, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungOhneBe(anströmung_ecke, umfeld_ecke, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
+                T_stirn_ecke_eben_laengs[2] = Convert.ToDouble(Ergebnis_eben_ohne_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[3] = Convert.ToDouble(Ergebnis_Längs_ohne_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[0] = Convert.ToDouble(Ergebnis_Stirn_ohne_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[1] = Convert.ToDouble(Ergebnis_Ecke_ohne_Be_Label.Text);
             }
             else
             {
-                T_stirn_ecke_eben_laengs[2] = Berechnung.berechnungebenMitBe(anströmung_eben, umfeld_eben, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[3] = Berechnung.berechnungMitBe(anströmung_laengs, umfeld_laengs, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[0] = Berechnung.berechnungMitBe(anströmung_stirn, umfeld_stirn, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
-                T_stirn_ecke_eben_laengs[1] = Berechnung.berechnungMitBe(anströmung_ecke, umfeld_ecke, bemessungsbeiwert, laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit);
+                T_stirn_ecke_eben_laengs[2] = Convert.ToDouble(Ergebnis_eben_mi_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[3] = Convert.ToDouble(Ergebnis_Länge_mit_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[0] = Convert.ToDouble(Ergebnis_Stirn_mit_Be_Label.Text);
+                T_stirn_ecke_eben_laengs[1] = Convert.ToDouble(Ergebnis_Ecke_mit_Be_Label.Text);
             }
         }
         /// <summary>
@@ -324,7 +345,6 @@ namespace Baugrundberechnung
             umfeld_ecke = Convertieren.convertToDouble(Umfeld_Ecke.Text);
             bemessungsbeiwert = Convertieren.convertToDouble(Bemessungsbeiwert.Text);
         }
-
         /// <summary>
         /// Überprüft ob die Eingaben gültig sind
         /// </summary>
@@ -339,7 +359,6 @@ namespace Baugrundberechnung
             bool aquifervalid = Validierung.isValidNumber(Aquivermächtigkeit.Text, "S");
             return (laengevalid && baugrubevalid && wasserspiegelvalid && sicherheitvalid && auftriebvalid && aquifervalid);
         }
-
         /// <summary>
         /// Überprüft ob die Eingabe gültig ist
         /// </summary>
@@ -374,47 +393,42 @@ namespace Baugrundberechnung
             return false;
         }
         /// <summary>
-        /// koppelt hScrollBar1 mit textBox1 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt laengeScroll mit der Textbox LängeBaugrube wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void hScrollBar1_ValueChanged(object sender, EventArgs e)
+        private void laengeScroll_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, LängeBaugrube);
         }
         /// <summary>
-        /// koppelt hScrollBar2 mit textBox2 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt breiteScroll mit der textBox BreiteBaugrube wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
-
-        private void hScrollBar2_ValueChanged(object sender, EventArgs e)
+        private void breiteScroll_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, BreiteBaugrube);
         }
-
         /// <summary>
-        /// koppelt hScrollBar4 mit textBox3 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt wasserspiegelScroll mit der textBox Wasserspiegeldifferenz wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
-        private void hScrollBar4_ValueChanged(object sender, EventArgs e)
+        private void wasserspiegelScroll_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, Wasserspiegeldifferenz);
         }
-
         /// <summary>
-        /// koppelt hScrollBar3 mit textBox6 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt aquiferScroll mit der textBox Aquifermächtigkeit wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
-        private void hScrollBar3_ValueChanged(object sender, EventArgs e)
+        private void aquiferScroll_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, Aquivermächtigkeit);
         }
-
         /// <summary>
-        /// koppelt hScrollBar6 mit textBox5 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt auftriebScroll mit der textBox WichteAuftrieb wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
-        private void hScrollBar6_ValueChanged(object sender, EventArgs e)
+        private void auftriebScroll_ValueChanged(object sender, EventArgs e)
         {
             scallierungDerWerte(sender, e, WichteAuftrieb);
         }
-
         /// <summary>
         /// Koppelt die übergebene Scrollbar mit der Übergebenen Textbox.
         /// </summary>
@@ -435,9 +449,9 @@ namespace Baugrundberechnung
             Berechnen_Click(sender, e);
         }
         /// <summary>
-        /// koppelt hScrollBar5 mit textBox4 wenn der Wert der Scrollbar verändert wurde.
+        /// koppelt sicherheitScroll mit der textBox GlobaleSicherheit wenn der Wert der Scrollbar verändert wurde.
         /// </summary>
-        private void hScrollBar5_ValueChanged(object sender, EventArgs e)
+        private void sicherheitScroll_ValueChanged(object sender, EventArgs e)
         {
             // Überprüft ob die Zahl eine Nachkommastelle hat
             if ((sicherheitScroll.Value / 1000.0) % 1 == 0)
@@ -451,7 +465,6 @@ namespace Baugrundberechnung
 
             Berechnen_Click(sender, e);
         }
-
         /// <summary>
         /// Öffnet den Infobereich
         /// </summary>
@@ -463,13 +476,6 @@ namespace Baugrundberechnung
             infoForm.Text = "Info";
             infoForm.ShowDialog();
         }
-
-        /// <summary>
-        /// beendet das Programm
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
         /// <summary>
         /// lässt die Werte einmalig berechnen sobald die Form geöffnet wurde.
         /// lässt die werte aus der textBox in die Scrollbar überschreiben.
@@ -478,6 +484,7 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            //ohne geht das zeichnen im neuem Fenster beim erstmaligem öffnen Schief.
             if (offen_stirn_ecke_eben_laengs[0] && counter_stirn_ecke_eben_laengs[1] == 0)
             {
                 counter_stirn_ecke_eben_laengs[1]++;
@@ -507,15 +514,14 @@ namespace Baugrundberechnung
             {
                 Berechnen_Click(null, null);
                 counter_stirn_ecke_eben_laengs[0]++;
-                textBox1_Leave(LängeBaugrube, e);
-                textBox2_Leave(BreiteBaugrube, e);
-                textBox3_Leave(Wasserspiegeldifferenz, e);
-                textBox4_Leave(GlobaleSicherheit, e);
-                textBox5_Leave(WichteAuftrieb, e);
-                textBox6_Leave(Aquivermächtigkeit, e);
+                LängeBaugrube_Leave(LängeBaugrube, e);
+                BreiteBaugrube_Leave(BreiteBaugrube, e);
+                Wasserspiegeldifferenz_Leave(Wasserspiegeldifferenz, e);
+                GlobaleSicherheit_Leave(GlobaleSicherheit, e);
+                WichteAuftrieb_Leave(WichteAuftrieb, e);
+                Aquivermächtigkeit_Leave(Aquivermächtigkeit, e);
             }
         }
-
         /// <summary>
         /// Setzt die Werte zurück auf Standardwerte
         /// ruft Berechnen auf und lässt die Werte auf die Scrollbar überschreiben
@@ -530,16 +536,15 @@ namespace Baugrundberechnung
             Aquivermächtigkeit.Text = "30,00";
             WichteAuftrieb.Text = "11,00";
             GlobaleSicherheit.Text = "1,368";
-            textBox1_Leave(LängeBaugrube, e);
-            textBox2_Leave(BreiteBaugrube, e);
-            textBox3_Leave(Wasserspiegeldifferenz, e);
-            textBox4_Leave(GlobaleSicherheit, e);
-            textBox5_Leave(WichteAuftrieb, e);
-            textBox6_Leave(Aquivermächtigkeit, e);
+            LängeBaugrube_Leave(LängeBaugrube, e);
+            BreiteBaugrube_Leave(BreiteBaugrube, e);
+            Wasserspiegeldifferenz_Leave(Wasserspiegeldifferenz, e);
+            GlobaleSicherheit_Leave(GlobaleSicherheit, e);
+            WichteAuftrieb_Leave(WichteAuftrieb, e);
+            Aquivermächtigkeit_Leave(Aquivermächtigkeit, e);
             Berechnen_Click(sender, e);
             aufAlleUebernehmen = false;
         }
-
         /// <summary>
         /// Überschreibt die Werte von der Textbox auf die Scrollbar.
         /// wenn der Wert gleich ist macht er nichts um endlosschleife zu verhindern.
@@ -562,7 +567,7 @@ namespace Baugrundberechnung
                         //Überschreibt den gerundeten Wert in die ScrollBar
                         bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5);
                         //lässt den Wert zurücküberschreiben für eine änderung von 11,00 zu 11,0004 zurück zu 11,000 da sonst Werte gleich.
-                        hScrollBar5_ValueChanged(sender, null);
+                        sicherheitScroll_ValueChanged(sender, null);
                     }
                 }
                 // Überprüft ob Checkbox nicht angehakt wurde und ob es Scrollbar5 ist.
@@ -580,7 +585,7 @@ namespace Baugrundberechnung
                     {
                         //Überschreibt den gerundeten Wert in die ScrollBar
                         bezugsScrollBar.Value = (int)(Convertieren.convertToDouble(tempTextBox.Text) * 1000 + 0.5);
-                        hScrollBar5_ValueChanged(sender, null);
+                        sicherheitScroll_ValueChanged(sender, null);
                     }
                 }
                 // Überprüft ob Checkbox angehakt ist und ob es nicht Scrollbar5 ist.
@@ -627,57 +632,57 @@ namespace Baugrundberechnung
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void LängeBaugrube_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, laengeScroll, "L");
         }
         /// <summary>
         /// Ruft Runden und Ueberschreiben auf.
-        /// textBox2, hScrollBar2 und B
+        /// BreiteBaugrube, hScrollBar2 und B
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox2_Leave(object sender, EventArgs e)
+        private void BreiteBaugrube_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, breiteScroll, "B");
         }
         /// <summary>
         /// Ruft Runden und Ueberschreiben auf.
-        /// textBox3, hScrollBar4 und H
+        /// Wasserspiegeldifferenz, hScrollBar4 und H
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox3_Leave(object sender, EventArgs e)
+        private void Wasserspiegeldifferenz_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, wasserspiegelScroll, "H");
         }
         /// <summary>
         /// Ruft Runden und Ueberschreiben auf.
-        /// textBox6, hScrollBar3 und S
+        /// Aquivermächtigkeit, hScrollBar3 und S
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox6_Leave(object sender, EventArgs e)
+        private void Aquivermächtigkeit_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, aquiferScroll, "S");
         }
         /// <summary>
         /// Ruft Runden und Ueberschreiben auf.
-        /// textBox5, hScrollBar6 und γ
+        /// WichteAuftrieb, hScrollBar6 und γ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox5_Leave(object sender, EventArgs e)
+        private void WichteAuftrieb_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, auftriebScroll, "γ");
         }
         /// <summary>
         /// Ruft Runden und Ueberschreiben auf.
-        /// textBox4, hScrollBar5 und n
+        /// GlobaleSicherheit, hScrollBar5 und n
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox4_Leave(object sender, EventArgs e)
+        private void GlobaleSicherheit_Leave(object sender, EventArgs e)
         {
             Runden_und_Ueberschreiben(sender, sicherheitScroll, "n");
         }

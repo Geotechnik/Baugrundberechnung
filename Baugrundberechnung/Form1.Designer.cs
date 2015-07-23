@@ -146,7 +146,7 @@
             this.LängeBaugrube.Size = new System.Drawing.Size(100, 20);
             this.LängeBaugrube.TabIndex = 1;
             this.LängeBaugrube.Text = "30,00";
-            this.LängeBaugrube.Leave += new System.EventHandler(this.textBox1_Leave);
+            this.LängeBaugrube.Leave += new System.EventHandler(this.LängeBaugrube_Leave);
             // 
             // BreiteBaugrube
             // 
@@ -155,7 +155,7 @@
             this.BreiteBaugrube.Size = new System.Drawing.Size(100, 20);
             this.BreiteBaugrube.TabIndex = 3;
             this.BreiteBaugrube.Text = "15,00";
-            this.BreiteBaugrube.Leave += new System.EventHandler(this.textBox2_Leave);
+            this.BreiteBaugrube.Leave += new System.EventHandler(this.BreiteBaugrube_Leave);
             // 
             // label_Breite
             // 
@@ -173,7 +173,7 @@
             this.Wasserspiegeldifferenz.Size = new System.Drawing.Size(100, 20);
             this.Wasserspiegeldifferenz.TabIndex = 5;
             this.Wasserspiegeldifferenz.Text = "10,00";
-            this.Wasserspiegeldifferenz.Leave += new System.EventHandler(this.textBox3_Leave);
+            this.Wasserspiegeldifferenz.Leave += new System.EventHandler(this.Wasserspiegeldifferenz_Leave);
             // 
             // label_Wasserspiegel
             // 
@@ -191,7 +191,7 @@
             this.GlobaleSicherheit.Size = new System.Drawing.Size(100, 20);
             this.GlobaleSicherheit.TabIndex = 11;
             this.GlobaleSicherheit.Text = "1,368";
-            this.GlobaleSicherheit.Leave += new System.EventHandler(this.textBox4_Leave);
+            this.GlobaleSicherheit.Leave += new System.EventHandler(this.GlobaleSicherheit_Leave);
             // 
             // label_Sicherheit
             // 
@@ -209,7 +209,7 @@
             this.WichteAuftrieb.Size = new System.Drawing.Size(100, 20);
             this.WichteAuftrieb.TabIndex = 9;
             this.WichteAuftrieb.Text = "11,00";
-            this.WichteAuftrieb.Leave += new System.EventHandler(this.textBox5_Leave);
+            this.WichteAuftrieb.Leave += new System.EventHandler(this.WichteAuftrieb_Leave);
             // 
             // label_WichteAuftrieb
             // 
@@ -227,7 +227,7 @@
             this.Aquivermächtigkeit.Size = new System.Drawing.Size(100, 20);
             this.Aquivermächtigkeit.TabIndex = 7;
             this.Aquivermächtigkeit.Text = "30,00";
-            this.Aquivermächtigkeit.Leave += new System.EventHandler(this.textBox6_Leave);
+            this.Aquivermächtigkeit.Leave += new System.EventHandler(this.Aquivermächtigkeit_Leave);
             // 
             // label_Aquifermächtigkeit
             // 
@@ -649,7 +649,7 @@
             this.laengeScroll.Size = new System.Drawing.Size(137, 20);
             this.laengeScroll.TabIndex = 58;
             this.laengeScroll.Value = 100;
-            this.laengeScroll.ValueChanged += new System.EventHandler(this.hScrollBar1_ValueChanged);
+            this.laengeScroll.ValueChanged += new System.EventHandler(this.laengeScroll_ValueChanged);
             // 
             // breiteScroll
             // 
@@ -661,7 +661,7 @@
             this.breiteScroll.Size = new System.Drawing.Size(137, 20);
             this.breiteScroll.TabIndex = 59;
             this.breiteScroll.Value = 100;
-            this.breiteScroll.ValueChanged += new System.EventHandler(this.hScrollBar2_ValueChanged);
+            this.breiteScroll.ValueChanged += new System.EventHandler(this.breiteScroll_ValueChanged);
             // 
             // aquiferScroll
             // 
@@ -673,7 +673,7 @@
             this.aquiferScroll.Size = new System.Drawing.Size(137, 20);
             this.aquiferScroll.TabIndex = 61;
             this.aquiferScroll.Value = 400;
-            this.aquiferScroll.ValueChanged += new System.EventHandler(this.hScrollBar3_ValueChanged);
+            this.aquiferScroll.ValueChanged += new System.EventHandler(this.aquiferScroll_ValueChanged);
             // 
             // wasserspiegelScroll
             // 
@@ -685,7 +685,7 @@
             this.wasserspiegelScroll.Size = new System.Drawing.Size(137, 20);
             this.wasserspiegelScroll.TabIndex = 60;
             this.wasserspiegelScroll.Value = 100;
-            this.wasserspiegelScroll.ValueChanged += new System.EventHandler(this.hScrollBar4_ValueChanged);
+            this.wasserspiegelScroll.ValueChanged += new System.EventHandler(this.wasserspiegelScroll_ValueChanged);
             // 
             // sicherheitScroll
             // 
@@ -697,7 +697,7 @@
             this.sicherheitScroll.Size = new System.Drawing.Size(137, 20);
             this.sicherheitScroll.TabIndex = 63;
             this.sicherheitScroll.Value = 1000;
-            this.sicherheitScroll.ValueChanged += new System.EventHandler(this.hScrollBar5_ValueChanged);
+            this.sicherheitScroll.ValueChanged += new System.EventHandler(this.sicherheitScroll_ValueChanged);
             // 
             // auftriebScroll
             // 
@@ -709,7 +709,7 @@
             this.auftriebScroll.Size = new System.Drawing.Size(137, 20);
             this.auftriebScroll.TabIndex = 62;
             this.auftriebScroll.Value = 800;
-            this.auftriebScroll.ValueChanged += new System.EventHandler(this.hScrollBar6_ValueChanged);
+            this.auftriebScroll.ValueChanged += new System.EventHandler(this.auftriebScroll_ValueChanged);
             // 
             // label30
             // 
