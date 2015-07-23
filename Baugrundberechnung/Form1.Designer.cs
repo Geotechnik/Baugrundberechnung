@@ -301,7 +301,6 @@
             this.EinflussUmfeld.Size = new System.Drawing.Size(196, 13);
             this.EinflussUmfeld.TabIndex = 18;
             this.EinflussUmfeld.Text = "Faktor für den Einfluss des Umfeldes U=";
-            this.EinflussUmfeld.Click += new System.EventHandler(this.label13_Click);
             // 
             // label_eben
             // 
@@ -994,7 +993,7 @@
             this.LogoZai.Size = new System.Drawing.Size(520, 108);
             this.LogoZai.TabIndex = 91;
             this.LogoZai.TabStop = false;
-            this.LogoZai.Click += new System.EventHandler(this.pictureBox1_Click);
+
             // 
             // Dahmen
             // 
@@ -1106,7 +1105,6 @@
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "ZAI Design Tool";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
