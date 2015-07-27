@@ -89,13 +89,14 @@ namespace Baugrundberechnung
             Wasserspiegeldifferenz.Show();
             //Einbindetiefe Label
             Einbindetiefe.Location = new System.Drawing.Point(nullPunkt + 15, yOben + 20);
-            Einbindetiefe.Text = "T = " + T;
+            Einbindetiefe.Text = "Td = " + T;
             Einbindetiefe.BackColor = Color.LightGray;
             Einbindetiefe.AutoSize = true;
             this.Controls.Add(Einbindetiefe);
             Einbindetiefe.ForeColor = Color.Black;
             if (!ohneBe)
             {
+                Einbindetiefe.Text = "T = " + T;
                 Einbindetiefe.ForeColor = Color.Red;
             }
             Einbindetiefe.Show();
