@@ -915,11 +915,12 @@
             // laengeGleich
             // 
             this.laengeGleich.AutoSize = true;
-            this.laengeGleich.Location = new System.Drawing.Point(181, 320);
+            this.laengeGleich.Location = new System.Drawing.Point(178, 317);
             this.laengeGleich.Name = "laengeGleich";
             this.laengeGleich.Size = new System.Drawing.Size(25, 13);
             this.laengeGleich.TabIndex = 83;
             this.laengeGleich.Text = " L =";
+            this.laengeGleich.Click += new System.EventHandler(this.laengeGleich_Click);
             // 
             // breitegleich
             // 
@@ -960,7 +961,7 @@
             // Sicherheitgleich
             // 
             this.Sicherheitgleich.AutoSize = true;
-            this.Sicherheitgleich.Location = new System.Drawing.Point(181, 470);
+            this.Sicherheitgleich.Location = new System.Drawing.Point(183, 470);
             this.Sicherheitgleich.Name = "Sicherheitgleich";
             this.Sicherheitgleich.Size = new System.Drawing.Size(22, 13);
             this.Sicherheitgleich.TabIndex = 88;
@@ -993,7 +994,6 @@
             this.LogoZai.Size = new System.Drawing.Size(520, 108);
             this.LogoZai.TabIndex = 91;
             this.LogoZai.TabStop = false;
-
             // 
             // Dahmen
             // 

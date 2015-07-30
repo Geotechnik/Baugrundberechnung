@@ -87,7 +87,7 @@ namespace Baugrundberechnung
                 {
                     if (breite > laenge)
                     {
-                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss kleiner oder gleich Länge der Baugrube (L) sein. B wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss kleiner oder gleich Länge der Baugrube (L) sein. B wird nun maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (laenge % 1 == 0)
                         {
                             BreiteBaugrube.Text = laenge + ",00";
@@ -101,7 +101,7 @@ namespace Baugrundberechnung
                     }
                     else if (aquifermächtigkeit < wasserspiegeldifferenz)
                     {
-                        System.Windows.Forms.MessageBox.Show("Aquivermächtigkeit (S) muss größer oder gleich der Wasserspiegeldifferenz (H) sein. H wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        System.Windows.Forms.MessageBox.Show("Aquivermächtigkeit (S) muss größer oder gleich der Wasserspiegeldifferenz (H) sein. H wird nun maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (aquifermächtigkeit % 1 == 0)
                         {
                             Wasserspiegeldifferenz.Text = aquifermächtigkeit + ",00";
@@ -115,7 +115,7 @@ namespace Baugrundberechnung
                     }
                     else if (breite / laenge < 0.3)
                     {
-                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss größer oder gleich 0,3 * Länge der Baugrube(L) sein. L wird nun Maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        System.Windows.Forms.MessageBox.Show("Breite der Baugrube (B) muss größer oder gleich 0,3 * Länge der Baugrube (L) sein. L wird nun maximal gesetzt", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (breite * 3 % 1 == 0)
                         {
                             LängeBaugrube.Text = (breite * 3) + ",00";
@@ -608,7 +608,7 @@ namespace Baugrundberechnung
                     {
                         //gibt MessageBox aus.
                         Form message = new Baugrundberechnung.MessageBox("Es kann maximal mit einer Genauigkeit von\n2 Nachkommastellen gerechnet werden.\nEs wird automatisch gerundet");
-                        message.Show();
+                        message.Show(); 
 
                     }
                     //Überprüft ob der gerundete Wert der Textbox gleich dem Wert der Scrollbar ist oder ob nicht mehr als 2 Nachkommastellen zum runden da sind.
@@ -716,6 +716,11 @@ namespace Baugrundberechnung
         private void programmBeendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void laengeGleich_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

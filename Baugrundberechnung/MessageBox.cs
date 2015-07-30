@@ -23,6 +23,11 @@ namespace Baugrundberechnung
         {
             InitializeComponent();
             label1.Text = Text;
+            this.TopMost = true;
+            this.Activate();
+            this.Focus();
+            this.Enabled = true;
+           
         }
         /// <summary>
         /// Die Methode überprüft ob die Checkbox vorm beenden ausgewählt ist und setzt in Form1 aufAlleUebernehmen true/false.
