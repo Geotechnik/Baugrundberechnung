@@ -843,8 +843,9 @@
             this.infoMenue,
             this.haftungsausschlussMenue});
             this.menueleisteToolStripMenuItem.Name = "menueleisteToolStripMenuItem";
-            this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menueleisteToolStripMenuItem.Text = "Menü";
+            this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(24, 20);
+            this.menueleisteToolStripMenuItem.Text = "?";
+            this.menueleisteToolStripMenuItem.Click += new System.EventHandler(this.menueleisteToolStripMenuItem_Click);
             // 
             // infoMenue
             // 
@@ -863,8 +864,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menueleisteToolStripMenuItem,
-            this.dateiToolStripMenuItem});
+            this.dateiToolStripMenuItem,
+            this.menueleisteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1008, 24);

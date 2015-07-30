@@ -22,12 +22,7 @@ namespace Baugrundberechnung
         public MessageBox(String Text)
         {
             InitializeComponent();
-            label1.Text = Text;
-            this.TopMost = true;
-            this.Activate();
-            this.Focus();
-            this.Enabled = true;
-           
+            label1.Text = Text;           
         }
         /// <summary>
         /// Die Methode überprüft ob die Checkbox vorm beenden ausgewählt ist und setzt in Form1 aufAlleUebernehmen true/false.

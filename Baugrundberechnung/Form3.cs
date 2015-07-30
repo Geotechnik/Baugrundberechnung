@@ -42,7 +42,7 @@ namespace Baugrundberechnung
         public void öffnen(String welches, double L, double B, double H, double T, double Teck, bool ohneBe)
         {
             Graphics gr = Graphics.FromHwnd(Handle);
-            this.TopMost = true;
+            this.Activate();
             gr.Clear(Form3.DefaultBackColor);
             //variablen Initialisieren
             if (this.Width - 20 < this.Height)
