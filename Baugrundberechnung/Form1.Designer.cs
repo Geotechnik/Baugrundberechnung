@@ -845,7 +845,6 @@
             this.menueleisteToolStripMenuItem.Name = "menueleisteToolStripMenuItem";
             this.menueleisteToolStripMenuItem.Size = new System.Drawing.Size(24, 20);
             this.menueleisteToolStripMenuItem.Text = "?";
-            this.menueleisteToolStripMenuItem.Click += new System.EventHandler(this.menueleisteToolStripMenuItem_Click);
             // 
             // infoMenue
             // 
@@ -921,7 +920,6 @@
             this.laengeGleich.Size = new System.Drawing.Size(25, 13);
             this.laengeGleich.TabIndex = 83;
             this.laengeGleich.Text = " L =";
-            this.laengeGleich.Click += new System.EventHandler(this.laengeGleich_Click);
             // 
             // breitegleich
             // 

@@ -72,14 +72,16 @@ namespace Baugrundberechnung
             }
 
             this.Text = welches;
-            
-            gr.DrawLine(pen_grube, new Point(nullPunkt, yNull), new Point(nullPunkt, (int)((H + T) * lmbd)));
+
+            gr.DrawLine(new Pen(Color.Black, (float)(4)), new Point(nullPunkt, yNull), new Point(nullPunkt, (int)((H + T) * lmbd)));
             gr.DrawLine(pen_grube, new Point(nullPunkt, yNull), new Point((int)max, yNull));
             gr.DrawLine(pen_grube, new Point(0, yOben), new Point(nullPunkt, yOben));
             ZeichnePfeil(new Point(nullPunkt + 20, yNull), new Point(nullPunkt + 20, yOben), this);
             ZeichnePfeil(new Point(nullPunkt + 20, yOben), new Point(nullPunkt + 20, (int)((H + T) * lmbd)), this);
-            zeichneWassersspiegelZeichen(new Point(20, yOben), this);
-            zeichneWassersspiegelZeichen(new Point((int)max - 20, yNull), this);
+            zeichneWassersspiegelZeichen(new Point(70, yOben), this);
+            zeichneWassersspiegelZeichen(new Point((int)max - 70, yNull), this);
+            zeichneDoppelDach(new Point(20, yOben),this);
+            zeichneDoppelDach(new Point((int)max - 20, yNull),this);
             //Wasserspiegel Label
             Wasserspiegeldifferenz.Location = new System.Drawing.Point(nullPunkt + 15, yNull+20);
             Wasserspiegeldifferenz.Text = "H = " + H;
@@ -138,7 +140,7 @@ namespace Baugrundberechnung
                 Form1.offen_stirn_ecke_eben_laengs[2] = false;
                 Form1.wieoft_stirn_ecke_eben_laengs[2] = 0;
             }
-            else if (this.Text == "Längs")
+            else if (this.Text == "Längsseite")
             {
                 Form1.offen_stirn_ecke_eben_laengs[3] = false;
                 Form1.wieoft_stirn_ecke_eben_laengs[3] = 0;
@@ -156,17 +158,31 @@ namespace Baugrundberechnung
             Graphics gr = Graphics.FromHwnd(f.Handle);
             gr.TranslateTransform(ursprung.X, ursprung.Y);
             Point mitte = new Point(0, 0);
-            Point ersteLinieRechts = new Point(4, 2);
-            Point ersteLinieLinks = new Point(-4, 2);
-            Point zweiteLinieRechts = new Point(2, 4);
-            Point zweiteLinieLinks = new Point(-2, 4);
-            Point obenRechts = new Point(-5, -5);
-            Point obenLinks = new Point(5, -5);
+            Point ersteLinieRechts = new Point(8, 4);
+            Point ersteLinieLinks = new Point(-8, 4);
+            Point zweiteLinieRechts = new Point(4, 8);
+            Point zweiteLinieLinks = new Point(-4, 8);
+            Point obenRechts = new Point(-10, -10);
+            Point obenLinks = new Point(10, -10);
             gr.DrawLine(Pens.Black, ersteLinieLinks, ersteLinieRechts);
             gr.DrawLine(Pens.Black, zweiteLinieLinks, zweiteLinieRechts);
             gr.DrawLine(Pens.Black, obenLinks, obenRechts);
             gr.DrawLine(Pens.Black, obenRechts, mitte);
             gr.DrawLine(Pens.Black, obenLinks, mitte);
+        }
+        public static void zeichneDoppelDach(Point ursprung, Form3 f)
+        {
+            Graphics gr = Graphics.FromHwnd(f.Handle);
+            gr.TranslateTransform(ursprung.X, ursprung.Y);
+            Point untenLinks = new Point(-20, 16);
+            Point untenRechts = new Point(4, 16);
+            gr.DrawLine(Pens.Black, untenLinks, new Point(-8, 0));
+            gr.DrawLine(Pens.Black, untenRechts, new Point(-8, 0));
+            Point untenL = new Point(20, 16);
+            Point untenR = new Point(-4, 16);
+            gr.DrawLine(Pens.Black, untenL, new Point(8, 0));
+            gr.DrawLine(Pens.Black, untenR, new Point(8, 0));
+
         }
     }
 }

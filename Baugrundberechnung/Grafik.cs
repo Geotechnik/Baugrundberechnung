@@ -216,6 +216,9 @@ namespace Baugrundberechnung
             Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
             //Zeichnet die obere und untere Linie und Doppeldach
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
+            zeichneDoppelDach(new Point(ObenLinksPunkt.X+10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)),  f);
+            zeichneWassersspiegel(new Point(ObenRechtsPunkt.X - 30,ObenRechtsPunkt.Y+10),f);
+            zeichneWassersspiegel(new Point(ObenLinksPunkt.X + 30, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), f);
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
 
             //Zeichnet die gestrichelte Linie ganz unten.
@@ -329,10 +332,12 @@ namespace Baugrundberechnung
 
             int anfang = (int)(-breite / 2);
             int ende = (int)(breite / 2);
-            ZeichnePfeil_rel(new Point((int)(ende / 2), (int)yOben), new Point((int)(ende / 2), (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
-            ZeichnePfeil_rel(new Point((int)(ende / 2), 0), new Point((int)(ende / 2), (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(yOben)+20), f);
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 10, ursprung.Y+20), f);
+            ZeichnePfeil_rel(new Point((int)(ende / 2)-10, (int)yOben), new Point((int)(ende / 2)-10, (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
+            ZeichnePfeil_rel(new Point((int)(ende / 2)-10, 0), new Point((int)(ende / 2)-10, (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 30, ursprung.Y + (int)(yOben)+20), f);
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 30, ursprung.Y+20), f);
+            zeichneDoppelDach(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(yOben)+20), f);
+            zeichneDoppelDach(new Point(ursprung.X + (int)(breite / 2) - 10, ursprung.Y + 20), f);
              
             if(zuZeichnen == "T_stirn" )
             {
@@ -416,7 +421,7 @@ namespace Baugrundberechnung
             else if (zuZeichnen == "T_laengs")
             {
                 f.T_laengs.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
-                f.T_laengs.Text = "Längs 🔍";
+                f.T_laengs.Text = "Längsseite 🔍";
                 f.T_laengs.AutoSize = true;
                 f.Controls.Add(f.T_laengs);
                 f.T_laengs.Show();

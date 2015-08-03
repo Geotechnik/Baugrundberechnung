@@ -175,7 +175,7 @@ namespace Baugrundberechnung
             {
 
                 Laengs.Activate();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
         }
@@ -204,7 +204,7 @@ namespace Baugrundberechnung
             if (offen_stirn_ecke_eben_laengs[3])
             {
                 Laengs.Activate();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
         }
@@ -285,7 +285,7 @@ namespace Baugrundberechnung
             {
 
                 Laengs.Show();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
                 offen_stirn_ecke_eben_laengs[3] = true;
                 wieoft_stirn_ecke_eben_laengs[3] = 1;
                 Laengs.Activate();
@@ -293,7 +293,7 @@ namespace Baugrundberechnung
             if (wieoft_stirn_ecke_eben_laengs[3] == 1)
             {
                 Laengs.Activate();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
         }
         /// <summary>
@@ -507,7 +507,7 @@ namespace Baugrundberechnung
             {
                 counter_stirn_ecke_eben_laengs[4]++;
                 Laengs.Activate();
-                Laengs.öffnen("Längs", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
             this.Activate();
             if (counter_stirn_ecke_eben_laengs[0] == 0)
@@ -718,14 +718,5 @@ namespace Baugrundberechnung
             this.Close();
         }
 
-        private void laengeGleich_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menueleisteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
