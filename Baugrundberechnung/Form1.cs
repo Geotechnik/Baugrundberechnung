@@ -251,7 +251,6 @@ namespace Baugrundberechnung
                 Ecke.Activate();
                 Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
-
         }
         /// <summary>
         /// Zeichnet die Form für Eben im neuem Fenster
@@ -490,6 +489,7 @@ namespace Baugrundberechnung
                 counter_stirn_ecke_eben_laengs[1]++;
                 Stirn.Activate();
                 Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
+                
             }
             if (offen_stirn_ecke_eben_laengs[1] && counter_stirn_ecke_eben_laengs[2] == 0)
             {
@@ -509,7 +509,7 @@ namespace Baugrundberechnung
                 Laengs.Activate();
                 Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
             }
-            this.Activate();
+            //this.Activate();
             if (counter_stirn_ecke_eben_laengs[0] == 0)
             {
                 Berechnen_Click(null, null);
@@ -696,6 +696,11 @@ namespace Baugrundberechnung
             Berechnen_Click(sender, e);
             horizontal.Height = this.Size.Height;
         }
+        /// <summary>
+        /// Wenn die Checkbocx ohne Be angekreuzt ist wird es rot eingefärbt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void berechnungOhneBe_CheckedChanged(object sender, EventArgs e)
         {
             if (berechnungOhneBe.Checked)
@@ -707,12 +712,22 @@ namespace Baugrundberechnung
                 berechnungOhneBe.ForeColor = Color.Black;
             }
         }
+       /// <summary>
+       /// öffnet die Form für den Haftungsausschluss
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void haftungsausschlussToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             Form haftungsausschluss = new Form4();
             haftungsausschluss.ShowDialog();
         }
+        /// <summary>
+        /// beendet das Programm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void programmBeendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

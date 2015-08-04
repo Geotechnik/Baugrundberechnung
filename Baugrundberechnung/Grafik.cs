@@ -111,6 +111,7 @@ namespace Baugrundberechnung
             {
                 f.ohneBeHinweis.Visible = false;
             }
+            Test.Dispose();
    
         }
 
@@ -173,6 +174,7 @@ namespace Baugrundberechnung
             f.Baugrube.AutoSize = true;
             f.Controls.Add(f.Baugrube);
             f.Baugrube.Show();
+            Test.Dispose();
 
 
         }
@@ -250,12 +252,8 @@ namespace Baugrundberechnung
             f.BaugrubeSeite.AutoSize = true;
             f.Controls.Add(f.BaugrubeSeite);
             f.BaugrubeSeite.Show();
-            f.S_labelSeite.Location = new System.Drawing.Point(xmitte + 5, (int)(ObenRechtsPunkt.Y + max * htemp / 100)+10);
-            f.S_labelSeite.Text = "S = " + S;
-            f.S_labelSeite.BackColor = Color.LightGray;
-            f.S_labelSeite.AutoSize = true;
-            f.Controls.Add(f.S_labelSeite);
-            f.S_labelSeite.Show();
+            Test.Dispose();
+            drawText("S = " + S, new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + 10), f, Color.Black);
         
         }
         /// <summary>
@@ -272,6 +270,7 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
+            gr.Dispose();
 
         }
         /// <summary>
@@ -290,6 +289,7 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
+            gr.Dispose();
 
         }
         /// <summary>
@@ -332,8 +332,8 @@ namespace Baugrundberechnung
 
             int anfang = (int)(-breite / 2);
             int ende = (int)(breite / 2);
-            ZeichnePfeil_rel(new Point((int)(ende / 2)-10, (int)yOben), new Point((int)(ende / 2)-10, (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
-            ZeichnePfeil_rel(new Point((int)(ende / 2)-10, 0), new Point((int)(ende / 2)-10, (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
+            ZeichnePfeil_rel(new Point((int)(ende / 2)-20, (int)yOben), new Point((int)(ende / 2)-20, (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
+            ZeichnePfeil_rel(new Point((int)(ende / 2)-20, 0), new Point((int)(ende / 2)-20, (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
             zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 30, ursprung.Y + (int)(yOben)+20), f);
             zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 30, ursprung.Y+20), f);
             zeichneDoppelDach(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(yOben)+20), f);
@@ -346,24 +346,16 @@ namespace Baugrundberechnung
                 f.T_stirn.AutoSize = true;
                 f.Controls.Add(f.T_stirn);
                 f.T_stirn.Show();
-                f.T_label_Stirn.Location = new System.Drawing.Point(ursprung.X +(int)(ende / 2)-20, ursprung.Y+(int)(yOben)-20);
-                f.T_label_Stirn.Text = "H = " + H;
-                f.T_label_Stirn.BackColor = Color.LightGray;
-                f.T_label_Stirn.AutoSize = true;
-                f.Controls.Add(f.T_label_Stirn);
-                f.T_label_Stirn.Show();
-                f.H_label_Stirn.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30);
-                f.H_label_Stirn.Text = "Td = " + T;
-                f.H_label_Stirn.BackColor = Color.LightGray;
-                f.H_label_Stirn.AutoSize = true;
-                f.H_label_Stirn.ForeColor = Color.Black;
-                f.Controls.Add(f.H_label_Stirn);
-                if(!mitBe)
+                drawText("H = " + H, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20), f, Color.Black);
+                if (!mitBe)
                 {
-                    f.H_label_Stirn.Text = "T = " + T;
-                    f.H_label_Stirn.ForeColor = Color.Red;
+                    drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
+
                 }
-                f.H_label_Stirn.Show();
+                else
+                {
+                    drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
+                }
 
             }
             else if (zuZeichnen == "T_ecke")
@@ -373,24 +365,16 @@ namespace Baugrundberechnung
                 f.T_ecke.AutoSize = true;
                 f.Controls.Add(f.T_ecke);
                 f.T_ecke.Show();
-                f.T_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20);
-                f.T_label_Ecke.Text = "H = " + H;
-                f.T_label_Ecke.BackColor = Color.LightGray;
-                f.T_label_Ecke.AutoSize = true;
-                f.Controls.Add(f.T_label_Ecke);
-                f.T_label_Ecke.Show();
-                f.H_label_Ecke.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30);
-                f.H_label_Ecke.Text = "Td = " + T;
-                f.H_label_Ecke.BackColor = Color.LightGray;
-                f.H_label_Ecke.AutoSize = true;
-                f.Controls.Add(f.H_label_Ecke);
-                f.H_label_Ecke.ForeColor = Color.Black;
+                drawText("H = " + H, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20), f, Color.Black);
                 if (!mitBe)
                 {
-                    f.H_label_Ecke.Text = "T = " + T;
-                    f.H_label_Ecke.ForeColor = Color.Red;
+                    drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
+
                 }
-                f.H_label_Ecke.Show();
+                else
+                {
+                    drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
+                }
             }
             else if(zuZeichnen == "T_eben")
             {
@@ -399,24 +383,16 @@ namespace Baugrundberechnung
                 f.T_eben.AutoSize = true;
                 f.Controls.Add(f.T_eben);
                 f.T_eben.Show();
-                f.T_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20);
-                f.T_label_Eben.Text = "H = " + H;
-                f.T_label_Eben.BackColor = Color.LightGray;
-                f.T_label_Eben.AutoSize = true;
-                f.Controls.Add(f.T_label_Eben);
-                f.T_label_Eben.Show();
-                f.H_label_Eben.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30);
-                f.H_label_Eben.Text = "Td = " + T;
-                f.H_label_Eben.BackColor = Color.LightGray;
-                f.H_label_Eben.AutoSize = true;
-                f.Controls.Add(f.H_label_Eben);
-                f.H_label_Eben.ForeColor = Color.Black;
+                drawText("H = " + H, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20), f, Color.Black);
                 if (!mitBe)
                 {
-                    f.H_label_Eben.Text = "T = " + T;
-                    f.H_label_Eben.ForeColor = Color.Red;
+                    drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
+
                 }
-                f.H_label_Eben.Show();
+                else
+                {
+                    drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
+                }
             }
             else if (zuZeichnen == "T_laengs")
             {
@@ -425,25 +401,20 @@ namespace Baugrundberechnung
                 f.T_laengs.AutoSize = true;
                 f.Controls.Add(f.T_laengs);
                 f.T_laengs.Show();
-                f.T_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20);
-                f.T_label_Längs.Text = "H = " + H;
-                f.T_label_Längs.BackColor = Color.LightGray;
-                f.T_label_Längs.AutoSize = true;
-                f.Controls.Add(f.T_label_Längs);
-                f.T_label_Längs.Show();
-                f.H_label_Längs.Location = new System.Drawing.Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) +30);
-                f.H_label_Längs.Text = "Td = " + T;
-                f.H_label_Längs.BackColor = Color.LightGray;
-                f.H_label_Längs.AutoSize = true;
-                f.Controls.Add(f.H_label_Längs);
-                f.H_label_Längs.ForeColor = Color.Black;
+                drawText("H = " + H, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20), f, Color.Black);
+    
                 if (!mitBe)
                 {
-                    f.H_label_Längs.Text = "T = " + T;
-                    f.H_label_Längs.ForeColor = Color.Red;
+                    drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
+
                 }
-                f.H_label_Längs.Show();
+                else
+                {
+                    drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
+                }
+
             }
+            gr.Dispose();
         }
         /// <summary>
         /// diese Methode zeichnet ein doppeltes Dach
@@ -462,6 +433,7 @@ namespace Baugrundberechnung
             Point untenR = new Point(-2, 8);
             gr.DrawLine(Pens.Black, untenL, new Point(4, 0));
             gr.DrawLine(Pens.Black, untenR, new Point(4, 0));
+            gr.Dispose();
 
         }
         public static void zeichneWassersspiegel(Point ursprung, Form1 f)
@@ -480,6 +452,18 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, obenLinks, obenRechts);
             gr.DrawLine(Pens.Black, obenRechts, mitte);
             gr.DrawLine(Pens.Black, obenLinks, mitte);
+            gr.Dispose();
+        }
+        private static void drawText(String text, Point position, Form1 f, Color farbe)
+        {
+            System.Drawing.Graphics formGraphics = f.CreateGraphics();
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 8);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(farbe);
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            formGraphics.DrawString(text, drawFont, drawBrush, position.X, position.Y, drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
         }
     }
 }

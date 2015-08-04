@@ -16,9 +16,6 @@ namespace Baugrundberechnung
     public partial class Form3 : Form
     {
         //Attribute
-        public Label Aquivermächtigkeit = new Label();
-        public Label Wasserspiegeldifferenz = new Label();
-        public Label Einbindetiefe = new Label();
         private Pen pen_grube =new Pen(Color.Black, (float)(2)); 
         private Pen pen_hint =new Pen(Color.LightGray, (float)7.0);
         private double max;
@@ -82,26 +79,17 @@ namespace Baugrundberechnung
             zeichneWassersspiegelZeichen(new Point((int)max - 70, yNull), this);
             zeichneDoppelDach(new Point(20, yOben),this);
             zeichneDoppelDach(new Point((int)max - 20, yNull),this);
-            //Wasserspiegel Label
-            Wasserspiegeldifferenz.Location = new System.Drawing.Point(nullPunkt + 15, yNull+20);
-            Wasserspiegeldifferenz.Text = "H = " + H;
-            Wasserspiegeldifferenz.BackColor = Color.LightGray;
-            Wasserspiegeldifferenz.AutoSize = true;
-            this.Controls.Add(Wasserspiegeldifferenz);
-            Wasserspiegeldifferenz.Show();
-            //Einbindetiefe Label
-            Einbindetiefe.Location = new System.Drawing.Point(nullPunkt + 15, yOben + 20);
-            Einbindetiefe.Text = "Td = " + T;
-            Einbindetiefe.BackColor = Color.LightGray;
-            Einbindetiefe.AutoSize = true;
-            this.Controls.Add(Einbindetiefe);
-            Einbindetiefe.ForeColor = Color.Black;
+            drawText("H = " + H, new Point(nullPunkt + 15, yNull + 20), this, Color.Black);
             if (!ohneBe)
             {
-                Einbindetiefe.Text = "T = " + T;
-                Einbindetiefe.ForeColor = Color.Red;
+                drawText("T = " + T, new Point(nullPunkt + 15, yOben + 20), this, Color.Red);
+
             }
-            Einbindetiefe.Show();
+            else
+            {
+                drawText("Td = " + T, new Point(nullPunkt + 15, yOben + 20), this, Color.Black);
+            }
+            gr.Dispose();
         }
         /// <summary>
         /// Diese Methode ist zum Zeichnen der Beschriftungspfeile gedacht
@@ -117,6 +105,7 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, unten, new Point(unten.X + 3, unten.Y - 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
+            gr.Dispose();
         }
         /// <summary>
         /// Wenn die Form schließt soll sie nicht Richtig geschlossen werden sondern nur versteckt werden/deaktiviert werden.
@@ -169,6 +158,7 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, obenLinks, obenRechts);
             gr.DrawLine(Pens.Black, obenRechts, mitte);
             gr.DrawLine(Pens.Black, obenLinks, mitte);
+            gr.Dispose();
         }
         public static void zeichneDoppelDach(Point ursprung, Form3 f)
         {
@@ -182,7 +172,18 @@ namespace Baugrundberechnung
             Point untenR = new Point(-4, 16);
             gr.DrawLine(Pens.Black, untenL, new Point(8, 0));
             gr.DrawLine(Pens.Black, untenR, new Point(8, 0));
-
+            gr.Dispose();
+        }
+        private static void drawText(String text, Point position, Form3 f, Color farbe)
+        {
+            System.Drawing.Graphics formGraphics = f.CreateGraphics();
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 10);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(farbe);
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            formGraphics.DrawString(text, drawFont, drawBrush, position.X, position.Y, drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
         }
     }
 }
