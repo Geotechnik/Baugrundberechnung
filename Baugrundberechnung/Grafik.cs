@@ -151,16 +151,14 @@ namespace Baugrundberechnung
              f.Controls.Add(f.B_label);
              f.B_label.Show();
             //fügt das Label der länge hinzu, kann sich nach links/rechts verschieben je nach verhältnis der var_breite, ist stets rechts von der Zeichnung
-             f.L_label.Location = new System.Drawing.Point((int)(variablesX(1) + var_breite / 2 + 10), (int)(variablesY(1) + max / 2) - 90);
-            //f.L_label.Text = "L = " + laenge;
-            f.L_label.NewText = "L = " + laenge;
-            f.L_label.Invalidate();
-            //f.L_label.AutoSize = true;
-            f.L_label.AutoSize = false;
-            f.L_label.Height = 110;
-            f.L_label.RotateAngle = -90; 
-            f.Controls.Add(f.L_label);
-            f.L_label.Show();
+            System.Drawing.Graphics formGraphics = f.CreateGraphics();
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 8);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(Color.Black);
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat(StringFormatFlags.DirectionVertical);
+            formGraphics.DrawString("L = " + laenge, drawFont, drawBrush, (int)(variablesX(1) + var_breite / 2 + 10), (int)((variablesY(1) + max / 2) - 90), drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
             HintergrundZeichnen(Test, ObenLinksPunkt.X, ObenLinksPunkt.Y, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             //Die 4 Linien werden gezeichnet
             Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);

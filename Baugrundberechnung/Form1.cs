@@ -17,22 +17,13 @@ namespace Baugrundberechnung
         public Label B_label = new Label();
         public Label H_label_SeiteBaugrube = new Label();
         public Label S_label_SeiteBaugrube = new Label();
-        public Label T_label_Ecke = new Label();
-        public Label H_label_Ecke = new Label();
-        public Label T_label_Stirn = new Label();
-        public Label H_label_Stirn = new Label();
-        public Label T_label_Längs = new Label();
-        public Label H_label_Längs = new Label();
-        public Label T_label_Eben = new Label();
-        public Label H_label_Eben = new Label();
-        public Label S_labelSeite = new Label();
         public Label BaugrubeSeite = new Label();
         public Label T_stirn = new Label();
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
         public Label ohneBeHinweis = new Label();
-        public DurchgedrehtesLabel L_label = new DurchgedrehtesLabel();
+
         private Form3 Stirn = new Form3();
         private Form3 Eben = new Form3();
         private Form3 Laengs = new Form3();
