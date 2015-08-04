@@ -236,7 +236,7 @@ namespace Baugrundberechnung
             
             //Zeichnet die Restlichen Linien
             // 1025, 50  ; 1025, 150
-            Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, UntenLinksPunkt.Y - 20));
+            Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + (int)((ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100) - (ObenRechtsPunkt.Y + max * htemp / 100)) / 2));
             // 950, 200 - (int)(lmbd * s)  ; 1025, 200 - (int)(lmbd * s))
             Test.DrawLine(Pens.Black, new Point(ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100)));
             // 1025, 200 - (int)(lmbd * (h + s))  ;  1100, 200 - (int)(lmbd * (h + s)))
