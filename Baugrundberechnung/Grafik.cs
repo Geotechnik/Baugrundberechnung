@@ -11,7 +11,7 @@ namespace Baugrundberechnung
     /// Diese Klasse ist zur Grafischen ausgabe gedacht.
     /// </summary>
     class Grafik
-    { 
+    {
         //Attribute
         private static double L;
         private static double B;
@@ -56,11 +56,11 @@ namespace Baugrundberechnung
             //Maximale Zeichnungsfläche
             if ((1 / 2.0 * (xmax - xnull)) < (1 / 3.0 * (ymax - ynull)))
             {
-                max = (1 / 2.0 * (xmax - xnull))-50;
+                max = (1 / 2.0 * (xmax - xnull)) - 50;
             }
             else
             {
-                max = (1 / 3.0 * (ymax - ynull))-50;
+                max = (1 / 3.0 * (ymax - ynull)) - 50;
             }
             ZeicheBaugrube(L, B, f);
             ZeichneBaugrubeSeite(H, S, f);
@@ -68,12 +68,9 @@ namespace Baugrundberechnung
             zeichne_einbindetiefe(f, new Point(variablesX(3), variablesY(2) - 20), T_laengs, "T_laengs", mitBe, T_ecke);
             zeichne_einbindetiefe(f, new Point(variablesX(1), variablesY(4) - 20), T_stirn, "T_stirn", mitBe, T_ecke);
             zeichne_einbindetiefe(f, new Point(variablesX(3), variablesY(4) - 20), T_eben, "T_eben", mitBe, T_ecke);
-
-            Graphics Test = Graphics.FromHwnd(f.Handle);
-
             if (!mitBe)
             {
-                f.ohneBeHinweis.Location = new System.Drawing.Point(variablesX(2) -50, variablesY(6)-40);
+                f.ohneBeHinweis.Location = new System.Drawing.Point(variablesX(2) - 50, variablesY(6) - 40);
                 f.ohneBeHinweis.Text = "Berechnung ist ohne Bemessungsbeiwert (Be)";
                 f.ohneBeHinweis.AutoSize = true;
                 f.Controls.Add(f.ohneBeHinweis);
@@ -85,15 +82,21 @@ namespace Baugrundberechnung
             {
                 f.ohneBeHinweis.Visible = false;
             }
-            Test.Dispose();
-   
         }
-
+        /// <summary>
+        /// Berechnet y abhängig von der Fenstergröße
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         private static int variablesY(int x)
         {
             return (int)(x / 6.0 * (ymax - ynull) + ynull);
         }
-
+        /// <summary>
+        /// Berechnet x abhängig von der Fenstergröße. 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         private static int variablesX(int x)
         {
             return (int)(x / 4.0 * (xmax - xnull) + xnull);
@@ -115,16 +118,24 @@ namespace Baugrundberechnung
             Point UntenLinksPunkt = new Point((int)(variablesX(1) - var_breite / 2), (int)(variablesY(1) + max / 2));
             Point ObenRechtsPunkt = new Point((int)(variablesX(1) + var_breite / 2), (int)(variablesY(1) - max / 2));
             Point UntenRechtsPunkt = new Point((int)(variablesX(1) + var_breite / 2), (int)(variablesY(1) + max / 2));
-
-
-            //fügt das Label der Breite hinzu mit der beschriftung und 24 über der Zeichnung, Mittig.
-
+            HintergrundZeichnen(Test, ObenLinksPunkt.X, ObenLinksPunkt.Y, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
+            //Die 4 Linien werden gezeichnet
+            Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);
+            Test.DrawLine(pen_grub, ObenLinksPunkt, ObenRechtsPunkt);
+            Test.DrawLine(pen_grub, UntenLinksPunkt, UntenRechtsPunkt);
+            Test.DrawLine(pen_grub, ObenRechtsPunkt, UntenRechtsPunkt);
+            //Überschrift der Baugrube.
+            f.Baugrube.Location = new System.Drawing.Point(variablesX(1) - 60, 30);
+            f.Baugrube.Text = "Zeichnung der Baugrube";
+            f.Baugrube.AutoSize = true;
+            f.Controls.Add(f.Baugrube);
+            f.Baugrube.Show();
             f.B_label.Location = new System.Drawing.Point((int)(variablesX(1) + var_breite / 2) - 50, 48);
-             f.B_label.Text = "B = " + breite;
-             f.B_label.AutoSize = true;
-             f.Controls.Add(f.B_label);
-             f.B_label.Show();
-            //fügt das Label der länge hinzu, kann sich nach links/rechts verschieben je nach verhältnis der var_breite, ist stets rechts von der Zeichnung
+            f.B_label.Text = "B = " + breite;
+            f.B_label.AutoSize = true;
+            f.Controls.Add(f.B_label);
+            f.B_label.Show();
+            Test.Dispose();
             System.Drawing.Graphics formGraphics = f.CreateGraphics();
             System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 8);
             System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(Color.Black);
@@ -133,31 +144,22 @@ namespace Baugrundberechnung
             drawFont.Dispose();
             drawBrush.Dispose();
             formGraphics.Dispose();
-            HintergrundZeichnen(Test, ObenLinksPunkt.X, ObenLinksPunkt.Y, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
-            //Die 4 Linien werden gezeichnet
-            Test.DrawLine(pen_grub, ObenLinksPunkt, UntenLinksPunkt);
-            Test.DrawLine(pen_grub, ObenLinksPunkt, ObenRechtsPunkt);
-            Test.DrawLine(pen_grub, UntenLinksPunkt, UntenRechtsPunkt);
-            Test.DrawLine(pen_grub, ObenRechtsPunkt, UntenRechtsPunkt);
-
-            //Überschrift der Baugrube.
-            f.Baugrube.Location = new System.Drawing.Point(variablesX(1) - 60, 30);
-            f.Baugrube.Text = "Zeichnung der Baugrube";
-            f.Baugrube.AutoSize = true;
-            f.Controls.Add(f.Baugrube);
-            f.Baugrube.Show();
-            Test.Dispose();
-
-
         }
-
-        private static void HintergrundZeichnen(Graphics Test, int ObenLinksPunktX, int ObenLinksPunktY, int UntenLinksPunkt, int ObenRechtsPunkt)
+       /// <summary>
+       /// Zeichnet den Wasserspiegel der Zeichnung etwas dunkler als der eigentliche Hintergrund
+       /// </summary>
+       /// <param name="Test"></param>
+       /// <param name="ObenLinksPunktX"></param>
+       /// <param name="ObenLinksPunktY"></param>
+       /// <param name="UntenLinksPunkt"></param>
+       /// <param name="ObenRechtsPunkt"></param>
+        private static void HintergrundZeichnen(Graphics Test, int ObenLinksX, int ObenLinksY, int UntenLinksY, int ObenRechtsX)
         {
-            int x = ObenLinksPunktX + 4;
-            int yOben = ObenLinksPunktY;
-            int yUnten = UntenLinksPunkt;
+            int x = ObenLinksX + 4;
+            int yOben = ObenLinksY;
+            int yUnten = UntenLinksY;
             //Hintergrund test
-            while (x < ObenRechtsPunkt)
+            while (x < ObenRechtsX)
             {
                 Test.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
                 x += 4;
@@ -173,52 +175,32 @@ namespace Baugrundberechnung
         {
             Graphics Test = Graphics.FromHwnd(f.Handle);
             int htemp = 20;
-            double lmbdhs = 1/((max - 20) );
-            double lmbd = (max - 20) / (htemp+ s);
-            //erzeugt die 4 äußeren Punkte der Baugrube
-            //950, 50
+            double lmbdhs = 1 / ((max - 20));
+            double lmbd = (max - 20) / (htemp + s);
             Point ObenLinksPunkt = new Point((int)(variablesX(3) - max / 2), (int)(variablesY(1) - max / 2 - 20));
-            //1100, 50
             Point ObenRechtsPunkt = new Point((int)(variablesX(3) + max / 2), (int)(variablesY(1) - max / 2 - 20));
-            //950, 200
             Point UntenLinksPunkt = new Point((int)(variablesX(3) - max / 2), ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
-            //1100, 200
             Point UntenRechtsPunkt = new Point((int)(variablesX(3) + max / 2), ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
             int xmitte = variablesX(3);
-            HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y  + max *htemp/100), UntenLinksPunkt.Y, xmitte);
+            HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100), UntenLinksPunkt.Y, xmitte);
             HintergrundZeichnen(Test, xmitte, ObenRechtsPunkt.Y + 10, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
             Test.DrawLine(Pens.Black, ObenLinksPunkt, ObenRechtsPunkt);
-            //Zeichnet die obere und untere Linie und Doppeldach
             zeichneDoppelDach(new Point(ObenRechtsPunkt.X - 10, ObenRechtsPunkt.Y), f);
-            zeichneDoppelDach(new Point(ObenLinksPunkt.X+10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)),  f);
-            zeichneWassersspiegel(new Point(ObenRechtsPunkt.X - 30,ObenRechtsPunkt.Y+10),f);
+            zeichneDoppelDach(new Point(ObenLinksPunkt.X + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), f);
+            zeichneWassersspiegel(new Point(ObenRechtsPunkt.X - 30, ObenRechtsPunkt.Y + 10), f);
             zeichneWassersspiegel(new Point(ObenLinksPunkt.X + 30, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), f);
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
-
-            //Zeichnet die gestrichelte Linie ganz unten.
-            // i = 950; i<=1100 ; i = i+15
             for (int i = ObenLinksPunkt.X; i <= ObenRechtsPunkt.X; i = i + 15)
             {
-                //i, 200
-                Point ObenRechts = new Point(i, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100)));
-                //i-10, 210
-                Point UntenLinks = new Point(i -10, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100))+10);
+                Point ObenRechts = new Point(i, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
+                Point UntenLinks = new Point(i - 10, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)) + 10);
                 Test.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             }
-            
-            //Zeichnet die Restlichen Linien
-            // 1025, 50  ; 1025, 150
             Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + (int)((ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100) - (ObenRechtsPunkt.Y + max * htemp / 100)) / 2));
-            // 950, 200 - (int)(lmbd * s)  ; 1025, 200 - (int)(lmbd * s))
             Test.DrawLine(Pens.Black, new Point(ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100)));
-            // 1025, 200 - (int)(lmbd * (h + s))  ;  1100, 200 - (int)(lmbd * (h + s)))
             Test.DrawLine(Pens.Black, new Point(xmitte, ObenRechtsPunkt.Y + 10), new Point((int)(variablesX(3) + max / 2), ObenRechtsPunkt.Y + 10));
-            // 1035, 200 - (int)(lmbd * s) ;  1035, 200), f 
-            ZeichnePfeil(new Point( xmitte + 10, (int)(ObenRechtsPunkt.Y + 10)) , new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y  + max *htemp/100)), f);
-            // 1035, 200 - (int)(lmbd * (h + s)) ;   1035, 200 - (int)(lmbd * s)), f
-            ZeichnePfeil(new Point(xmitte + 10,(int)(ObenRechtsPunkt.Y  + max *htemp/100)), new Point(xmitte + 10, ((int)( ObenRechtsPunkt.Y + max *(s/h)*lmbd/20 + max *htemp/100))), f);
-            
-            
+            ZeichnePfeil(new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + 10)), new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), f);
+            ZeichnePfeil(new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte + 10, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100))), f);
             f.BaugrubeSeite.Location = new System.Drawing.Point(variablesX(3) - 60, 30);
             f.BaugrubeSeite.Text = "Zeichnung von der Seite";
             f.BaugrubeSeite.AutoSize = true;
@@ -226,7 +208,6 @@ namespace Baugrundberechnung
             f.BaugrubeSeite.Show();
             Test.Dispose();
             drawText("S = " + S, new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + 10), f, Color.Black);
-        
         }
         /// <summary>
         /// Zeichnet einen doppelten Pfeil
@@ -243,7 +224,6 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
             gr.Dispose();
-
         }
         /// <summary>
         /// Zeichnet einen relativen doppelten Pfeil
@@ -262,7 +242,6 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, oben, new Point(oben.X - 3, oben.Y + 6));
             gr.DrawLine(Pens.Black, oben, new Point(oben.X + 3, oben.Y + 6));
             gr.Dispose();
-
         }
         /// <summary>
         /// Zeichnet die Ergebnis Baugruben
@@ -270,50 +249,33 @@ namespace Baugrundberechnung
         /// <param name="f"></param>
         /// <param name="ursprung"></param>
         /// <param name="T"></param>
-        private static void zeichne_einbindetiefe(Form1 f, Point ursprung, double T, String zuZeichnen, bool mitBe,double T_eck)
+        private static void zeichne_einbindetiefe(Form1 f, Point ursprung, double T, String zuZeichnen, bool mitBe, double T_eck)
         {
             Graphics gr = Graphics.FromHwnd(f.Handle);
-            //vershiebt den Ursprung
+            //verschiebt den Ursprung
             gr.TranslateTransform(ursprung.X, ursprung.Y + 20);
             int breite = (int)max;
-            //variable größe lmbd
-
             double lmbd = (max - 10) / (H + T_eck);
-            /*double lmbd =  ( T_eck+10)/max;*/
-            //Verschiebt den Ursprung
-            int x =  (int)(-breite / 2)+4;
+            int x = (int)(-breite / 2) + 4;
             int yOben = (int)((H * lmbd));
-                                //H/lmbd
-            int yOben2 = 0 ;
+            int yOben2 = 0;
             int yUnten = (int)max;
-            //Hintergrund test
-            while (x < 0)
-            {
-                gr.DrawLine(pen_hint, new Point(x, yOben), new Point(x, yUnten));
-                x += 4;
-            }
-            //Hintergrund test
-            while (x < (int)(breite / 2))
-            {
-                gr.DrawLine(pen_hint, new Point(x, yOben2), new Point(x, yUnten));
-                x += 4;
-            }                                                           //(int)(1 / lmbd * (H + T)
-            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0,  (int)((H + T) * lmbd)));
+            HintergrundZeichnen(gr, x-4, yOben, yUnten, 0);
+            HintergrundZeichnen(gr, 0, yOben2, yUnten, (int)(breite / 2));
+            gr.DrawLine(pen_grub, new Point(0, 0), new Point(0, (int)((H + T) * lmbd)));
             gr.DrawLine(Pens.Black, new Point(0, 0), new Point((int)(breite / 2), 0));
-            gr.DrawLine(Pens.Black, new Point(0, yOben), new Point((int)(-breite / 2),yOben));
-
+            gr.DrawLine(Pens.Black, new Point(0, yOben), new Point((int)(-breite / 2), yOben));
             int anfang = (int)(-breite / 2);
             int ende = (int)(breite / 2);
-            ZeichnePfeil_rel(new Point((int)(ende / 2)-20, (int)yOben), new Point((int)(ende / 2)-20, (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
-            ZeichnePfeil_rel(new Point((int)(ende / 2)-20, 0), new Point((int)(ende / 2)-20, (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 30, ursprung.Y + (int)(yOben)+20), f);
-            zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 30, ursprung.Y+20), f);
-            zeichneDoppelDach(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(yOben)+20), f);
+            ZeichnePfeil_rel(new Point((int)(ende / 2) - 20, (int)yOben), new Point((int)(ende / 2) - 20, (int)(lmbd * (H + T))), f, new Point(ursprung.X, ursprung.Y + 20));
+            ZeichnePfeil_rel(new Point((int)(ende / 2) - 20, 0), new Point((int)(ende / 2) - 20, (int)(yOben)), f, new Point(ursprung.X, ursprung.Y + 20));
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(-breite / 2) + 30, ursprung.Y + (int)(yOben) + 20), f);
+            zeichneWassersspiegel(new Point(ursprung.X + (int)(breite / 2) - 30, ursprung.Y + 20), f);
+            zeichneDoppelDach(new Point(ursprung.X + (int)(-breite / 2) + 10, ursprung.Y + (int)(yOben) + 20), f);
             zeichneDoppelDach(new Point(ursprung.X + (int)(breite / 2) - 10, ursprung.Y + 20), f);
-             
-            if(zuZeichnen == "T_stirn" )
+            if (zuZeichnen == "T_stirn")
             {
-                f.T_stirn.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
+                f.T_stirn.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
                 f.T_stirn.Text = "Stirnseite 🔍";
                 f.T_stirn.AutoSize = true;
                 f.Controls.Add(f.T_stirn);
@@ -322,17 +284,15 @@ namespace Baugrundberechnung
                 if (!mitBe)
                 {
                     drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
-
                 }
                 else
                 {
                     drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
                 }
-
             }
             else if (zuZeichnen == "T_ecke")
             {
-                f.T_ecke.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y);
+                f.T_ecke.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
                 f.T_ecke.Text = "Ecke 🔍";
                 f.T_ecke.AutoSize = true;
                 f.Controls.Add(f.T_ecke);
@@ -341,16 +301,15 @@ namespace Baugrundberechnung
                 if (!mitBe)
                 {
                     drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
-
                 }
                 else
                 {
                     drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
                 }
             }
-            else if(zuZeichnen == "T_eben")
+            else if (zuZeichnen == "T_eben")
             {
-                f.T_eben.Location = new System.Drawing.Point(ursprung.X-60, ursprung.Y );
+                f.T_eben.Location = new System.Drawing.Point(ursprung.X - 60, ursprung.Y);
                 f.T_eben.Text = "eben 🔍";
                 f.T_eben.AutoSize = true;
                 f.Controls.Add(f.T_eben);
@@ -359,7 +318,6 @@ namespace Baugrundberechnung
                 if (!mitBe)
                 {
                     drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
-
                 }
                 else
                 {
@@ -374,17 +332,14 @@ namespace Baugrundberechnung
                 f.Controls.Add(f.T_laengs);
                 f.T_laengs.Show();
                 drawText("H = " + H, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) - 20), f, Color.Black);
-    
                 if (!mitBe)
                 {
                     drawText("T = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Red);
-
                 }
                 else
                 {
                     drawText("Td = " + T, new Point(ursprung.X + (int)(ende / 2) - 20, ursprung.Y + (int)(yOben) + 30), f, Color.Black);
                 }
-
             }
             gr.Dispose();
         }
