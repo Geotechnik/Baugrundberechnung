@@ -15,21 +15,18 @@ namespace Baugrundberechnung
         //Attribute
         public Label Baugrube = new Label();
         public Label B_label = new Label();
-        public Label H_label_SeiteBaugrube = new Label();
-        public Label S_label_SeiteBaugrube = new Label();
         public Label BaugrubeSeite = new Label();
         public Label T_stirn = new Label();
         public Label T_ecke = new Label();
         public Label T_eben = new Label();
         public Label T_laengs = new Label();
         public Label ohneBeHinweis = new Label();
-
         private Form3 Stirn = new Form3();
         private Form3 Eben = new Form3();
         private Form3 Laengs = new Form3();
         private Form3 Ecke = new Form3();
         public static int[] wieoft_stirn_ecke_eben_laengs = new int[4];
-        private int[] counter_stirn_ecke_eben_laengs = new int[5];
+        private int counter;
         private double[] T_stirn_ecke_eben_laengs = new double[4];
         private double laenge, breite, wasserspiegeldifferenz, aquifermächtigkeit, wichteAuftrieb, globaleSicherheit, anströmung_eben, anströmung_laengs, anströmung_stirn, anströmung_ecke, umfeld_eben, umfeld_laengs, umfeld_stirn, umfeld_ecke, bemessungsbeiwert;
         public static bool aufAlleUebernehmen = false;
@@ -474,37 +471,10 @@ namespace Baugrundberechnung
         /// <param name="e"></param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //ohne geht das zeichnen im neuem Fenster beim erstmaligem öffnen Schief.
-            if (offen_stirn_ecke_eben_laengs[0] && counter_stirn_ecke_eben_laengs[1] == 0)
-            {
-                counter_stirn_ecke_eben_laengs[1]++;
-                Stirn.Activate();
-                Stirn.öffnen("Stirn", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[0], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-                
-            }
-            if (offen_stirn_ecke_eben_laengs[1] && counter_stirn_ecke_eben_laengs[2] == 0)
-            {
-                counter_stirn_ecke_eben_laengs[2]++;
-                Ecke.Activate();
-                Ecke.öffnen("Ecke", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[1], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-            }
-            if (offen_stirn_ecke_eben_laengs[2] && counter_stirn_ecke_eben_laengs[3] == 0)
-            {
-                counter_stirn_ecke_eben_laengs[3]++;
-                Eben.Activate();
-                Eben.öffnen("Eben", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[2], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-            }
-            if (offen_stirn_ecke_eben_laengs[3] && counter_stirn_ecke_eben_laengs[4] == 0)
-            {
-                counter_stirn_ecke_eben_laengs[4]++;
-                Laengs.Activate();
-                Laengs.öffnen("Längsseite", laenge, breite, wasserspiegeldifferenz, T_stirn_ecke_eben_laengs[3], T_stirn_ecke_eben_laengs[1], !berechnungOhneBe.Checked);
-            }
-            //this.Activate();
-            if (counter_stirn_ecke_eben_laengs[0] == 0)
+            if (counter == 0)
             {
                 Berechnen_Click(null, null);
-                counter_stirn_ecke_eben_laengs[0]++;
+                counter++;
                 LängeBaugrube_Leave(LängeBaugrube, e);
                 BreiteBaugrube_Leave(BreiteBaugrube, e);
                 Wasserspiegeldifferenz_Leave(Wasserspiegeldifferenz, e);

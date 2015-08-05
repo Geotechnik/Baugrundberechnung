@@ -434,6 +434,11 @@ namespace Baugrundberechnung
             gr.Dispose();
 
         }
+        /// <summary>
+        /// Zeichnet das Zeichen für den Wasserspiegel.
+        /// </summary>
+        /// <param name="ursprung"></param>
+        /// <param name="f"></param>
         public static void zeichneWassersspiegel(Point ursprung, Form1 f)
         {
             Graphics gr = Graphics.FromHwnd(f.Handle);
@@ -452,6 +457,13 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, obenLinks, mitte);
             gr.Dispose();
         }
+        /// <summary>
+        /// Zeichnet ein Label statt eines Richtigen Labels.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="position"></param>
+        /// <param name="f"></param>
+        /// <param name="farbe"></param>
         private static void drawText(String text, Point position, Form1 f, Color farbe)
         {
             System.Drawing.Graphics formGraphics = f.CreateGraphics();

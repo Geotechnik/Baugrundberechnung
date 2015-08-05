@@ -79,15 +79,15 @@ namespace Baugrundberechnung
             zeichneWassersspiegelZeichen(new Point((int)max - 70, yNull), this);
             zeichneDoppelDach(new Point(20, yOben),this);
             zeichneDoppelDach(new Point((int)max - 20, yNull),this);
-            drawText("H = " + H, new Point(nullPunkt + 15, yNull + 20), this, Color.Black);
+            drawText("H = " + H, new Point(nullPunkt + 20, yNull + 20), this, Color.Black);
             if (!ohneBe)
             {
-                drawText("T = " + T, new Point(nullPunkt + 15, yOben + 20), this, Color.Red);
+                drawText("T = " + T, new Point(nullPunkt + 20, yOben + 20), this, Color.Red);
 
             }
             else
             {
-                drawText("Td = " + T, new Point(nullPunkt + 15, yOben + 20), this, Color.Black);
+                drawText("Td = " + T, new Point(nullPunkt + 20, yOben + 20), this, Color.Black);
             }
             gr.Dispose();
         }
