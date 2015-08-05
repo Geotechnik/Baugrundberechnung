@@ -64,39 +64,13 @@ namespace Baugrundberechnung
             }
             ZeicheBaugrube(L, B, f);
             ZeichneBaugrubeSeite(H, S, f);
-            //die Zeichnungshöhe und mitte der Zeichnung in der Breite.
-            //750, 230
             zeichne_einbindetiefe(f, new Point(variablesX(1), variablesY(2) - 20), T_ecke, "T_ecke", mitBe, T_ecke);
-            //1025, 230
             zeichne_einbindetiefe(f, new Point(variablesX(3), variablesY(2) - 20), T_laengs, "T_laengs", mitBe, T_ecke);
-            //750, 410
             zeichne_einbindetiefe(f, new Point(variablesX(1), variablesY(4) - 20), T_stirn, "T_stirn", mitBe, T_ecke);
-            //1025, 410
             zeichne_einbindetiefe(f, new Point(variablesX(3), variablesY(4) - 20), T_eben, "T_eben", mitBe, T_ecke);
 
             Graphics Test = Graphics.FromHwnd(f.Handle);
-             
-            Point ObenLinksPunkt = new Point((int)xnull,(int)ynull);
-            Point UntenRechtsPunkt = new Point(variablesX(2), variablesY(2));
 
-            ObenLinksPunkt = new Point(variablesX(2), (int)ynull);
-            UntenRechtsPunkt = new Point((int)(xmax), variablesY(2));
-            
-            //einbindetiefe Ecke
-            ObenLinksPunkt = new Point((int)(xnull), variablesY(2));
-            UntenRechtsPunkt = new Point(variablesX(2), variablesY(4));
-
-            //einbindetiefe laengsseite
-            ObenLinksPunkt = new Point(variablesX(2), variablesY(2));
-            UntenRechtsPunkt = new Point((int)xmax, variablesY(4));
-
-            //einbindetiefe Stirnseite
-            ObenLinksPunkt = new Point((int)xnull, variablesY(4));
-            UntenRechtsPunkt = new Point(variablesX(2), variablesY(6));
-
-            //einbindetiefe eben
-            ObenLinksPunkt = new Point(variablesX(2), variablesY(4));
-            UntenRechtsPunkt = new Point((int)xmax, variablesY(6));
             if (!mitBe)
             {
                 f.ohneBeHinweis.Location = new System.Drawing.Point(variablesX(2) -50, variablesY(6)-40);
