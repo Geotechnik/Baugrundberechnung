@@ -361,7 +361,6 @@ namespace Baugrundberechnung
             gr.DrawLine(Pens.Black, untenL, new Point(4, 0));
             gr.DrawLine(Pens.Black, untenR, new Point(4, 0));
             gr.Dispose();
-
         }
         /// <summary>
         /// Zeichnet das Zeichen für den Wasserspiegel.
