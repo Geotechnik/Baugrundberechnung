@@ -177,10 +177,19 @@ namespace Baugrundberechnung
             int htemp = 20;
             double lmbdhs = 1 / ((max - 20));
             double lmbd = (max - 20) / (htemp + s);
+            double sdurchh;
             Point ObenLinksPunkt = new Point((int)(variablesX(3) - max / 2), (int)(variablesY(1) - max / 2 - 20));
             Point ObenRechtsPunkt = new Point((int)(variablesX(3) + max / 2), (int)(variablesY(1) - max / 2 - 20));
-            Point UntenLinksPunkt = new Point((int)(variablesX(3) - max / 2), ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
-            Point UntenRechtsPunkt = new Point((int)(variablesX(3) + max / 2), ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
+            if(s/h > 10)
+            {
+                sdurchh = 10;
+            }
+            else
+            {
+                sdurchh = s / h;
+            }
+            Point UntenLinksPunkt = new Point((int)(variablesX(3) - max / 2), ((int)(ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100)));
+            Point UntenRechtsPunkt = new Point((int)(variablesX(3) + max / 2), ((int)(ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100)));
             int xmitte = variablesX(3);
             HintergrundZeichnen(Test, ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100), UntenLinksPunkt.Y, xmitte);
             HintergrundZeichnen(Test, xmitte, ObenRechtsPunkt.Y + 10, UntenLinksPunkt.Y, ObenRechtsPunkt.X);
@@ -192,15 +201,15 @@ namespace Baugrundberechnung
             Test.DrawLine(Pens.Black, UntenLinksPunkt, UntenRechtsPunkt);
             for (int i = ObenLinksPunkt.X; i <= ObenRechtsPunkt.X; i = i + 15)
             {
-                Point ObenRechts = new Point(i, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)));
-                Point UntenLinks = new Point(i - 10, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100)) + 10);
+                Point ObenRechts = new Point(i, ((int)(ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100)));
+                Point UntenLinks = new Point(i - 10, ((int)(ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100)) + 10);
                 Test.DrawLine(Pens.Black, ObenRechts, UntenLinks);
             }
-            Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + (int)((ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100) - (ObenRechtsPunkt.Y + max * htemp / 100)) / 2));
+            Test.DrawLine(pen_grub, new Point(xmitte, ObenLinksPunkt.Y), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100) + (int)((ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100) - (ObenRechtsPunkt.Y + max * htemp / 100)) / 2));
             Test.DrawLine(Pens.Black, new Point(ObenLinksPunkt.X, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte, (int)(ObenRechtsPunkt.Y + max * htemp / 100)));
             Test.DrawLine(Pens.Black, new Point(xmitte, ObenRechtsPunkt.Y + 10), new Point((int)(variablesX(3) + max / 2), ObenRechtsPunkt.Y + 10));
             ZeichnePfeil(new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + 10)), new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), f);
-            ZeichnePfeil(new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte + 10, ((int)(ObenRechtsPunkt.Y + max * (s / h) * lmbd / 20 + max * htemp / 100))), f);
+            ZeichnePfeil(new Point(xmitte + 10, (int)(ObenRechtsPunkt.Y + max * htemp / 100)), new Point(xmitte + 10, ((int)(ObenRechtsPunkt.Y + max * (sdurchh) * lmbd / 20 + max * htemp / 100))), f);
             f.BaugrubeSeite.Location = new System.Drawing.Point(variablesX(3) - 60, 30);
             f.BaugrubeSeite.Text = "Zeichnung von der Seite";
             f.BaugrubeSeite.AutoSize = true;
